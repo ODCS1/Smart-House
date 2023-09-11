@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
@@ -7,14 +8,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #353535;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #a5cbff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="475.0" layoutY="42.0" prefHeight="416.0" prefWidth="339.0" style="-fx-background-color: #575757; -fx-border-color: #FFFFFF;">
+      <AnchorPane layoutX="475.0" layoutY="42.0" prefHeight="416.0" prefWidth="339.0" style="-fx-background-color: #94c1ff; -fx-border-color: #FFFFFF; -fx-effect: DropShadow;">
          <children>
-            <TextField layoutX="33.0" layoutY="215.0" prefHeight="36.0" prefWidth="264.0" promptText="Password" style="-fx-background-color: #575757; -fx-border-color: #FFFFFF; -fx-border-radius: 5;" />
-            <TextField layoutX="33.0" layoutY="126.0" prefHeight="36.0" prefWidth="264.0" promptText="User" style="-fx-background-color: #575757; -fx-border-color: #FFFFFF; -fx-border-radius: 5;" />
-            <Button layoutX="104.0" layoutY="301.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="122.0" style="-fx-background-color: #4a4a4a;" text="Button" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+            <TextField layoutX="33.0" layoutY="215.0" prefHeight="36.0" prefWidth="264.0" promptText="Password" style="-fx-background-color: #94c1ff; -fx-border-color: #FFFFFF; -fx-border-radius: 5;" />
+            <TextField layoutX="33.0" layoutY="126.0" prefHeight="36.0" prefWidth="264.0" promptText="User" style="-fx-background-color: #94c1ff; -fx-border-color: #FFFFFF; -fx-border-radius: 5;" />
+            <Button layoutX="104.0" layoutY="301.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="122.0" style="-fx-background-color: #94c1ff; -fx-border-color: #7bb2ff;" text="Button" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                <font>
                   <Font size="17.0" />
                </font>
@@ -24,12 +24,17 @@
                   <Font size="33.0" />
                </font>
             </Label>
-            <Label layoutX="94.0" layoutY="375.0" prefHeight="27.0" prefWidth="142.0" text="Forgot Password?" textFill="WHITE">
+            <Label layoutX="96.0" layoutY="369.0" prefHeight="27.0" prefWidth="147.0" text="Forgot Password?" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
+      <ImageView fitHeight="416.0" fitWidth="441.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@casa_inte.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
