@@ -8,13 +8,18 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #a5cbff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="475.0" layoutY="42.0" prefHeight="416.0" prefWidth="339.0" style="-fx-background-color: #94c1ff; -fx-border-color: #FFFFFF; -fx-effect: DropShadow;">
+      <ImageView fitHeight="500.0" fitWidth="887.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/circuito.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="524.0" layoutY="42.0" prefHeight="416.0" prefWidth="339.0" style="-fx-background-color: #083650; -fx-border-color: #207b91; -fx-effect: DropShadow;">
          <children>
-            <TextField layoutX="33.0" layoutY="215.0" prefHeight="36.0" prefWidth="264.0" promptText="Password" style="-fx-background-color: #94c1ff; -fx-border-color: #FFFFFF; -fx-border-radius: 5;" />
-            <TextField layoutX="33.0" layoutY="126.0" prefHeight="36.0" prefWidth="264.0" promptText="User" style="-fx-background-color: #94c1ff; -fx-border-color: #FFFFFF; -fx-border-radius: 5;" />
-            <Button layoutX="104.0" layoutY="301.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="122.0" style="-fx-background-color: #94c1ff; -fx-border-color: #7bb2ff;" text="Button" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+            <TextField layoutX="33.0" layoutY="215.0" prefHeight="36.0" prefWidth="264.0" promptText="Password" style="-fx-background-color: #3890a6; -fx-border-color: #2695af; -fx-border-radius: 5;" />
+            <TextField layoutX="33.0" layoutY="126.0" prefHeight="36.0" prefWidth="264.0" promptText="User" style="-fx-background-color: #3890a6; -fx-border-color: #2695af; -fx-border-radius: 5;" />
+            <Button layoutX="104.0" layoutY="301.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="122.0" style="-fx-background-color: #3890a6; -fx-border-color: #2695af;" text="Button" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
                <font>
                   <Font size="17.0" />
                </font>
@@ -31,10 +36,6 @@
             </Label>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="416.0" fitWidth="441.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@casa_inte.png" />
-         </image>
-      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
