@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="887.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/circuito.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="524.0" layoutY="42.0" prefHeight="416.0" prefWidth="339.0" style="-fx-background-color: #083650; -fx-border-color: #207b91; -fx-effect: DropShadow;">
+         <children>
+            <TextField layoutX="33.0" layoutY="215.0" prefHeight="36.0" prefWidth="264.0" promptText="Password" style="-fx-background-color: #3890a6; -fx-border-color: #2695af; -fx-border-radius: 5px;" />
+            <TextField layoutX="33.0" layoutY="126.0" prefHeight="36.0" prefWidth="264.0" promptText="User" style="-fx-background-color: #3890a6; -fx-border-color: #2695af; -fx-border-radius: 5px;" />
+            <Button layoutX="104.0" layoutY="301.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="122.0" style="-fx-background-color: #3890a6; -fx-border-color: #2695af; -fx-border-radius: 5px;" text="Button" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Label layoutX="118.0" layoutY="26.0" prefHeight="36.0" prefWidth="103.0" text="Sign In" textFill="#98d5ff">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <Label layoutX="96.0" layoutY="369.0" prefHeight="27.0" prefWidth="147.0" text="Forgot Password?" textFill="#98d5ff">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
