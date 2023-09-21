@@ -15,12 +15,12 @@
             <Image url="@../../../img/circuito.jpg" />
          </image>
       </ImageView>
-      <AnchorPane id="anchorPane" layoutX="525.0" layoutY="14.0" prefHeight="427.0" prefWidth="300.0">
+      <AnchorPane id="anchorPane" layoutX="526.0" layoutY="25.0" prefHeight="427.0" prefWidth="300.0">
          <children>
-            <TextField layoutX="50.0" layoutY="100.0" prefHeight="25.0" prefWidth="200.0" promptText="User" styleClass="text-field" />
-            <TextField layoutX="52.0" layoutY="186.0" prefHeight="25.0" prefWidth="200.0" promptText="Password" styleClass="text-field" />
+            <TextField layoutX="47.0" layoutY="124.0" prefHeight="25.0" prefWidth="200.0" promptText="User" styleClass="text-field" />
+            <TextField layoutX="50.0" layoutY="198.0" prefHeight="25.0" prefWidth="200.0" promptText="Password" styleClass="text-field" />
             <Button layoutX="105.0" layoutY="271.0" mnemonicParsing="false" styleClass="login-button" text="Login" />
-            <Label layoutX="102.0" layoutY="14.0" prefHeight="60.0" prefWidth="88.0" styleClass="sign-in-label" text="Sign In" />
+            <Label layoutX="102.0" layoutY="31.0" prefHeight="60.0" prefWidth="88.0" styleClass="sign-in-label" text="Sign In" />
             <Label layoutX="76.0" layoutY="359.0" styleClass="forgot-password-label" text="Forgot Password?" />
          </children></AnchorPane>
    </children>
