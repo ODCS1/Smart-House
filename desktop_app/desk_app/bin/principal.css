@@ -1,18 +1,37 @@
 /* Estilo para o plano de fundo do painel */
 #pane {
-    -fx-background-color: #191970;
+    -fx-background-color: linear-gradient(to bottom, #002137, #330048);
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+    -fx-spacing: 10;
+    -fx-alignment: center;
 }
 
 /* Estilo para os botões */
 .button {
-    -fx-background-color: #4CAF50; /* Cor de fundo */
-    -fx-text-fill: white; /* Cor do texto */
-    -fx-font-size: 14px; /* Tamanho da fonte */
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #3498db, #2980b9); /* Gradiente de cores */
+    color: #fff; /* Cor do texto */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra */
+    transition: transform 0.2s ease-in-out;
+    transform: translateY(-3px); /* Efeito de elevação */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Sombra mais intensa no hover */
 }
 
 /* Estilo para a imagem do logotipo */
 #logo {
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-background-image: url('logo.png');
+    -fx-background-size: contain; /* Ajuste o tamanho da imagem conforme necessário */
+    -fx-background-repeat: no-repeat;
+    width: 200px; /* Largura do logotipo */
+    height: 100px; /* Altura do logotipo */
 }
 
 /* Estilo para a barra de progresso */
@@ -24,7 +43,7 @@
 #title {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
-    -fx-fill: #4CAF50; /* Cor do texto */
+    -fx-fill: #a300f4; /* Cor do texto */
 }
 
 /* Estilo para o botão Toggle */
@@ -35,9 +54,9 @@
 
 /* Estilo para a elipse (pode representar um dispositivo) */
 .ellipse {
-    -fx-fill: dodgerblue; /* Cor de preenchimento */
-    -fx-stroke: black; /* Cor da borda */
-    -fx-stroke-type: inside;
+    -fx-fill: #3498db; /* Cor de preenchimento */
+    -fx-stroke: #2980b9; /* Cor da borda */
+    -fx-stroke-width: 2; /* Largura da borda */
 }
 
 /* Estilo para a luz ambiente */
@@ -53,13 +72,33 @@
     -fx-stroke-type: inside;
 }
 
-/* Estilo para a paginação */
+/* Estilizando a Pagination */
 .pagination {
-    -fx-page-count: 5; /* Número de páginas */
-    -fx-page-size: 20px; /* Tamanho das páginas */
-    -fx-arrows-visible: true; /* Exibir setas de navegação */
+    -fx-background-color: #f0f0f0; /* Cor de fundo */
 }
 
+/* Estilo para os botões da Pagination */
+.pagination-button {
+    -fx-background-color: #3498db; /* Cor de fundo dos botões */
+    -fx-text-fill: #ffffff; /* Cor do texto dos botões */
+    -fx-font-weight: bold; /* Texto em negrito */
+}
+
+/* Estilo para o botão atualmente selecionado */
+.pagination-button:selected {
+    -fx-background-color: #2980b9; /* Cor de fundo do botão selecionado */
+}
+
+/* Estilo para o botão desativado */
+.pagination-button:disabled {
+    -fx-opacity: 0.5; /* Opacidade reduzida para botões desativados */
+}
+
+/* Estilo para o rótulo de página atual */
+.pagination-control {
+    -fx-text-fill: #3498db; /* Cor do texto do rótulo de página atual */
+    -fx-font-weight: bold; /* Texto em negrito */
+}
 /* Estilo para a imagem (widget) */
 .widget {
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
