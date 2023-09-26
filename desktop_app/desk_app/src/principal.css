@@ -1,43 +1,66 @@
-/* Arquivo de estilo CSS para Casa Inteligente */
-
-/* Defina a cor de fundo principal */
-.root {
-    -fx-background-color: #3498db; /* Azul */
+/* Estilo para o plano de fundo do painel */
+#pane {
+    -fx-background-color: #191970;
 }
 
-/* Estilo do título */
-.title {
+/* Estilo para os botões */
+.button {
+    -fx-background-color: #4CAF50; /* Cor de fundo */
+    -fx-text-fill: white; /* Cor do texto */
+    -fx-font-size: 14px; /* Tamanho da fonte */
+}
+
+/* Estilo para a imagem do logotipo */
+#logo {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+/* Estilo para a barra de progresso */
+.progress-bar {
+    -fx-accent: #4CAF50; /* Cor da barra de progresso */
+}
+
+/* Estilo para o texto do título */
+#title {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
-    -fx-text-fill: #ffffff; /* Texto branco */
+    -fx-fill: #4CAF50; /* Cor do texto */
 }
 
-/* Botões de controle */
-.button {
-    -fx-font-size: 14px;
-    -fx-padding: 10px 20px;
-    -fx-background-color: #2980b9; /* Azul um pouco mais escuro */
-    -fx-text-fill: #ffffff;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
+/* Estilo para o botão Toggle */
+.toggle-button {
+    -fx-background-color: #4CAF50; /* Cor de fundo */
+    -fx-text-fill: white; /* Cor do texto */
 }
 
-/* Estilo para informações de dispositivos */
-.device-info {
-    -fx-font-size: 18px;
-    -fx-text-fill: #ffffff;
-    -fx-padding: 10px;
+/* Estilo para a elipse (pode representar um dispositivo) */
+.ellipse {
+    -fx-fill: dodgerblue; /* Cor de preenchimento */
+    -fx-stroke: black; /* Cor da borda */
+    -fx-stroke-type: inside;
 }
 
-/* Estilo para ícones */
-.icon {
-    -fx-fill: #ffffff; /* Cor do ícone branco */
-    -fx-font-size: 32px;
+/* Estilo para a luz ambiente */
+.light {
+    -fx-light-color: chartreuse; /* Cor da luz */
+    -fx-light-on: true; /* Ativar a luz */
 }
 
-/* Estilo para gráficos ou widgets adicionais */
+/* Estilo para o retângulo (pode representar uma área) */
+.rectangle {
+    -fx-fill: dodgerblue; /* Cor de preenchimento */
+    -fx-stroke: black; /* Cor da borda */
+    -fx-stroke-type: inside;
+}
+
+/* Estilo para a paginação */
+.pagination {
+    -fx-page-count: 5; /* Número de páginas */
+    -fx-page-size: 20px; /* Tamanho das páginas */
+    -fx-arrows-visible: true; /* Exibir setas de navegação */
+}
+
+/* Estilo para a imagem (widget) */
 .widget {
-    -fx-background-color: #ffffff;
-    -fx-padding: 10px;
-    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
