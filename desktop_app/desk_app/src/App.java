@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class App extends Application {
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("telaprincipal.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TelaLogin.fxml"));
         Parent root = fxmlLoader.load();
         Scene tela = new Scene(root);
 
