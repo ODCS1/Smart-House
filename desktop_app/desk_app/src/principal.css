@@ -1,0 +1,43 @@
+/* Arquivo de estilo CSS para Casa Inteligente */
+
+/* Defina a cor de fundo principal */
+.root {
+    -fx-background-color: #3498db; /* Azul */
+}
+
+/* Estilo do título */
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff; /* Texto branco */
+}
+
+/* Botões de controle */
+.button {
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-color: #2980b9; /* Azul um pouco mais escuro */
+    -fx-text-fill: #ffffff;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+/* Estilo para informações de dispositivos */
+.device-info {
+    -fx-font-size: 18px;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px;
+}
+
+/* Estilo para ícones */
+.icon {
+    -fx-fill: #ffffff; /* Cor do ícone branco */
+    -fx-font-size: 32px;
+}
+
+/* Estilo para gráficos ou widgets adicionais */
+.widget {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10px;
+    -fx-background-radius: 5px;
+}
