@@ -1,66 +1,10 @@
-/* Estilo para o plano de fundo do painel */
-#pane {
-    -fx-background-color: #191970;
+#camadaPrincipal {
+    -fx-background-color: #121f3d; /* Cor de fundo azul escuro */
+    -fx-text-fill: #ffffff; /* Cor do texto branco */
+    -fx-font-family: "Arial", sans-serif; /* Fonte do texto */
 }
 
-/* Estilo para os botões */
-.button {
-    -fx-background-color: #4CAF50; /* Cor de fundo */
-    -fx-text-fill: white; /* Cor do texto */
-    -fx-font-size: 14px; /* Tamanho da fonte */
-}
-
-/* Estilo para a imagem do logotipo */
-#logo {
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
-}
-
-/* Estilo para a barra de progresso */
-.progress-bar {
-    -fx-accent: #4CAF50; /* Cor da barra de progresso */
-}
-
-/* Estilo para o texto do título */
-#title {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
-    -fx-fill: #4CAF50; /* Cor do texto */
-}
-
-/* Estilo para o botão Toggle */
-.toggle-button {
-    -fx-background-color: #4CAF50; /* Cor de fundo */
-    -fx-text-fill: white; /* Cor do texto */
-}
-
-/* Estilo para a elipse (pode representar um dispositivo) */
-.ellipse {
-    -fx-fill: dodgerblue; /* Cor de preenchimento */
-    -fx-stroke: black; /* Cor da borda */
-    -fx-stroke-type: inside;
-}
-
-/* Estilo para a luz ambiente */
-.light {
-    -fx-light-color: chartreuse; /* Cor da luz */
-    -fx-light-on: true; /* Ativar a luz */
-}
-
-/* Estilo para o retângulo (pode representar uma área) */
-.rectangle {
-    -fx-fill: dodgerblue; /* Cor de preenchimento */
-    -fx-stroke: black; /* Cor da borda */
-    -fx-stroke-type: inside;
-}
-
-/* Estilo para a paginação */
-.pagination {
-    -fx-page-count: 5; /* Número de páginas */
-    -fx-page-size: 20px; /* Tamanho das páginas */
-    -fx-arrows-visible: true; /* Exibir setas de navegação */
-}
-
-/* Estilo para a imagem (widget) */
-.widget {
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+#camadaUsuario {
+    -fx-background-color: #1a2e4a; /* Cor de fundo azul médio (mais claro) */
+    -fx-padding: 10px; /* Preenchimento interno */
 }
