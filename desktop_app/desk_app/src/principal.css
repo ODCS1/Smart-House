@@ -1,10 +1,17 @@
-#camadaPrincipal {
-    -fx-background-color: #121f3d; /* Cor de fundo azul escuro */
-    -fx-text-fill: #ffffff; /* Cor do texto branco */
-    -fx-font-family: "Arial", sans-serif; /* Fonte do texto */
+#meuPane {
+    -fx-background-color: rgb(94, 106, 216); 
+    -fx-background-radius: 30px; 
+}
+#anchorPane {
+    -fx-background-color: rgb(66, 92, 211); 
+    -fx-background-radius: 30px; 
 }
 
-#camadaUsuario {
-    -fx-background-color: #1a2e4a; /* Cor de fundo azul médio (mais claro) */
-    -fx-padding: 10px; /* Preenchimento interno */
+
+.botao-customizado {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+    -fx-padding: 5px 10px;
 }

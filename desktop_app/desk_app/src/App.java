@@ -1,3 +1,7 @@
+// javac --module-path "C:\path\to\javafx-sdk-<version>\lib" --add-modules javafx.controls,javafx.fxml App.java
+// java --module-path "C:\path\to\javafx-sdk-<version>\lib" --add-modules javafx.controls,javafx.fxml App
+
+
 import java.io.IOException;
 
 import javafx.application.Application;
