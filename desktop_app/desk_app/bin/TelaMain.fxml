@@ -7,7 +7,45 @@
 
 <Pane id="meuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1194.0" stylesheets="@principal.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane id="anchorPane" layoutX="198.0" prefHeight="712.0" prefWidth="996.0" stylesheets="@principal.css" />
+      <AnchorPane id="anchorPane" layoutX="198.0" prefHeight="712.0" prefWidth="996.0" stylesheets="@principal.css">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="95.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/sala.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="148.0" layoutY="229.0" mnemonicParsing="false" styleClass="botao-comodos" text="Sala de TV" />
+            <Button layoutX="462.0" layoutY="229.0" mnemonicParsing="false" styleClass="botao-comodos" text="Cozinha" />
+            <Button layoutX="737.0" layoutY="229.0" mnemonicParsing="false" styleClass="botao-comodos" text="Quarto 1" />
+            <Button layoutX="148.0" layoutY="505.0" mnemonicParsing="false" styleClass="botao-comodos" text="Quarto 2" />
+            <Button layoutX="446.0" layoutY="505.0" mnemonicParsing="false" styleClass="botao-comodos" text="Suite Master" />
+            <Button layoutX="737.0" layoutY="505.0" mnemonicParsing="false" styleClass="botao-comodos" text="Banheiro" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="398.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/cozinha.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="678.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/quarto%201.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="109.0" layoutX="148.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/quarto%202.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="398.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/suite.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="718.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/banheiro.jfif" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
       <Button layoutX="22.0" layoutY="276.0" mnemonicParsing="false" styleClass="botao-customizado" text="Configurações">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="32.0">
