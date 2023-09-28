@@ -14,12 +14,6 @@
                   <Image url="@../../../img/sala.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="148.0" layoutY="229.0" mnemonicParsing="false" styleClass="botao-comodos" text="Sala de TV" />
-            <Button layoutX="462.0" layoutY="229.0" mnemonicParsing="false" styleClass="botao-comodos" text="Cozinha" />
-            <Button layoutX="737.0" layoutY="229.0" mnemonicParsing="false" styleClass="botao-comodos" text="Quarto 1" />
-            <Button layoutX="148.0" layoutY="505.0" mnemonicParsing="false" styleClass="botao-comodos" text="Quarto 2" />
-            <Button layoutX="446.0" layoutY="505.0" mnemonicParsing="false" styleClass="botao-comodos" text="Suite Master" />
-            <Button layoutX="737.0" layoutY="505.0" mnemonicParsing="false" styleClass="botao-comodos" text="Banheiro" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="398.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../img/cozinha.jpg" />
@@ -45,6 +39,12 @@
                   <Image url="@../../../img/banheiro.jfif" />
                </image>
             </ImageView>
+            <RadioButton layoutX="151.0" layoutY="237.0" mnemonicParsing="false" text="Sala de TV" />
+            <RadioButton layoutX="455.0" layoutY="237.0" mnemonicParsing="false" text="Cozinha" />
+            <RadioButton layoutX="735.0" layoutY="237.0" mnemonicParsing="false" text="Quarto 1" />
+            <RadioButton layoutX="152.0" layoutY="523.0" mnemonicParsing="false" text="Quarto 2" />
+            <RadioButton layoutX="455.0" layoutY="523.0" mnemonicParsing="false" text="Suite Master" />
+            <RadioButton layoutX="735.0" layoutY="523.0" mnemonicParsing="false" text="Banheiro" />
          </children></AnchorPane>
       <Button layoutX="22.0" layoutY="276.0" mnemonicParsing="false" styleClass="botao-customizado" text="Configurações">
          <graphic>
@@ -64,7 +64,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="28.0" layoutY="575.0" mnemonicParsing="false" styleClass="botao-customizado" text="Sign Out" onAction="#switchToScene1">
+      <Button layoutX="28.0" layoutY="575.0" mnemonicParsing="false" onAction="#switchToScene1" styleClass="botao-customizado" text="Sign Out">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="32.0">
                <image>
