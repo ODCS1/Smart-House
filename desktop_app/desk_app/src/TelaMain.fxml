@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane id="meuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1194.0" stylesheets="@principal.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane id="meuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1194.0" stylesheets="@principal.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneController">
    <children>
       <AnchorPane id="anchorPane" layoutX="198.0" prefHeight="712.0" prefWidth="996.0" stylesheets="@principal.css">
          <children>
@@ -64,7 +64,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="28.0" layoutY="575.0" mnemonicParsing="false" styleClass="botao-customizado" text="Sign Out">
+      <Button layoutX="28.0" layoutY="575.0" mnemonicParsing="false" styleClass="botao-customizado" text="Sign Out" onAction="#switchToScene1">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="32.0">
                <image>

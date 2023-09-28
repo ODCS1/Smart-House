@@ -12,15 +12,18 @@ import javafx.stage.Stage;
 
 public class App extends Application {
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TelaMain.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene tela = new Scene(root);
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("TelaLogin.fxml"));
+            Scene tela = new Scene(root);
+            
+            tela.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
-        tela.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            primaryStage.setScene(tela);
+            primaryStage.show();
 
-        primaryStage.setTitle("Login");
-        primaryStage.setScene(tela);
-        primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public static void main(String[] args) {
         launch(args);
