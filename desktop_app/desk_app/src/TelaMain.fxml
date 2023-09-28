@@ -8,7 +8,7 @@
 <Pane id="meuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1194.0" stylesheets="@principal.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane id="anchorPane" layoutX="198.0" prefHeight="712.0" prefWidth="996.0" stylesheets="@principal.css" />
-      <Button layoutX="36.0" layoutY="245.0" mnemonicParsing="false" styleClass="botao-customizado" text="Configurações">
+      <Button layoutX="22.0" layoutY="276.0" mnemonicParsing="false" styleClass="botao-customizado" text="Configurações">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="32.0">
                <image>
@@ -17,7 +17,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="36.0" layoutY="306.0" mnemonicParsing="false" styleClass="botao-customizado" text="Segurança">
+      <Button layoutX="22.0" layoutY="335.0" mnemonicParsing="false" styleClass="botao-customizado" text="Segurança">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="32.0">
                <image>
@@ -26,7 +26,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="42.0" layoutY="574.0" mnemonicParsing="false" styleClass="botao-customizado" text="Sign Out">
+      <Button layoutX="28.0" layoutY="575.0" mnemonicParsing="false" styleClass="botao-customizado" text="Sign Out">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="32.0">
                <image>
@@ -35,5 +35,10 @@
             </ImageView>
          </graphic>
       </Button>
+      <ImageView fitHeight="110.0" fitWidth="130.0" layoutX="46.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/avatar.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
