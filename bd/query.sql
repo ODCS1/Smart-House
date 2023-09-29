@@ -1,6 +1,6 @@
 -- Aqui será feito a criação do Schema, das tabelas e inserções dos dados.
 
--- Seguir a ordem de execução
+-- Seguir a ordem de execução, no final tem comando de seleção e de DROP.
 
 -- 1 - CRIANDO O ESQUEMA
 CREATE SCHEMA Casa
@@ -33,7 +33,7 @@ CREATE TABLE Casa.Compra (
     id_cliente INT,
     id_pacote INT,
     CONSTRAINT PK_Compra PRIMARY KEY (id_compra),
-    CONSTRAINT FK_Compra_Cliente FOREIGN KEY (id_cliente) REFERENCES Casa.Cliente(id_cliente)
+    CONSTRAINT FK_Compra_Cliente FOREIGN KEY (id_cliente) REFERENCES Casa.Cliente(id_cliente),
     CONSTRAINT FK_Compra_Pacote FOREIGN KEY (id_pacote) REFERENCES Casa.Pacote(id_pacote)
 );
 
@@ -142,7 +142,7 @@ VALUES
     (3, 3);
 
 -- 15 - INSERT CASA
-INSERT INTO Casa.Casa (nome_casa, qtd_led, id_cliente)
+INSERT INTO Casa.Casa (nome_casa, qtd_led_casa, id_cliente)
 VALUES
     ('Sérgio House', 6, 1),
     ('Carlos House', 4, 2),
@@ -169,11 +169,34 @@ VALUES
     (2, 'q-2', 1),
     (2, 'q-3', 1),
     (2, 'b-1', 1),
+    (3, 'q-1', 2),
+    (3, 'q-2', 1),
+    (3, 'q-3', 1),
+    (3, 's-1', 1),
+    (3, 's-2', 1),
+    (3, 'b-1', 1),
+    (3, 'j-1', 4);
 
-id_casa INT,
-    cod_comodo VARCHAR(10),
-    qtd_led_comodo int NOT NULL,
+
+-- COMANDOS DE SELEÇÃO
+SELECT * FROM Casa.Cliente
+SELECT * FROM Casa.Compra
+SELECT * FROM Casa.Pacote
+SELECT * FROM Casa.Casa
+SELECT * FROM Casa.Endereco
+SELECT * FROM Casa.Comodo
+SELECT * FROM Casa.CasaComodo
+SELECT * FROM Casa.Led
 
 
+-- COMANDOS DE DROP
+--DROP TABLE Casa.LED
+--DROP TABLE Casa.CasaComodo
+-- DROP TABLE Casa.Endereco
+-- DROP TABLE Casa.Comodo
+-- DROP TABLE Casa.Casa
+-- DROP TABLE Casa.Compra
+-- DROP TABLE Casa.Cliente
+-- DROP SCHEMA Casa
 
 -- AINDA FALTA O CREATE VIEW E A PARTE DE PROGRAMAÇÃO DENTRO DO BANCO DE DADOS.
