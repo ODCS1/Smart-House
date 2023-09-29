@@ -11,7 +11,6 @@ CREATE TABLE Casa.Cliente (
     nome_cliente VARCHAR(30) NOT NULL,
     sobrenome_cliente VARCHAR(50) NULL,
     email_cliente VARCHAR(100) UNIQUE NOT NULL,
-        -- CHECK (email_cliente like '^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$'),
     senha_cliente VARCHAR(20) NOT NULL
         CHECK (LEN(senha_cliente) BETWEEN 8 AND 20),
     cpf_cliente BIGINT UNIQUE NOT NULL
@@ -19,31 +18,40 @@ CREATE TABLE Casa.Cliente (
     CONSTRAINT PK_Cliente PRIMARY KEY (id_cliente)
 );
 
-
--- 3 - TABELA DE COMPRA
-CREATE TABLE Casa.Compra (
-    id_compra INT IDENTITY,
-    valor_compra DECIMAL(10, 2) NOT NULL,
-    pacote_compra VARCHAR(50),
-    id_cliente INT,
-    CONSTRAINT PK_Compra PRIMARY KEY (id_compra),
-    CONSTRAINT FK_Compra_Cliente FOREIGN KEY (id_cliente) REFERENCES Casa.Cliente(id_cliente)
+-- 3 - TABELA PACOTE
+CREATE TABLE Casa.Pacote (
+    id_pacote INT,
+    nome_pacote VARCHAR(50),
+    valor_pacote DECIMAL(10, 2) NOT NULL,
+    acesso VARCHAR(27) NOT NULL,
+    CONSTRAINT PK_Pacote PRIMARY KEY (id_pacote)
 );
 
--- 4 - TABELA CASA
+-- 4 - TABELA DE COMPRA
+CREATE TABLE Casa.Compra (
+    id_compra INT IDENTITY,
+    id_cliente INT,
+    id_pacote INT,
+    CONSTRAINT PK_Compra PRIMARY KEY (id_compra),
+    CONSTRAINT FK_Compra_Cliente FOREIGN KEY (id_cliente) REFERENCES Casa.Cliente(id_cliente)
+    CONSTRAINT FK_Compra_Pacote FOREIGN KEY (id_pacote) REFERENCES Casa.Pacote(id_pacote)
+);
+
+-- 5 - TABELA CASA
 CREATE TABLE Casa.Casa (
     id_casa INT IDENTITY,
     nome_casa VARCHAR(40) NULL,
-    qtd_led INT NOT NULL,
+    qtd_led_casa INT NOT NULL,
     id_cliente INT,
     CONSTRAINT PK_Casa PRIMARY KEY (id_casa),
     CONSTRAINT FK_Casa_Cliente FOREIGN KEY (id_cliente) REFERENCES Casa.Cliente(id_cliente)
 );
 
--- 5 TABELA ENDERECO
+-- 6 - TABELA ENDERECO
 CREATE TABLE Casa.Endereco (
     id_endereco INT IDENTITY,
-    cep INT NOT NULL,
+    cep INT NOT NULL
+        CHECK(cep like '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
     logradouro VARCHAR(40) NOT NULL,
     bairro VARCHAR(30) NOT NULL,
     numero INT NOT NULL,
@@ -55,14 +63,14 @@ CREATE TABLE Casa.Endereco (
     CONSTRAINT FK_Endereco_Casa FOREIGN KEY (id_casa) REFERENCES Casa.Casa(id_casa)
 );
 
--- 6 - TABELA COMODO
+-- 7 - TABELA COMODO
 CREATE TABLE Casa.Comodo (
     cod_comodo VARCHAR(10),
     nome_comodo VARCHAR(25) NOT NULL,
     CONSTRAINT PK_Comodo PRIMARY KEY (cod_comodo)
 );
 
--- 7 - TABELA CASACOMODO
+-- 8 - TABELA CASACOMODO
 CREATE TABLE Casa.CasaComodo (
     id_casa INT,
     cod_comodo VARCHAR(10),
@@ -72,17 +80,24 @@ CREATE TABLE Casa.CasaComodo (
     CONSTRAINT FK_CasaComodo_Comodo FOREIGN KEY (cod_comodo) REFERENCES Casa.Comodo(cod_comodo)
 );
 
--- 8 - TABELA LED
+-- 9 - TABELA LED
 CREATE TABLE Casa.Led (
-    cod_led VARCHAR(5),
+    cod_led VARCHAR(10),
     situacao BIT NOT NULL,
-    cod_comodo VARCHAR(3),
+    cod_comodo VARCHAR(10),
     CONSTRAINT PK_Led PRIMARY KEY (cod_led),
     CONSTRAINT FK_Led_Comodo FOREIGN KEY (cod_comodo) REFERENCES Casa.Comodo(cod_comodo)
 );
 
 -- FAZENDO A INSERÇÃO DE DADOS
--- 9 - INSERINDO EM Casa.Comodo
+-- 10 - INSERINDO EM Casa.Pacote
+INSERT INTO Casa.Pacote (id_pacote, nome_pacote,valor_pacote, acesso)
+VALUES
+    (1, 'Pacote básico', 250.30, 'Quartos'),
+    (2, 'Pacote Vip', 329.90, 'Cômodos Internos'),
+    (3, 'Pacote Master', 449.80, 'Cômodos Internos e Externos');
+
+-- 11 - INSERINDO EM Casa.Comodo
 INSERT INTO Casa.Comodo (cod_comodo, nome_comodo)
 VALUES
     ('q-1', 'Suíte Master'),
@@ -90,21 +105,74 @@ VALUES
     ('q-3', 'Quarto pequeno'),
     ('s-1', 'Sala de Jantar'),
     ('s-2', 'Sala de Estar'),
-    ('j-1', 'Quintal')
+    ('j-1', 'Quintal'),
+    ('b-1', 'Banheiro Suíte'),
+    ('b-2', 'Banheiro Externo');
 
--- 10 - INSERINDO EM Casa.Led
+-- 12 - INSERINDO EM Casa.Led
 INSERT INTO Casa.Led (cod_led, situacao, cod_comodo)
 VALUES
-    ('l-1', 0, 'q-1'),
-    ('l-2', 0, 'q-2'),
-    ('l-3', 0, 'q-3'),
-    ('l-4', 0, 's-1'),
-    ('l-5', 0, 's-2'),
-    ('l-6', 0, 'j-1'),
-    ('l-7', 0, 'j-1'),
-    ('l-8', 0, 'j-1'),
-    ('l-9', 0, 'j-1'),
+    ('led-1', 0, 'q-1'),
+    ('led-2', 0, 'q-1'),
+    ('led-3', 0, 'q-2'),
+    ('led-4', 0, 'q-3'),
+    ('led-5', 0, 's-1'),
+    ('led-6', 0, 's-2'),
+    ('led-7', 0, 'j-1'),
+    ('led-8', 0, 'j-1'),
+    ('led-9', 0, 'j-1'),
+    ('led-10', 0, 'j-1');
 
+
+-- AGORA SIMULANDO UM NOVO CLIENTE
+
+-- 13 - INSERT CLIENTE
+INSERT INTO Casa.Cliente (nome_cliente, sobrenome_cliente, email_cliente, senha_cliente, cpf_cliente)
+VALUES
+    ('Sérgio', 'Rodrigo', 'sergioR@gmail.com', 'senha123Sergio', 12345678912),
+    ('Carlos', 'Roberto', 'carlosR@gmail.com', 'senha123Carlos', 12345678913),
+    ('Pedro', 'Queiróz', 'pedroQ@gmail.com', 'senha123Pedro', 12345678914);
+
+
+-- 14 - INSERT COMPRA
+INSERT INTO Casa.Compra (id_cliente, id_pacote)
+VALUES
+    (1, 2),
+    (2, 1),
+    (3, 3);
+
+-- 15 - INSERT CASA
+INSERT INTO Casa.Casa (nome_casa, qtd_led, id_cliente)
+VALUES
+    ('Sérgio House', 6, 1),
+    ('Carlos House', 4, 2),
+    ('Pedro House', 10, 3);
+
+-- 16 - INSERT ENDERECO
+INSERT INTO Casa.Endereco (cep, logradouro, bairro, numero, cidade, estado, complemento, id_casa)
+VALUES
+    (12345678, 'R. Jardim Das Flores', 'Japão', 352, 'Santo André', 'SP', NULL, 1),
+    (98765432, 'Av. Professor Ozório', 'Bairro Ciência', 872, 'Campinas', 'SP', NULL, 2),
+    (45623987, 'Rua Luiz Bernardo', 'Coliseu', 352, 'Maribondo', 'RS', 'BL B, AP. 254', 3);
+
+
+-- 17 - INSERT CASACOMODO
+INSERT INTO Casa.CasaComodo(id_casa, cod_comodo,qtd_led_comodo)
+VALUES
+    (1, 'q-1', 2),
+    (1, 'q-2', 1),
+    (1, 'q-3', 1),
+    (1, 's-1', 1),
+    (1, 's-2', 1),
+    (1, 'b-1', 1),
+    (2, 'q-1', 2),
+    (2, 'q-2', 1),
+    (2, 'q-3', 1),
+    (2, 'b-1', 1),
+
+id_casa INT,
+    cod_comodo VARCHAR(10),
+    qtd_led_comodo int NOT NULL,
 
 
 
