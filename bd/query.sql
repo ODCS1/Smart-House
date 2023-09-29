@@ -21,7 +21,7 @@ CREATE TABLE Casa.Cliente (
 -- 3 - TABELA PACOTE
 CREATE TABLE Casa.Pacote (
     id_pacote INT,
-    nome_pacote VARCHAR(50),
+    nome_pacote VARCHAR(50) UNIQUE NOT NULL,
     valor_pacote DECIMAL(10, 2) NOT NULL,
     acesso VARCHAR(27) NOT NULL,
     CONSTRAINT PK_Pacote PRIMARY KEY (id_pacote)
@@ -56,7 +56,7 @@ CREATE TABLE Casa.Endereco (
     bairro VARCHAR(30) NOT NULL,
     numero INT NOT NULL,
     cidade VARCHAR(40) NOT NULL,
-    estado VARCHAR(20) NOT NULL,
+    estado CHAR(2) NOT NULL,
     complemento VARCHAR(50) NULL,
     id_casa INT,
     CONSTRAINT PK_endereco PRIMARY KEY (id_endereco),
@@ -66,7 +66,7 @@ CREATE TABLE Casa.Endereco (
 -- 7 - TABELA COMODO
 CREATE TABLE Casa.Comodo (
     cod_comodo VARCHAR(10),
-    nome_comodo VARCHAR(25) NOT NULL,
+    nome_comodo VARCHAR(25) UNIQUE NOT NULL,
     CONSTRAINT PK_Comodo PRIMARY KEY (cod_comodo)
 );
 
