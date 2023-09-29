@@ -11,8 +11,11 @@ CREATE TABLE Casa.Cliente (
     nome_cliente VARCHAR(30) NOT NULL,
     sobrenome_cliente VARCHAR(50) NULL,
     email_cliente VARCHAR(100) UNIQUE NOT NULL,
-    senha_cliente VARCHAR(20) NOT NULL,
-    cpf_cliente BIGINT UNIQUE NOT NULL,
+        -- CHECK (email_cliente like '^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$'),
+    senha_cliente VARCHAR(20) NOT NULL
+        CHECK (LEN(senha_cliente) BETWEEN 8 AND 20),
+    cpf_cliente BIGINT UNIQUE NOT NULL
+        CHECK (cpf_cliente like '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
     CONSTRAINT PK_Cliente PRIMARY KEY (id_cliente)
 );
 
@@ -21,7 +24,7 @@ CREATE TABLE Casa.Cliente (
 CREATE TABLE Casa.Compra (
     id_compra INT IDENTITY,
     valor_compra DECIMAL(10, 2) NOT NULL,
-    pacote_comora VARCHAR(50),
+    pacote_compra VARCHAR(50),
     id_cliente INT,
     CONSTRAINT PK_Compra PRIMARY KEY (id_compra),
     CONSTRAINT FK_Compra_Cliente FOREIGN KEY (id_cliente) REFERENCES Casa.Cliente(id_cliente)
@@ -78,5 +81,31 @@ CREATE TABLE Casa.Led (
     CONSTRAINT FK_Led_Comodo FOREIGN KEY (cod_comodo) REFERENCES Casa.Comodo(cod_comodo)
 );
 
+-- FAZENDO A INSERÇÃO DE DADOS
+-- 9 - INSERINDO EM Casa.Comodo
+INSERT INTO Casa.Comodo (cod_comodo, nome_comodo)
+VALUES
+    ('q-1', 'Suíte Master'),
+    ('q-2', 'Quarto Médio'),
+    ('q-3', 'Quarto pequeno'),
+    ('s-1', 'Sala de Jantar'),
+    ('s-2', 'Sala de Estar'),
+    ('j-1', 'Quintal')
 
--- AINDA FALTA O INSERT INTO, CREATE VIEW, ADICIONAR OS CHECK NOS CREATE TABLE E A PARTE DE PROGRAMAÇÃO DENTRO DO BANCO DE DADOS.
+-- 10 - INSERINDO EM Casa.Led
+INSERT INTO Casa.Led (cod_led, situacao, cod_comodo)
+VALUES
+    ('l-1', 0, 'q-1'),
+    ('l-2', 0, 'q-2'),
+    ('l-3', 0, 'q-3'),
+    ('l-4', 0, 's-1'),
+    ('l-5', 0, 's-2'),
+    ('l-6', 0, 'j-1'),
+    ('l-7', 0, 'j-1'),
+    ('l-8', 0, 'j-1'),
+    ('l-9', 0, 'j-1'),
+
+
+
+
+-- AINDA FALTA O CREATE VIEW E A PARTE DE PROGRAMAÇÃO DENTRO DO BANCO DE DADOS.
