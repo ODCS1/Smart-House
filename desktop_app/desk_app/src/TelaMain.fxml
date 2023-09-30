@@ -9,42 +9,34 @@
    <children>
       <AnchorPane id="anchorPane" layoutX="198.0" prefHeight="712.0" prefWidth="996.0" stylesheets="@principal.css">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="95.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="215.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../img/sala.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="398.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="133.0" fitWidth="233.0" layoutX="535.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../img/cozinha.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="678.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="615.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../img/quarto%201.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="109.0" layoutX="148.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="109.0" layoutX="248.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../img/quarto%202.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="398.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="391.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../img/suite.jpeg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="718.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/banheiro.jfif" />
-               </image>
-            </ImageView>
-            <Button layoutX="115.0" layoutY="233.0" mnemonicParsing="false" styleClass="botao-comodos" text="Acender Sala De TV" />
-            <Button layoutX="421.0" layoutY="233.0" mnemonicParsing="false" styleClass="botao-comodos" text="Acender Cozinha" />
-            <Button layoutX="705.0" layoutY="233.0" mnemonicParsing="false" styleClass="botao-comodos" text="Acender Quarto 1" />
-            <Button layoutX="122.0" layoutY="519.0" mnemonicParsing="false" styleClass="botao-comodos" text="Acender Quarto 2" />
-            <Button layoutX="405.0" layoutY="519.0" mnemonicParsing="false" styleClass="botao-comodos" text="Acender Suite Master" />
-            <Button layoutX="705.0" layoutY="519.0" mnemonicParsing="false" styleClass="botao-comodos" text="Acender Banheiro" />
+            <Button layoutX="236.0" layoutY="233.0" mnemonicParsing="false" onAction="#switchToSalaDeTv" styleClass="botao-comodos" text="Acender Sala De TV" />
+            <Button layoutX="597.0" layoutY="233.0" mnemonicParsing="false" onAction="#switchToCozinha" styleClass="botao-comodos" text="Acender Cozinha" />
+            <Button layoutX="412.0" layoutY="519.0" mnemonicParsing="false" onAction="#switchToQuartos" styleClass="botao-comodos" text="Acender Quartos" />
          </children></AnchorPane>
       <Button layoutX="22.0" layoutY="276.0" mnemonicParsing="false" styleClass="botao-customizado" text="Configurações">
          <graphic>

@@ -38,6 +38,27 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
+    public void switchToCozinha(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("TelaCozinha.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToSalaDeTv(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("TelaSala.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToQuartos(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("TelaQuartos.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     public void login(ActionEvent event) throws IOException {
         String username = usernameField.getText();
