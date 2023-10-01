@@ -47,7 +47,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="22.0" layoutY="335.0" mnemonicParsing="false" styleClass="botao-customizado" text="Segurança">
+      <Button layoutX="22.0" layoutY="335.0" mnemonicParsing="false" onAction="#switchToSeg" styleClass="botao-customizado" text="Segurança">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="32.0">
                <image>
