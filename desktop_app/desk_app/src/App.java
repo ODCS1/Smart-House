@@ -1,5 +1,6 @@
-// javac --module-path "C:\path\to\javafx-sdk-<version>\lib" --add-modules javafx.controls,javafx.fxml App.java
+// javac --module-path "C:\Program Files\Java\javafx-sdk-21\lib" --add-modules javafx.controls,javafx.fxml App.java
 // java --module-path "C:\Program Files\Java\javafx-sdk-21\lib" --add-modules javafx.controls,javafx.fxml App
+// java --module-path "C:\Program Files\Java\javafx-sdk-21\lib" --add-modules javafx.controls,javafx.fxml -cp "caminho/para/seu/projeto" seu.pacote.App
 
 
 import java.io.IOException;
