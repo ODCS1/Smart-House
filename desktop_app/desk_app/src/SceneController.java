@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 public class SceneController {
     private Stage stage;
     private Scene scene;
-    private Parent root;
     
     @FXML
     private TextField usernameField;
