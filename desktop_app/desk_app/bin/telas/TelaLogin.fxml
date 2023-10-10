@@ -8,18 +8,18 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="894.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneController">
+<Pane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="894.0" stylesheets="/css/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneController">
    <children>
-      <ImageView fitHeight="476.0" fitWidth="732.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="476.0" fitWidth="732.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../img/circuito.jpg" />
+            <Image url="@../../../../img/circuito.jpg" />
          </image>
       </ImageView>
       <AnchorPane id="anchorPane" layoutX="526.0" layoutY="25.0" prefHeight="427.0" prefWidth="300.0">
          <children>
             <TextField fx:id="usernameField" layoutX="47.0" layoutY="124.0" prefHeight="25.0" prefWidth="200.0" promptText="User" styleClass="text-field" />
             <PasswordField fx:id="passwordField" layoutX="50.0" layoutY="198.0" prefHeight="25.0" prefWidth="200.0" promptText="Password" styleClass="text-field" />
-            <Button layoutX="105.0" layoutY="271.0" mnemonicParsing="false" styleClass="login-button" text="Login" onAction="#login" />
+            <Button layoutX="105.0" layoutY="271.0" mnemonicParsing="false" onAction="#login" styleClass="login-button" text="Login" />
             <Label layoutX="102.0" layoutY="31.0" prefHeight="60.0" prefWidth="88.0" styleClass="sign-in-label" text="Sign In" />
             <Label fx:id="errorMessageLabel" layoutX="50.0" layoutY="250.0" text="" />
             <Label layoutX="76.0" layoutY="359.0" styleClass="forgot-password-label" text="Forgot Password?" />

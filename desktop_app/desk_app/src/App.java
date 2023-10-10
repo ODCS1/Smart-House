@@ -14,10 +14,10 @@ import javafx.stage.Stage;
 public class App extends Application {
     public void start(Stage primaryStage) throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("TelaLogin.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaLogin.fxml"));
             Scene tela = new Scene(root);
             
-            tela.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            tela.getStylesheets().add(getClass().getResource("./css/style.css").toExternalForm());
 
             primaryStage.setScene(tela);
             primaryStage.show();
