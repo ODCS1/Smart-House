@@ -6,15 +6,31 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",                  
+            "request": "launch",            //PC DA ESCOLA
+            "mainClass": "Main",
+            "projectName": "desk_app_6a1768e8",
+            "vmArgs": "--module-path \"C:/javafx-sdk-19/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "App",                  
+            "request": "launch",            //PC DA ESCOLA
+            "mainClass": "App",
+            "projectName": "desk_app_6a1768e8",
+            "vmArgs": "--module-path \"C:/javafx-sdk-19/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "Main",
-            "request": "launch",
+            "request": "launch",            //PC DIOGO
             "mainClass": "Main",
             "projectName": "desk_app_55dc39d5"
         },
         {
             "type": "java",
             "name": "App",
-            "request": "launch",
+            "request": "launch",            //PC DIOGO
             "mainClass": "App",
             "projectName": "desk_app_55dc39d5",
             "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-21/lib\" --add-modules javafx.controls,javafx.fxml"
@@ -22,7 +38,7 @@
         {
             "type": "java",
             "name": "Main",
-            "request": "launch",
+            "request": "launch",            //PC VITOR
             "mainClass": "Main",
             "projectName": "desk_app_737ea6a3",
             "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-21/lib\" --add-modules javafx.controls,javafx.fxml"
@@ -30,7 +46,7 @@
         {
             "type": "java",
             "name": "App",
-            "request": "launch",
+            "request": "launch",            //PC VITOR
             "mainClass": "App",
             "projectName": "desk_app_737ea6a3",
             "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-21/lib\" --add-modules javafx.controls,javafx.fxml"
