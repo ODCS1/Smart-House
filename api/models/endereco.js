@@ -12,7 +12,7 @@ const Endereco = database.define('Endereco', {
         type: Sequelize.INTEGER,
         allowNull: false,
         validate: {
-            is: /^[0-9]{8}$/ // You may need to adjust this validation based on your database
+            is: /^[0-9]{8}$/
         }
     },
     logradouro: {
