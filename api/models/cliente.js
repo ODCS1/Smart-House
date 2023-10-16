@@ -18,4 +18,4 @@ const Cliente = database.define('cliente', {
     descricao: Sequelize.STRING
 });
 
-module.exports = Produto;
+module.exports = Cliente;
