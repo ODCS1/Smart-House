@@ -18,7 +18,8 @@ public class App extends Application {
             Scene tela = new Scene(root);
             
             tela.getStylesheets().add(getClass().getResource("./css/style.css").toExternalForm());
-
+            
+            primaryStage.setResizable(false);
             primaryStage.setScene(tela);
             primaryStage.show();
 
