@@ -10,7 +10,7 @@ const Comodo = require("./models/comodo");
 const CasaComodo = require("./models/casaComodo");
 const Led = require("./models/led");
 
-// SINCRONIZAR COM AQUI COM O BD
+// SINCRONIZAR AQUI COM O BD
 (async () => {
     await database.sync();
 })();
