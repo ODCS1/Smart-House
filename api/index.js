@@ -47,8 +47,24 @@ const Led = require("./models/led");
         qtd_led_casa: qtdLed
     });
 
+    const novoCep = 12345789;
+    const novoLogradouro = 'R. Amorim Barbosa';
+    const novoBairro = 'José Fernando';
+    const novoNumero = 543;
+    const novaCidade = 'Maribondo';
+    const novoEstado = 'AL';
+    const novoComplemento = null;
+
     const novoEndereco = await Endereco.create({
-        
+        cep: novoCep,
+        logradouro: novoLogradouro,
+        bairro: novoBairro,
+        numero: novoNumero,
+        cidade: novaCidade,
+        estado: novoEstado,
+        complemento: novoComplemento
     });
+
+    
     // ---------------------------------------
 })();
