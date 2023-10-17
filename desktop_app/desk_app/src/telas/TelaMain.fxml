@@ -9,34 +9,38 @@
    <children>
       <AnchorPane id="anchorPane" layoutX="198.0" prefHeight="712.0" prefWidth="996.0" stylesheets="/css/principal.css">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="215.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../img/sala.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="133.0" fitWidth="233.0" layoutX="535.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../img/cozinha.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="183.0" fitWidth="243.0" layoutX="541.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../img/suite.jpeg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="321.0" fitWidth="233.0" layoutX="134.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../img/quarto%201.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="190.0" fitWidth="168.0" layoutX="406.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../img/quarto%202.jpg" />
-               </image>
-            </ImageView>
-            <Button layoutX="236.0" layoutY="233.0" mnemonicParsing="false" onAction="#switchToSalaDeTv" styleClass="botao-comodos" text="Acender Sala De TV" />
-            <Button layoutX="597.0" layoutY="233.0" mnemonicParsing="false" onAction="#switchToCozinha" styleClass="botao-comodos" text="Acender Cozinha" />
-            <Button layoutX="412.0" layoutY="519.0" mnemonicParsing="false" onAction="#switchToQuartos" styleClass="botao-comodos" text="Acender Quartos" />
+            <Pane layoutX="643.0" layoutY="148.0" prefHeight="398.0" prefWidth="200.0" />
+            <Pane layoutX="120.0" layoutY="50.0" prefHeight="547.0" prefWidth="458.0">
+               <children>
+                  <Button layoutX="86.0" layoutY="63.0" mnemonicParsing="false" onAction="#switchToScene1" prefHeight="75.0" prefWidth="75.0" styleClass="botao-customizado">
+                     <graphic>
+                        <ImageView fitHeight="110.0" fitWidth="98.0">
+                           <image>
+                              <Image url="@../../../../img/quarto-256.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="275.0" layoutY="63.0" mnemonicParsing="false" onAction="#switchToScene1" prefHeight="75.0" prefWidth="75.0" styleClass="botao-customizado">
+                     <graphic>
+                        <ImageView fitHeight="110.0" fitWidth="98.0">
+                           <image>
+                              <Image url="@../../../../img/quarto-m-256.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="43.0" layoutY="269.0" mnemonicParsing="false" onAction="#switchToScene1" prefHeight="75.0" prefWidth="75.0" styleClass="botao-customizado">
+                     <graphic>
+                        <ImageView fitHeight="110.0" fitWidth="98.0">
+                           <image>
+                              <Image url="@../../../../img/quarto-p-256.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
          </children></AnchorPane>
       <Button layoutX="22.0" layoutY="276.0" mnemonicParsing="false" styleClass="botao-customizado" text="Configurações">
          <graphic>
