@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+import dao.UsuarioDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,16 +68,15 @@ public class SceneController {
     }
 
     public void login(ActionEvent event) throws IOException {
-        String username = usernameField.getText();
+        String login = usernameField.getText();
         String password = passwordField.getText();
 
-        if(verificarCredenciais(username, password)) {
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+        if(usuarioDAO.verificarCredenciais(login, password)) {
             switchToScene2(event);
         } else {
-            errorMessageLabel.setText("Usuário ou senha estao incorretos");
+            errorMessageLabel.setText("Usuário ou senha estão incorretos");
         }
-    }
-    public boolean verificarCredenciais(String username, String password) {     
-        return "vitor".equals(username) && "12345".equals(password);
     }
 }
