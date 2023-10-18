@@ -1,8 +1,3 @@
-// javac --module-path "C:\javafx-sdk-19\lib" --add-modules javafx.controls,javafx.fxml App.java
-// java --module-path "C:\javafx-sdk-19\lib" --add-modules javafx.controls,javafx.fxml App
-// java --module-path "C:\javafx-sdk-19\lib" --add-modules javafx.controls,javafx.fxml -cp "caminho/para/seu/projeto" seu.pacote.App
-
-
 import java.io.IOException;
 
 import javafx.application.Application;
