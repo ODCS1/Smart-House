@@ -30,7 +30,7 @@ const Cliente = database.define('Cliente', {
         allowNull: false,
         unique: true,
         validate: {
-            is: /^[0-9]{11}$/
+            is: /[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
         }
     }
 });
