@@ -200,3 +200,12 @@ SELECT * FROM Casa.Led
 -- DROP SCHEMA Casa
 
 -- AINDA FALTA O CREATE VIEW E A PARTE DE PROGRAMAÇÃO DENTRO DO BANCO DE DADOS.
+
+
+-- VIEWS
+
+CREATE VIEW Casa.mostraDadosClienteJava
+AS
+    SELECT nome_cliente, sobrenome_cliente, email_cliente, cpf_cliente
+    FROM Casa.Cliente
+    WHERE 
