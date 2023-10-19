@@ -16,11 +16,11 @@
 }
 
 :root{
-    --cor: #94cfcd;
-    --cor0: #58c3c0;
-    --cor1: #49a09d;
-    --cor2: #306866;
-    --cor3: #5f2c82;
+    --cor: #94accf;
+    --cor0: #7e92b1;
+    --cor1: #5c6c83;
+    --cor2: #485466;
+    --cor3: #313944;
 }
 
 body, html{
@@ -52,12 +52,12 @@ section#login{
     transform: translate(-50%, -50%);
 }
 
-div#imagem{
+/* div#imagem{
     display: block;
-    background: var(--cor1) url(../imagens/metal.jpg) no-repeat left bottom;
+    background: var(--cor1) url() no-repeat left bottom;
     background-size: cover;
     height: 200px;
-}
+} */
 
 /* div#formulario{
     display: block;
@@ -67,8 +67,13 @@ div#imagem{
 div#formulario {
     display: block;
     padding: 10px;
-    max-height: 350px; /* Defina a altura máxima desejada */
-    overflow-y: auto; /* Adicione uma barra de rolagem vertical quando necessário */
+    max-height: 350px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-areas: "NOM SOB"
+                         "EMA"
+                         "SEN CPF"
+                         "";
 }
 
 
