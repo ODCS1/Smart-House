@@ -1,7 +1,6 @@
 import java.io.IOException;
 
 import dao.UsuarioDAO;
-import entidade.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,9 +16,6 @@ import javafx.stage.Stage;
 public class SceneController {
     private Stage stage;
     private Scene scene;
-
-    private String nome;
-    private String email;
     
     @FXML
     private TextField usernameField;
