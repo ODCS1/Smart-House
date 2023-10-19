@@ -6,13 +6,13 @@ import java.sql.SQLException;
 
 public class Conexao {
     
-    // private static final String url = "jdbc:sqlserver://[serverName[\instanceName][:portNumber]";
-    // private static final String user = "BD23623";
-    // private static final String password = "BD23623";
+    private static final String url = "jdbc:sqlserver://regulus.cotuca.unicamp.br;databaseName=BD23623;schema=teste_bd;";
+    private static final String user = "BD23623";
+    private static final String password = "BD23623";
 
-    private static final String url = "jdbc:mysql://localhost:3306/teste_bd";
-    private static final String user = "root";
-    private static final String password = "root";
+    // private static final String url = "jdbc:mysql://localhost:3306/teste_bd";
+    // private static final String user = "root";
+    // private static final String password = "root";
 
     private static Connection conn;
 

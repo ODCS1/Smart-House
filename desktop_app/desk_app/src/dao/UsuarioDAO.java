@@ -20,7 +20,8 @@ public class UsuarioDAO {
         ResultSet rs = null;
 
         try {
-            String sql = "SELECT * FROM usuario WHERE login = ? AND senha = ?";
+            String sql = "SELECT * FROM teste_bd.usuario WHERE login = ? AND senha = ?";
+            // String sql = "SELECT * FROM usuario WHERE login = ? AND senha = ?";
             ps = connection.prepareStatement(sql);
             ps.setString(1, login);
             ps.setString(2, password);
@@ -39,5 +40,9 @@ public class UsuarioDAO {
                 e.printStackTrace();
             }
         }
+    }
+
+    public boolean mostrarInfos(String login, String password, int id) {
+        
     }
 }

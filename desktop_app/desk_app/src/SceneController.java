@@ -1,6 +1,7 @@
 import java.io.IOException;
 
 import dao.UsuarioDAO;
+import entidade.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,11 +11,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class SceneController {
     private Stage stage;
     private Scene scene;
+
+    private String nome;
+    private String email;
     
     @FXML
     private TextField usernameField;
@@ -22,6 +27,8 @@ public class SceneController {
     private PasswordField passwordField;
     @FXML
     private Label errorMessageLabel;
+    @FXML
+    private Text TextInfoCliente;
 
 
     public void switchToScene1(ActionEvent event) throws IOException{
@@ -78,5 +85,9 @@ public class SceneController {
         } else {
             errorMessageLabel.setText("Usuário ou senha estão incorretos");
         }
+    }
+    
+    public void exibirInformacoesDoCliente(ActionEvent event) throws IOException {
+
     }
 }

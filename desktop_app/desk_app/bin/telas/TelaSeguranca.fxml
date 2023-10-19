@@ -84,17 +84,17 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <Text layoutX="304.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PedroSdLP@hotmail.com" wrappingWidth="381.13671875">
+            <Text fx:id="TextInfoCliente" layoutX="304.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="381.13671875">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="304.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="000.000.000-00" wrappingWidth="200.0">
+            <Text fx:id="TextInfoCliente" layoutX="304.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="200.0">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text layoutX="304.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pedro da Silva de Lopez Pereira" wrappingWidth="451.13671875">
+            <Text fx:id="TextInfoCliente" layoutX="304.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="451.13671875">
                <font>
                   <Font size="20.0" />
                </font>
