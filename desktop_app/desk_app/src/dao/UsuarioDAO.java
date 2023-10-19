@@ -42,7 +42,7 @@ public class UsuarioDAO {
         }
     }
 
-    public boolean mostrarInfos(String login, String password, int id) {
+    public boolean mostrarInfos(String login, String password) {
         
     }
 }
