@@ -26,7 +26,6 @@ public class SceneController {
     @FXML
     private Text TextInfoCliente;
 
-
     public void switchToScene1(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaLogin.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -34,6 +33,7 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
+    
     public void switchToScene2(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaMain.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -41,6 +41,7 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
+    
     public void switchToCozinha(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaCozinha.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -48,6 +49,7 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
+    
     public void switchToSalaDeTv(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaSala.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -55,6 +57,7 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
+    
     public void switchToQuartos(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaQuartos.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -62,21 +65,24 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
-    public void switchToSeg(ActionEvent event) throws IOException{
+    
+    public void switchToSeg(ActionEvent event) throws IOException {
+        exibirInformacoesDoCliente(event);
+         
         Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaSeguranca.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
     public void login(ActionEvent event) throws IOException {
-        String login = usernameField.getText();
-        String password = passwordField.getText();
+        String email = usernameField.getText();
+        String senha = passwordField.getText();
 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-        if(usuarioDAO.verificarCredenciais(login, password)) {
+        if(usuarioDAO.verificarCredenciais(email, senha)) {
             switchToScene2(event);
         } else {
             errorMessageLabel.setText("Usuário ou senha estão incorretos");
@@ -84,6 +90,12 @@ public class SceneController {
     }
     
     public void exibirInformacoesDoCliente(ActionEvent event) throws IOException {
+        String email = usernameField.getText();
+        String senha = passwordField.getText();
 
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        String info = usuarioDAO.mostrarInfos(email, senha);
+
+        TextInfoCliente.setText(info);
     }
 }

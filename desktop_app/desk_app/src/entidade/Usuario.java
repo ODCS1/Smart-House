@@ -7,6 +7,7 @@ public class Usuario {
     private String login;
     private String senha;
     private String email;
+    private String cpf;
 
     public int getId() {
         return id;
@@ -48,4 +49,11 @@ public class Usuario {
         this.email = email;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+    
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 }
