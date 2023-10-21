@@ -1,6 +1,10 @@
 import java.io.IOException;
+import java.lang.ProcessHandle.Info;
+
+import com.mysql.cj.jdbc.SuspendableXAConnection;
 
 import dao.UsuarioDAO;
+import entidade.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +28,11 @@ public class SceneController {
     @FXML
     private Label errorMessageLabel;
     @FXML
-    private Text TextInfoCliente;
+    private Label nomeCliente;
+    @FXML
+    private Label emailCliente;
+    @FXML
+    private Label cpfCliente;
 
     public void switchToScene1(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaLogin.fxml"));
@@ -67,8 +75,6 @@ public class SceneController {
     }
     
     public void switchToSeg(ActionEvent event) throws IOException {
-        exibirInformacoesDoCliente(event);
-         
         Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaSeguranca.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -84,6 +90,7 @@ public class SceneController {
 
         if(usuarioDAO.verificarCredenciais(email, senha)) {
             switchToScene2(event);
+            System.out.println(usuarioDAO.mostrarInfos(email, senha));
         } else {
             errorMessageLabel.setText("Usuário ou senha estão incorretos");
         }
@@ -96,6 +103,6 @@ public class SceneController {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         String info = usuarioDAO.mostrarInfos(email, senha);
 
-        TextInfoCliente.setText(info);
+        nomeCliente.setText();
     }
 }

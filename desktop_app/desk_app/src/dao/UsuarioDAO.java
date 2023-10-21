@@ -44,7 +44,6 @@ public class UsuarioDAO {
 
     public String mostrarInfos(String email, String senha) {
         Connection connection = Conexao.getConnection();
-
         if(connection == null) {
             return null;
         }
