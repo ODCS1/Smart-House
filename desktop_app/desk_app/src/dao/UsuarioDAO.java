@@ -60,10 +60,15 @@ public class UsuarioDAO {
             rs = ps.executeQuery();
             
             if(rs.next()) {
-                String nome = rs.getString("nome");
-                String emailResult = rs.getString("email");
-                String cpf = rs.getString("cpf");
-                return "Nome: " + nome + "\nEmail: " + emailResult + "\nCPF: " + cpf;
+                Usuario usuario = new Usuario();
+                usuario.setNome(rs.getString("nome"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setCpf(rs.getString("cpf"));
+                
+                // String nome = rs.getString("nome");
+                // String emailResult = rs.getString("email");
+                // String cpf = rs.getString("cpf");
+                // return "Nome: " + nome + "\nEmail: " + emailResult + "\nCPF: " + cpf;
             }
         } catch(SQLException e) {
             e.printStackTrace();

@@ -79,6 +79,7 @@ public class SceneController {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        exibirInformacoesDoCliente(event);
         stage.show();
     }
 
@@ -97,12 +98,9 @@ public class SceneController {
     }
     
     public void exibirInformacoesDoCliente(ActionEvent event) throws IOException {
-        String email = usernameField.getText();
-        String senha = passwordField.getText();
-
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        String info = usuarioDAO.mostrarInfos(email, senha);
-
-        nomeCliente.setText();
+        Usuario usuario = new Usuario();
+        nomeCliente.setText(usuario.getNome());
+        emailCliente.setText(usuario.getEmail());
+        cpfCliente.setText(usuario.getCpf());
     }
 }
