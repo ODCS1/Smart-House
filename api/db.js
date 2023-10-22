@@ -6,7 +6,7 @@ const sequelize = new Sequelize('SistemaCasa', 'root', '123456', {
     port: 3306 //mysql
 });
 
-sequelize.autenticate()
+sequelize.authenticate()
 .then(() => {
     console.log("Conexão com o banco de dados foi realizada com sucesso!");
 }).catch(() => {
