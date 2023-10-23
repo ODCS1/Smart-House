@@ -10,75 +10,47 @@ import entidade.Usuario;
 
 public class UsuarioDAO {
 
-    public boolean verificarCredenciais(String email, String senha) {
+    public PreparedStatement ps;
+    public ResultSet rs;
+    public String sql;
+
+    public ResultSet verificarCredenciais(Usuario usuario) {
         Connection connection = Conexao.getConnection();
 
-        if(connection == null) {
-            return false;
-        }
-
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
         try {
-            String sql = "SELECT * FROM teste_bd.usuario WHERE email = ? AND senha = ?";
+            sql = "SELECT * FROM teste_bd.usuario WHERE email = ? AND senha = ?";
             ps = connection.prepareStatement(sql);
-            ps.setString(1, email);
-            ps.setString(2, senha);
+            ps.setString(1, usuario.getEmail());
+            ps.setString(2, usuario.getSenha());
 
             rs = ps.executeQuery();
+            return rs;  
 
-            return rs.next();
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
-        } finally {
-            try {
-                if(rs != null) rs.close();
-                if(ps != null) ps.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+            return null;
+        }     
     }
 
-    public String mostrarInfos(String email, String senha) {
+    public ResultSet mostrarInfos(Usuario usuario) {
         Connection connection = Conexao.getConnection();
-        if(connection == null) {
-            return null;
-        }
-
-        PreparedStatement ps = null;
-        ResultSet rs = null;
 
         try {
-            String sql = "SELECT nome, email, cpf FROM teste_bd.usuario WHERE email = ? AND senha = ?";
+            sql = "SELECT nome, email, cpf FROM teste_bd.usuario WHERE email = ? AND senha = ?";
             ps = connection.prepareStatement(sql);
-            ps.setString(1, email);
-            ps.setString(2, senha);
+            ps.setString(1, usuario.getEmail());
+            ps.setString(2, usuario.getSenha());
 
             rs = ps.executeQuery();
             
             if(rs.next()) {
-                Usuario usuario = new Usuario();
                 usuario.setNome(rs.getString("nome"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setCpf(rs.getString("cpf"));
-                
-                // String nome = rs.getString("nome");
-                // String emailResult = rs.getString("email");
-                // String cpf = rs.getString("cpf");
-                // return "Nome: " + nome + "\nEmail: " + emailResult + "\nCPF: " + cpf;
+        
             }
         } catch(SQLException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if(rs != null) rs.close();
-                if(ps != null) ps.close();
-            } catch(SQLException e) {
-                e.printStackTrace();
-            }
         }
         return null;
     }

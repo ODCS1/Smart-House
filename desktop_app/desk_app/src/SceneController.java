@@ -1,10 +1,4 @@
 import java.io.IOException;
-import java.lang.ProcessHandle.Info;
-
-import com.mysql.cj.jdbc.SuspendableXAConnection;
-
-import dao.UsuarioDAO;
-import entidade.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class SceneController {
@@ -29,10 +22,6 @@ public class SceneController {
     private Label errorMessageLabel;
     @FXML
     private Label nomeCliente;
-    @FXML
-    private Label emailCliente;
-    @FXML
-    private Label cpfCliente;
 
     public void switchToScene1(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaLogin.fxml"));
@@ -79,28 +68,6 @@ public class SceneController {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        exibirInformacoesDoCliente(event);
         stage.show();
-    }
-
-    public void login(ActionEvent event) throws IOException {
-        String email = usernameField.getText();
-        String senha = passwordField.getText();
-
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-
-        if(usuarioDAO.verificarCredenciais(email, senha)) {
-            switchToScene2(event);
-            System.out.println(usuarioDAO.mostrarInfos(email, senha));
-        } else {
-            errorMessageLabel.setText("Usuário ou senha estão incorretos");
-        }
-    }
-    
-    public void exibirInformacoesDoCliente(ActionEvent event) throws IOException {
-        Usuario usuario = new Usuario();
-        nomeCliente.setText(usuario.getNome());
-        emailCliente.setText(usuario.getEmail());
-        cpfCliente.setText(usuario.getCpf());
     }
 }

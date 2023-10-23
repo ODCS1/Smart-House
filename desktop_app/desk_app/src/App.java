@@ -1,5 +1,4 @@
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,21 +6,28 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class App extends Application {
+    
     public void start(Stage primaryStage) throws IOException {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaLogin.fxml"));
-            Scene tela = new Scene(root);
+            FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("./telas/TelaLogin.fxml"));
+            Parent root = loginLoader.load();
+            Scene scene = new Scene(root);
             
-            tela.getStylesheets().add(getClass().getResource("./css/style.css").toExternalForm());
-            
+            LoginController loginController = loginLoader.getController();
+            SceneController sceneController = new SceneController();
+            loginController.sceneController(sceneController);
+
+            scene.getStylesheets().add(getClass().getResource("./css/style.css").toExternalForm());
+
             primaryStage.setResizable(false);
-            primaryStage.setScene(tela);
+            primaryStage.setScene(scene);
             primaryStage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public static void main(String[] args) {
         launch(args);
     }
