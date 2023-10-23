@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('SistemaCasa', 'root', '123456', {
+const sequelize = new Sequelize('sistemacasa', 'root', '123456', {
     dialect: 'mysql',
     host: 'localhost',
     // port: 1433 SQL SERVER

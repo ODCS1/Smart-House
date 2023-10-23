@@ -168,14 +168,14 @@ VALUES
     (3, 'j-1', 4);
 
 -- COMANDOS DE SELEÇÃO
-SELECT * FROM Casa.Cliente
-SELECT * FROM Casa.Compra
-SELECT * FROM Casa.Pacote
-SELECT * FROM Casa.Casa
-SELECT * FROM Casa.Endereco
-SELECT * FROM Casa.Comodo
-SELECT * FROM Casa.CasaComodo
-SELECT * FROM Casa.Led
+SELECT * FROM Casa.Cliente;
+SELECT * FROM Casa.Compra;
+SELECT * FROM Casa.Pacote;
+SELECT * FROM Casa.Casa;
+SELECT * FROM Casa.Endereco;
+SELECT * FROM Casa.Comodo;
+SELECT * FROM Casa.CasaComodo;
+SELECT * FROM Casa.Led;
 
 
 -- COMANDOS DE DROP

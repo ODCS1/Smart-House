@@ -32,7 +32,11 @@ app.get("/cadastro", (req,res) => {
 })
 
 app.post("/adicionar", (req,res) => {
-
+    let novoNome = req.body.nome
+    let novoSobrenome = req.body.sobrenome
+    let novoEmail = req.body.email
+    let novaSenha = req.body.senha
+    let novoCpf = Number(req.body.cpf)
     (async () => {
         await database.sync();
     
@@ -41,51 +45,51 @@ app.post("/adicionar", (req,res) => {
         // ----------------------------------------
         // EXEMPLO DE NOVO CLIENTE
         // CLIENTE
-        const novoCliente = await Cliente.create({
-            nome_cliente: 'Roberto',
-            sobrenome_cliente: 'Chagas',
-            email_cliente: 'roberto123@gmail.com',
-            senha_cliente: 'rober123',
-            cpf_cliente: 12312345698
+        const novoCliente = Cliente.create({
+            nome_cliente: novoNome,
+            sobrenome_cliente: novoSobrenome,
+            email_cliente: novoEmail,
+            senha_cliente: novaSenha,
+            cpf_cliente: novoCpf
         });
         console.log(novoCliente);
     
-        let idCli = await Cliente.findOne({
-            where: id_cliente = 4
-        });
+        // let idCli = await Cliente.findOne({
+        //     where: id_cliente = 4
+        // });
     
-        let idPacote = 1
+        // let idPacote = 1
     
-        // COMPRA
-        const novaCompra = await Compra.create({
-            id_cliente: idCli,
-            id_pacote: idPacote
-        });
+        // // COMPRA
+        // const novaCompra = await Compra.create({
+        //     id_cliente: idCli,
+        //     id_pacote: idPacote
+        // });
     
-        let qtdLed = 4;
-        // CASA
-        const novaCasa = await Casa.create({
-            nome_casa: 'Roberto Casa',
-            qtd_led_casa: qtdLed
-        });
+        // let qtdLed = 4;
+        // // CASA
+        // const novaCasa = await Casa.create({
+        //     nome_casa: 'Roberto Casa',
+        //     qtd_led_casa: qtdLed
+        // });
     
-        const novoCep = 12345789;
-        const novoLogradouro = 'R. Amorim Barbosa';
-        const novoBairro = 'José Fernando';
-        const novoNumero = 543;
-        const novaCidade = 'Maribondo';
-        const novoEstado = 'AL';
-        const novoComplemento = null;
+        // const novoCep = 12345789;
+        // const novoLogradouro = 'R. Amorim Barbosa';
+        // const novoBairro = 'José Fernando';
+        // const novoNumero = 543;
+        // const novaCidade = 'Maribondo';
+        // const novoEstado = 'AL';
+        // const novoComplemento = null;
     
-        const novoEndereco = await Endereco.create({
-            cep: novoCep,
-            logradouro: novoLogradouro,
-            bairro: novoBairro,
-            numero: novoNumero,
-            cidade: novaCidade,
-            estado: novoEstado,
-            complemento: novoComplemento
-        });
+        // const novoEndereco = await Endereco.create({
+        //     cep: novoCep,
+        //     logradouro: novoLogradouro,
+        //     bairro: novoBairro,
+        //     numero: novoNumero,
+        //     cidade: novaCidade,
+        //     estado: novoEstado,
+        //     complemento: novoComplemento
+        // });
     
         
         // ---------------------------------------
