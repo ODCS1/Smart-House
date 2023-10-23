@@ -200,3 +200,14 @@ SELECT * FROM Casa.Led
 -- DROP SCHEMA Casa
 
 -- AINDA FALTA O CREATE VIEW E A PARTE DE PROGRAMAÇÃO DENTRO DO BANCO DE DADOS.
+
+CREATE VIEW [Cliente Segurança] AS
+SELECT nome_cliente, sobrenome_cliente, email_cliente
+FROM Casa.Cliente
+WHERE id_cliente = idAtual
+
+CREATE VIEW [Cliente Informações gerais] AS
+SELECT CL.nome_cliente, CL.sobrenome_cliente, CL.email_cliente, CL.cpf_cliente
+FROM Casa.Cliente CL
+WHERE id_cliente = idAtual
+INNER JOIN Casa.Endereco E ON CL.id_cliente = E.id_cliente
