@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const Sequelize = require('sequelize')
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const porta = 3000
@@ -94,6 +93,10 @@ app.post("/adicionar", (req,res) => {
         
         // ---------------------------------------
     })();
+})
+
+app.listen(porta, () => {
+    console.log(`Servidor rodando na porta ${porta}`)
 })
 
 
