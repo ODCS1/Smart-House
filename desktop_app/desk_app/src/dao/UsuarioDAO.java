@@ -32,7 +32,7 @@ public class UsuarioDAO {
         }     
     }
 
-    public ResultSet mostrarInfos(Usuario usuario) {
+    public Usuario mostrarInfos(Usuario usuario) {
         Connection connection = Conexao.getConnection();
 
         try {
@@ -47,7 +47,8 @@ public class UsuarioDAO {
                 usuario.setNome(rs.getString("nome"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setCpf(rs.getString("cpf"));
-        
+
+                return usuario;
             }
         } catch(SQLException e) {
             e.printStackTrace();

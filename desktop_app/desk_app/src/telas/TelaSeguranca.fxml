@@ -35,9 +35,6 @@
                   <Image url="@../../../img/suite.jpeg" />
                </image>
             </ImageView>
-            <Button layoutX="236.0" layoutY="233.0" mnemonicParsing="false" onAction="#switchToSalaDeTv" styleClass="botao-comodos" text="Acender Sala De TV" />
-            <Button layoutX="597.0" layoutY="233.0" mnemonicParsing="false" onAction="#switchToCozinha" styleClass="botao-comodos" text="Acender Cozinha" />
-            <Button layoutX="412.0" layoutY="519.0" mnemonicParsing="false" onAction="#switchToQuartos" styleClass="botao-comodos" text="Acender Quartos" />
          </children></AnchorPane>
       <Button layoutX="22.0" layoutY="276.0" mnemonicParsing="false" styleClass="botao-customizado" text="Configurações">
          <graphic>
@@ -57,15 +54,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="28.0" layoutY="575.0" mnemonicParsing="false" onAction="#switchToScene1" styleClass="botao-customizado" text="Sign Out">
-         <graphic>
-            <ImageView fitHeight="32.0" fitWidth="32.0">
-               <image>
-                  <Image url="@../../../img/icons8-logout-arredondado-50.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
       <ImageView fitHeight="110.0" fitWidth="130.0" layoutX="46.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../img/avatar.png" />
@@ -79,34 +67,19 @@
                   <Font size="40.0" />
                </font>
             </Label>
-            <Label layoutX="200.0" layoutY="301.0" prefHeight="47.0" prefWidth="86.0" style="-fx-border-color: grey; -fx-border-radius: 10px;" text="Email:">
+            <Label fx:id="emailCliente" layoutX="200.0" layoutY="301.0" prefHeight="47.0" prefWidth="86.0" style="-fx-border-color: grey; -fx-border-radius: 10px;" text="Email:">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="200.0" layoutY="213.0" prefHeight="45.0" prefWidth="93.0" style="-fx-border-color: grey; -fx-border-radius: 10px;" text="Nome:">
+            <Label fx:id="nomeCliente" layoutX="200.0" layoutY="213.0" prefHeight="45.0" prefWidth="93.0" style="-fx-border-color: grey; -fx-border-radius: 10px;" text="Nome:">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="200.0" layoutY="393.0" prefHeight="47.0" prefWidth="70.0" style="-fx-border-color: grey; -fx-border-radius: 10px;" text="CPF:">
+            <Label fx:id="cpfCliente" layoutX="200.0" layoutY="393.0" prefHeight="47.0" prefWidth="70.0" style="-fx-border-color: grey; -fx-border-radius: 10px;" text="CPF:">
                <font>
                   <Font size="30.0" />
-               </font>
-            </Label>
-            <Label fx:id="nomeCliente" layoutX="314.0" layoutY="305.0" prefHeight="40.0" prefWidth="374.0" text="Label">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label fx:id="emailCliente" layoutX="314.0" layoutY="217.0" prefHeight="40.0" prefWidth="374.0" text="Label">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Label fx:id="cpfCliente" layoutX="314.0" layoutY="397.0" prefHeight="40.0" prefWidth="374.0" text="Label">
-               <font>
-                  <Font size="25.0" />
                </font>
             </Label>
          </children>

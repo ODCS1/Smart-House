@@ -6,28 +6,21 @@ import dao.UsuarioDAO;
 import entidade.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class LoginController {
-    
-    private SceneController sceneController;
+    private TelaMainController telaMainController;
     @FXML
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
     @FXML
     private Label errorMessageLabel;
-    
 
-    public void sceneController(SceneController sceneController) {
-        this.sceneController = sceneController;
+    public void telaMainController(TelaMainController telaMainController) {
+        this.telaMainController = telaMainController;
     }
 
     public void login(ActionEvent event) throws IOException, SQLException {
@@ -42,17 +35,13 @@ public class LoginController {
         ResultSet rsusuario = usuarioDAO.verificarCredenciais(usuario);
         
         if(rsusuario.next()) {
-            switchToScene2(event);
+            System.out.println("Nome: " + rsusuario.getString("nome"));
+            System.out.println("Email: " + rsusuario.getString("email"));
+            System.out.println("CPF: " + rsusuario.getString("cpf"));
+            telaMainController.switchToScene2(event);
         } else {
             errorMessageLabel.setText("Usuário ou senha estão incorretos");
         }
     }
 
-    public void switchToScene2(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaMain.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 }

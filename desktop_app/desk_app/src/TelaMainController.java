@@ -6,22 +6,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class SceneController {
+public class TelaMainController {
     private Stage stage;
     private Scene scene;
-    
+
     @FXML
-    private TextField usernameField;
-    @FXML
-    private PasswordField passwordField;
-    @FXML
-    private Label errorMessageLabel;
-    @FXML
-    private Label nomeCliente;
+    Label nomeCliente;
 
     public void switchToScene1(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaLogin.fxml"));
@@ -64,6 +56,8 @@ public class SceneController {
     }
     
     public void switchToSeg(ActionEvent event) throws IOException {
+        nomeCliente.setText("DJHAKDHAKJDHAJKDHAKDHAKDHDJa");
+
         Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaSeguranca.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

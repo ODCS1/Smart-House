@@ -14,8 +14,8 @@ public class App extends Application {
             Scene scene = new Scene(root);
             
             LoginController loginController = loginLoader.getController();
-            SceneController sceneController = new SceneController();
-            loginController.sceneController(sceneController);
+            TelaMainController scenes = new TelaMainController();
+            loginController.telaMainController(scenes);
 
             scene.getStylesheets().add(getClass().getResource("./css/style.css").toExternalForm());
 
@@ -27,7 +27,6 @@ public class App extends Application {
             e.printStackTrace();
         }
     }
-
     public static void main(String[] args) {
         launch(args);
     }
