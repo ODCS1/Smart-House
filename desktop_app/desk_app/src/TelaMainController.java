@@ -15,49 +15,50 @@ public class TelaMainController {
     @FXML
     Label nomeCliente;
 
-    public void switchToScene1(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaLogin.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    public void switchToScene2(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaMain.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    public void switchToCozinha(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaCozinha.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    public void switchToSalaDeTv(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaSala.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    public void switchToQuartos(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaQuartos.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    public void switchToSeg(ActionEvent event) throws IOException {
-        nomeCliente.setText("DJHAKDHAKJDHAJKDHAKDHAKDHDJa");
+    // Ja esse .java é responsavel por todas as trocas de telas que tem
+    // desde a tela 1 que seria a login ate a tela dos comodos
 
+    public void switchToScene1(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaLogin.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToScene2(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaMain.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToCozinha(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaCozinha.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToSalaDeTv(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaSala.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToQuartos(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaQuartos.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToSeg(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaSeguranca.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

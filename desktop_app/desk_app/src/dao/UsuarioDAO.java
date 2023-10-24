@@ -13,46 +13,35 @@ public class UsuarioDAO {
     public PreparedStatement ps;
     public ResultSet rs;
     public String sql;
-
-    public ResultSet verificarCredenciais(Usuario usuario) {
+    
+    public Usuario verificarCredenciais(Usuario usuario) {
         Connection connection = Conexao.getConnection();
+        // Conexao com o banco de dados
 
+        Usuario usuarioCompleto = null;
+    
         try {
             sql = "SELECT * FROM teste_bd.usuario WHERE email = ? AND senha = ?";
             ps = connection.prepareStatement(sql);
             ps.setString(1, usuario.getEmail());
             ps.setString(2, usuario.getSenha());
 
+            // Usa o SELECT para pesquisar na tabela de usuario se existe alguem com 
+            // o email e senha digitado para logar
+    
             rs = ps.executeQuery();
-            return rs;  
+    
+            if (rs.next()) {
+                usuarioCompleto = new Usuario();
+                usuarioCompleto.setNome(rs.getString("nome"));
+                usuarioCompleto.setEmail(rs.getString("email"));
+                usuarioCompleto.setCpf(rs.getString("cpf"));
 
+                //Seto o nome, email e cpf das respectivas colunas
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
-        }     
-    }
-
-    public Usuario mostrarInfos(Usuario usuario) {
-        Connection connection = Conexao.getConnection();
-
-        try {
-            sql = "SELECT nome, email, cpf FROM teste_bd.usuario WHERE email = ? AND senha = ?";
-            ps = connection.prepareStatement(sql);
-            ps.setString(1, usuario.getEmail());
-            ps.setString(2, usuario.getSenha());
-
-            rs = ps.executeQuery();
-            
-            if(rs.next()) {
-                usuario.setNome(rs.getString("nome"));
-                usuario.setEmail(rs.getString("email"));
-                usuario.setCpf(rs.getString("cpf"));
-
-                return usuario;
-            }
-        } catch(SQLException e) {
-            e.printStackTrace();
         }
-        return null;
+        return usuarioCompleto;
     }
 }

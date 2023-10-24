@@ -67,17 +67,17 @@
                   <Font size="40.0" />
                </font>
             </Label>
-            <Label fx:id="emailCliente" layoutX="200.0" layoutY="301.0" prefHeight="47.0" prefWidth="86.0" style="-fx-border-color: grey; -fx-border-radius: 10px;" text="Email:">
+            <Label fx:id="emailCliente" layoutX="200.0" layoutY="301.0" prefHeight="47.0" prefWidth="505.0" style="-fx-border-color: grey; -fx-border-radius: 10px;">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label fx:id="nomeCliente" layoutX="200.0" layoutY="213.0" prefHeight="45.0" prefWidth="93.0" style="-fx-border-color: grey; -fx-border-radius: 10px;" text="Nome:">
+            <Label fx:id="nomeCliente" layoutX="200.0" layoutY="213.0" prefHeight="47.0" prefWidth="505.0" style="-fx-border-color: grey; -fx-border-radius: 10px;">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label fx:id="cpfCliente" layoutX="200.0" layoutY="393.0" prefHeight="47.0" prefWidth="70.0" style="-fx-border-color: grey; -fx-border-radius: 10px;" text="CPF:">
+            <Label fx:id="cpfCliente" layoutX="200.0" layoutY="393.0" prefHeight="47.0" prefWidth="505.0" style="-fx-border-color: grey; -fx-border-radius: 10px;">
                <font>
                   <Font size="30.0" />
                </font>

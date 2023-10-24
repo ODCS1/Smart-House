@@ -12,7 +12,7 @@ public class App extends Application {
             FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("./telas/TelaLogin.fxml"));
             Parent root = loginLoader.load();
             Scene scene = new Scene(root);
-            
+
             LoginController loginController = loginLoader.getController();
             TelaMainController scenes = new TelaMainController();
             loginController.telaMainController(scenes);
@@ -23,6 +23,10 @@ public class App extends Application {
             primaryStage.setScene(scene);
             primaryStage.show();
 
+            // Essa parte é responsavel por carregar a tela de login junto com o seu css
+            // e mostrar ele. Utiliza ela ja no App.java, pois é a primeira coisa que deve aparecer
+            // quando o usuario rodar o aplicativo.
+            
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -6,6 +6,9 @@ import java.sql.SQLException;
 
 public class Conexao {
     
+    // Conexao com o banco de dados 
+    // Nesse arquivo se conecta com o banco de dados
+
     // private static final String url = "jdbc:sqlserver://regulus.cotuca.unicamp.br;databaseName=BD23623;schema=teste_bd;";
     // private static final String user = "BD23623";
     // private static final String password = "BD23623";
