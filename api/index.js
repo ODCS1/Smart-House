@@ -16,14 +16,21 @@ const porta = 3000
         const CasaComodo = require("./models/casaComodo");
         const Led = require("./models/led");
         // TEMPLATE ENGINE
-        app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
+        app.engine('handlebars',handlebars.engine({defautLayout: 'main',
+            runtimeOptions: {
+                allowProtoPropertiesByDefault: true,
+                
+                allowProtoMethodsByDefault: true,
+            }}))
         app.set('view engine', 'handlebars')
         // BODY PARSER
         app.use(bodyParser.urlencoded({extended: false}))
         app.use(bodyParser.json())
 
+// ROTAS
+
 app.get("/", (req,res) => {
-    res.send("<h1>Bem vindo a página principal!</h1>")
+    res.render("home")
 })
 
 app.get("/cadastro", (req,res) => {
@@ -36,68 +43,57 @@ app.post("/adicionar", (req,res) => {
     let novoEmail = req.body.email
     let novaSenha = req.body.senha
     let novoCpf = Number(req.body.cpf)
-    (async () => {
-        await database.sync();
     
-        // AQUI DENTRO SERÁ SEITO A MANIPULAÇÃO DE DADOS
-    
-        // ----------------------------------------
-        // EXEMPLO DE NOVO CLIENTE
-        // CLIENTE
-        const novoCliente = Cliente.create({
-            nome_cliente: novoNome,
-            sobrenome_cliente: novoSobrenome,
-            email_cliente: novoEmail,
-            senha_cliente: novaSenha,
-            cpf_cliente: novoCpf
-        });
-        console.log(novoCliente);
-    
-        // let idCli = await Cliente.findOne({
-        //     where: id_cliente = 4
-        // });
-    
-        // let idPacote = 1
-    
-        // // COMPRA
-        // const novaCompra = await Compra.create({
-        //     id_cliente: idCli,
-        //     id_pacote: idPacote
-        // });
-    
-        // let qtdLed = 4;
-        // // CASA
-        // const novaCasa = await Casa.create({
-        //     nome_casa: 'Roberto Casa',
-        //     qtd_led_casa: qtdLed
-        // });
-    
-        // const novoCep = 12345789;
-        // const novoLogradouro = 'R. Amorim Barbosa';
-        // const novoBairro = 'José Fernando';
-        // const novoNumero = 543;
-        // const novaCidade = 'Maribondo';
-        // const novoEstado = 'AL';
-        // const novoComplemento = null;
-    
-        // const novoEndereco = await Endereco.create({
-        //     cep: novoCep,
-        //     logradouro: novoLogradouro,
-        //     bairro: novoBairro,
-        //     numero: novoNumero,
-        //     cidade: novaCidade,
-        //     estado: novoEstado,
-        //     complemento: novoComplemento
-        // });
-    
-        
-        // ---------------------------------------
-    })();
+    Cliente.create({
+        nome_cliente: novoNome,
+        sobrenome_cliente: novoSobrenome,
+        email_cliente: novoEmail,
+        senha_cliente: novaSenha,
+        cpf_cliente: novoCpf
+    }).then(() => {
+        res.send("<h1>Dados Cadastrados com sucesso!</h1>")
+    }).catch((erro) => {
+        res.send("<h1>[ERRO]: " + erro + "</h1>")
+    })
 })
 
 app.listen(porta, () => {
     console.log(`Servidor rodando na porta ${porta}`)
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // SINCRONIZAR AQUI COM O BD
