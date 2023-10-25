@@ -1,43 +1,43 @@
-const Sequelize = require('sequelize');
+// const Sequelize = require('sequelize');
 const database = require('../db');
 
-const Endereco = database.define('Endereco', {
+const Endereco = database.sequelize.define('Endereco', {
     id_endereco: {
-        type: Sequelize.INTEGER,
+        type: database.Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
     cep: {
-        type: Sequelize.INTEGER,
+        type: database.Sequelize.INTEGER,
         allowNull: false,
         validate: {
             is: /^[0-9]{8}$/
         }
     },
     logradouro: {
-        type: Sequelize.STRING(40),
+        type: database.Sequelize.STRING(40),
         allowNull: false
     },
     bairro: {
-        type: Sequelize.STRING(30),
+        type: database.Sequelize.STRING(30),
         allowNull: false
     },
     numero: {
-        type: Sequelize.INTEGER,
+        type: database.Sequelize.INTEGER,
         allowNull: false
     },
     cidade: {
-        type: Sequelize.STRING(40),
+        type: database.Sequelize.STRING(40),
         allowNull: false
     },
     estado: {
-        type: Sequelize.CHAR(2),
+        type: database.Sequelize.CHAR(2),
         allowNull: false
     },
-    complemento: Sequelize.STRING(50),
+    complemento: database.Sequelize.STRING(50),
     id_casa: {
-        type: Sequelize.INTEGER
+        type: database.Sequelize.INTEGER
     }
 });
 

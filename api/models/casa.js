@@ -1,20 +1,20 @@
-const Sequelize = require('sequelize');
+// const Sequelize = require('sequelize');
 const database = require('../db');
 
-const Casa = database.define('Casa', {
+const Casa = database.sequelize.define('Casa', {
     id_casa: {
-        type: Sequelize.INTEGER,
+        type: database.Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    nome_casa: Sequelize.STRING(40),
+    nome_casa: database.Sequelize.STRING(40),
     qtd_led_casa: {
-        type: Sequelize.INTEGER,
+        type: database.Sequelize.INTEGER,
         allowNull: false
     },
     id_cliente: {
-        type: Sequelize.INTEGER
+        type: database.Sequelize.INTEGER
     }
 });
 

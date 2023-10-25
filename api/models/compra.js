@@ -1,19 +1,19 @@
-const Sequelize = require('sequelize');
+// const Sequelize = require('sequelize');
 const database = require('../db');
 
-const Compra = database.define('Compra', {
+const Compra = database.sequelize.define('Compra', {
     id_compra: {
-        type: Sequelize.INTEGER,
+        type: database.Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
     id_cliente: {
-        type: Sequelize.INTEGER,
+        type: database.Sequelize.INTEGER,
         allowNull: false
     },
     id_pacote: {
-        type: Sequelize.INTEGER,
+        type: database.Sequelize.INTEGER,
         allowNull: false
     }
 });

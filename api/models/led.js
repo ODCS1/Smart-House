@@ -1,18 +1,18 @@
 const Sequelize = require('sequelize');
 const database = require('../db');
 
-const Led = database.define('Led', {
+const Led = database.sequelize.define('Led', {
     cod_led: {
-        type: Sequelize.STRING(10),
+        type: database.Sequelize.STRING(10),
         allowNull: false,
         primaryKey: true
     },
     situacao: {
-        type: Sequelize.BOOLEAN,
+        type: database.Sequelize.BOOLEAN,
         allowNull: false
     },
     cod_comodo: {
-        type: Sequelize.STRING(10),
+        type: database.Sequelize.STRING(10),
         allowNull: false
     }
 });

@@ -1,14 +1,14 @@
-const Sequelize = require('sequelize');
+// const Sequelize = require('sequelize');
 const database = require('../db');
 
-const Comodo = database.define('Comodo', {
+const Comodo = database.sequelize.define('Comodo', {
     cod_comodo: {
-        type: Sequelize.STRING(10),
+        type: database.Sequelize.STRING(10),
         allowNull: false,
         primaryKey: true
     },
     nome_comodo: {
-        type: Sequelize.STRING(25),
+        type: database.Sequelize.STRING(25),
         allowNull: false,
         unique: true
     }

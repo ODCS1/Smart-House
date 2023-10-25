@@ -1,31 +1,31 @@
 const database = require('../db');
 
-const Cliente = database.define('Cliente', {
+const Cliente = database.sequelize.define('Cliente', {
     id_cliente: {
-        type: Sequelize.INTEGER,
+        type: database.Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
     nome_cliente: {
-        type: Sequelize.STRING(30),
+        type: database.Sequelize.STRING(30),
         allowNull: false
     },
-    sobrenome_cliente: Sequelize.STRING(50),
+    sobrenome_cliente: database.Sequelize.STRING(50),
     email_cliente: {
-        type: Sequelize.STRING(100),
+        type: database.Sequelize.STRING(100),
         allowNull: false,
         unique: true
     },
     senha_cliente: {
-        type: Sequelize.STRING(20),
+        type: database.Sequelize.STRING(20),
         allowNull: false,
         validate: {
             len: [8, 20]
         }
     },
     cpf_cliente: {
-        type: Sequelize.BIGINT,
+        type: database.Sequelize.BIGINT,
         allowNull: false,
         unique: true,
         validate: {

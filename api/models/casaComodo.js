@@ -1,17 +1,17 @@
-const Sequelize = require('sequelize');
+// const Sequelize = require('sequelize');
 const database = require('../db');
 
-const CasaComodo = database.define('CasaComodo', {
+const CasaComodo = database.sequelize.define('CasaComodo', {
     id_casa: {
-        type: Sequelize.INTEGER,
+        type: database.Sequelize.INTEGER,
         allowNull: false
     },
     cod_comodo: {
-        type: Sequelize.STRING(10),
+        type: database.Sequelize.STRING(10),
         allowNull: false
     },
     qtd_led_comodo: {
-        type: Sequelize.INTEGER,
+        type: database.Sequelize.INTEGER,
         allowNull: false
     }
 });

@@ -38,23 +38,96 @@ app.get("/cadastro", (req,res) => {
 })
 
 app.post("/adicionar", (req,res) => {
+    // DADOS CLIENTE
     let novoNome = req.body.nome
     let novoSobrenome = req.body.sobrenome
     let novoEmail = req.body.email
     let novaSenha = req.body.senha
     let novoCpf = Number(req.body.cpf)
-    
-    Cliente.create({
-        nome_cliente: novoNome,
-        sobrenome_cliente: novoSobrenome,
-        email_cliente: novoEmail,
-        senha_cliente: novaSenha,
-        cpf_cliente: novoCpf
-    }).then(() => {
-        res.send("<h1>Dados Cadastrados com sucesso!</h1>")
-    }).catch((erro) => {
-        res.send("<h1>[ERRO]: " + erro + "</h1>")
+
+    // DADOS PACOTE E CASA
+    let novoPacote = req.body.pacote
+    let novoNomeCasa = req.body.nomeCasa
+
+    // DADOS ENDEREÇO
+    let novoCep = req.body.cep
+    let novoLogradouro = req.body.logradouro
+    let novoBairro = req.body.bairro
+    let novoNumero = req.body.numero
+    let novaCidade = req.body.cidade
+    let novoEstado = req.body.estado
+    let novoComplemento = req.body.complemento
+
+    (async () => {
+        await Cliente.create({
+            nome_cliente: novoNome,
+            sobrenome_cliente: novoSobrenome,
+            email_cliente: novoEmail,
+            senha_cliente: novaSenha,
+            cpf_cliente: novoCpf
+        })
+
+        let idCliente = await Cliente.findPk({where: {cpf_cliente: novoCpf}})
+        let qualPacote = await Pacote.findPk({where: {nome_pacote: novoPacote}})
+
+        await Compra.create({
+            id_cliente: idCliente,
+            id_pacote: qualPacote
+        })
+
+        let qtdLedCasa
+        let codComodos
+        let qtdLedComodos
+        if (qualPacote == 'Pacote básico') {
+            qtdLedCasa = 4
+            codComodos = ['q-1', 'q-2', 'q-3', 'b-1']
+            qtdLedComodos = [1, 1, 1, 1]
+        }else if (qualPacote == 'Pacote Vip') {
+            qtdLedCasa = 6
+            codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2']
+            qtdLedComodos = [1, 1, 1, 1, 1, 1]
+        }else if (qualPacote = 'Pacote Master') {
+            qtdLedCasa = 10
+            codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2', 'j-1']
+            qtdLedComodos = [1, 1, 1, 1, 1, 1, 4]
+        }
+
+        await Casa.create({
+            nome_casa: novoNomeCasa,
+            qtd_led_casa: qtdLedCasa,
+            id_cliente: idCliente
+        })
+
+        let idCasa = await Casa.findPk({where: {id_cliente: idCliente}})
+
+        await Endereco.create({
+            cep: novoCep,
+            logradouro: novoLogradouro,
+            bairro: novoBairro,
+            numero: novoNumero,
+            cidade: novaCidade,
+            estado: novoEstado,
+            complemento: novoComplemento,
+            id_casa: idCasa
+        })
+
+        await CasaComodo.create({
+            id_casa: idCasa,
+            cod_comodo: codComodos,
+            qtd_led_comodo: qtdLedComodos
+        })
     })
+//     Cliente.create({
+//         nome_cliente: novoNome,
+//         sobrenome_cliente: novoSobrenome,
+//         email_cliente: novoEmail,
+//         senha_cliente: novaSenha,
+//         cpf_cliente: novoCpf
+//     }).then(() => {
+//         res.send("<h1>Dados Cadastrados com sucesso!</h1>")
+//     }).catch((erro) => {
+//         res.send("<h1>[ERRO]: " + erro + "</h1>")
+//     })
 })
 
 app.listen(porta, () => {
