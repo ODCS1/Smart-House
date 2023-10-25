@@ -7,14 +7,15 @@ const porta = 3000
     // CONFIG
         // BD
         const database = require("./db");
-        const Cliente = require("./models/cliente");
-        const Pacote = require("./models/pacote");
-        const Compra = require("./models/compra");
-        const Casa = require("./models/casa");
-        const Endereco = require("./models/endereco");
-        const Comodo = require("./models/comodo");
-        const CasaComodo = require("./models/casaComodo");
-        const Led = require("./models/led");
+        const Cliente = require("./models/Cliente");
+        const Pacote = require("./models/Pacote");
+        const Compra = require("./models/Compra");
+        const Casa = require("./models/Casa");
+        const Endereco = require("./models/Endereco");
+        const Comodo = require("./models/Comodo");
+        const CasaComodo = require("./models/CasaComodo");
+        const Led = require("./models/Led");
+        // database.sequelize.sync()
         // TEMPLATE ENGINE
         app.engine('handlebars',handlebars.engine({defautLayout: 'main',
             runtimeOptions: {
@@ -46,88 +47,90 @@ app.post("/adicionar", (req,res) => {
     let novoCpf = Number(req.body.cpf)
 
     // DADOS PACOTE E CASA
-    let novoPacote = req.body.pacote
-    let novoNomeCasa = req.body.nomeCasa
+    // let novoPacote = req.body.pacote
+    // let novoNomeCasa = req.body.nomeCasa
 
     // DADOS ENDEREÇO
-    let novoCep = req.body.cep
-    let novoLogradouro = req.body.logradouro
-    let novoBairro = req.body.bairro
-    let novoNumero = req.body.numero
-    let novaCidade = req.body.cidade
-    let novoEstado = req.body.estado
-    let novoComplemento = req.body.complemento
+    // let novoCep = req.body.cep
+    // let novoLogradouro = req.body.logradouro
+    // let novoBairro = req.body.bairro
+    // let novoNumero = req.body.numero
+    // let novaCidade = req.body.cidade
+    // let novoEstado = req.body.estado
+    // let novoComplemento = req.body.complemento
 
-    (async () => {
-        await Cliente.create({
-            nome_cliente: novoNome,
-            sobrenome_cliente: novoSobrenome,
-            email_cliente: novoEmail,
-            senha_cliente: novaSenha,
-            cpf_cliente: novoCpf
-        })
-
-        let idCliente = await Cliente.findPk({where: {cpf_cliente: novoCpf}})
-        let qualPacote = await Pacote.findPk({where: {nome_pacote: novoPacote}})
-
-        await Compra.create({
-            id_cliente: idCliente,
-            id_pacote: qualPacote
-        })
-
-        let qtdLedCasa
-        let codComodos
-        let qtdLedComodos
-        if (qualPacote == 'Pacote básico') {
-            qtdLedCasa = 4
-            codComodos = ['q-1', 'q-2', 'q-3', 'b-1']
-            qtdLedComodos = [1, 1, 1, 1]
-        }else if (qualPacote == 'Pacote Vip') {
-            qtdLedCasa = 6
-            codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2']
-            qtdLedComodos = [1, 1, 1, 1, 1, 1]
-        }else if (qualPacote = 'Pacote Master') {
-            qtdLedCasa = 10
-            codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2', 'j-1']
-            qtdLedComodos = [1, 1, 1, 1, 1, 1, 4]
-        }
-
-        await Casa.create({
-            nome_casa: novoNomeCasa,
-            qtd_led_casa: qtdLedCasa,
-            id_cliente: idCliente
-        })
-
-        let idCasa = await Casa.findPk({where: {id_cliente: idCliente}})
-
-        await Endereco.create({
-            cep: novoCep,
-            logradouro: novoLogradouro,
-            bairro: novoBairro,
-            numero: novoNumero,
-            cidade: novaCidade,
-            estado: novoEstado,
-            complemento: novoComplemento,
-            id_casa: idCasa
-        })
-
-        await CasaComodo.create({
-            id_casa: idCasa,
-            cod_comodo: codComodos,
-            qtd_led_comodo: qtdLedComodos
-        })
+    Cliente.create({
+        nome_cliente: novoNome,
+        sobrenome_cliente: novoSobrenome,
+        email_cliente: novoEmail,
+        senha_cliente: novaSenha,
+        cpf_cliente: novoCpf
+    }).then(() => {
+        res.send("<h1>Dados Cadastrados com sucesso!</h1>")
+    }).catch((erro) => {
+        res.send("<h1>[ERRO]: " + erro + "</h1>")
     })
-//     Cliente.create({
-//         nome_cliente: novoNome,
-//         sobrenome_cliente: novoSobrenome,
-//         email_cliente: novoEmail,
-//         senha_cliente: novaSenha,
-//         cpf_cliente: novoCpf
-//     }).then(() => {
-//         res.send("<h1>Dados Cadastrados com sucesso!</h1>")
-//     }).catch((erro) => {
-//         res.send("<h1>[ERRO]: " + erro + "</h1>")
-//     })
+    
+    // (async () => {
+    //     await Cliente.create({
+    //         nome_cliente: novoNome,
+    //         sobrenome_cliente: novoSobrenome,
+    //         email_cliente: novoEmail,
+    //         senha_cliente: novaSenha,
+    //         cpf_cliente: novoCpf
+    //     })
+
+    //     let idCliente = await Cliente.findPk({where: {cpf_cliente: novoCpf}})
+    //     let qualPacote = await Pacote.findPk({where: {nome_pacote: novoPacote}})
+
+    //     await Compra.create({
+    //         id_cliente: idCliente,
+    //         id_pacote: qualPacote
+    //     })
+
+    //     let qtdLedCasa
+    //     let codComodos
+    //     let qtdLedComodos
+    //     if (qualPacote == 'Pacote básico') {
+    //         qtdLedCasa = 4
+    //         codComodos = ['q-1', 'q-2', 'q-3', 'b-1']
+    //         qtdLedComodos = [1, 1, 1, 1]
+    //     }else if (qualPacote == 'Pacote Vip') {
+    //         qtdLedCasa = 6
+    //         codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2']
+    //         qtdLedComodos = [1, 1, 1, 1, 1, 1]
+    //     }else if (qualPacote = 'Pacote Master') {
+    //         qtdLedCasa = 10
+    //         codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2', 'j-1']
+    //         qtdLedComodos = [1, 1, 1, 1, 1, 1, 4]
+    //     }
+
+    //     await Casa.create({
+    //         nome_casa: novoNomeCasa,
+    //         qtd_led_casa: qtdLedCasa,
+    //         id_cliente: idCliente
+    //     })
+
+    //     let idCasa = await Casa.findPk({where: {id_cliente: idCliente}})
+
+    //     await Endereco.create({
+    //         cep: novoCep,
+    //         logradouro: novoLogradouro,
+    //         bairro: novoBairro,
+    //         numero: novoNumero,
+    //         cidade: novaCidade,
+    //         estado: novoEstado,
+    //         complemento: novoComplemento,
+    //         id_casa: idCasa
+    //     })
+
+    //     await CasaComodo.create({
+    //         id_casa: idCasa,
+    //         cod_comodo: codComodos,
+    //         qtd_led_comodo: qtdLedComodos
+    //     })
+    // })
+
 })
 
 app.listen(porta, () => {

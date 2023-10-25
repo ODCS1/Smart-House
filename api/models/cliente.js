@@ -34,4 +34,6 @@ const Cliente = database.sequelize.define('Cliente', {
     }
 });
 
+database.sequelize.sync()
+
 module.exports = Cliente;
