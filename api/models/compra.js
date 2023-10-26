@@ -16,6 +16,9 @@ const Compra = database.sequelize.define('Compra', {
         type: database.Sequelize.INTEGER,
         allowNull: false
     }
+},
+{
+    timestamps: false
 });
 
 module.exports = Compra;

@@ -20,6 +20,9 @@ const Pacote = database.sequelize.define('Pacote', {
         type: database.Sequelize.STRING(27),
         allowNull: false
     }
+},
+{
+    timestamps: false
 });
 
 module.exports = Pacote;

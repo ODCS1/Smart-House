@@ -15,6 +15,9 @@ const Led = database.sequelize.define('Led', {
         type: database.Sequelize.STRING(10),
         allowNull: false
     }
+},
+{
+    timestamps: false
 });
 
 module.exports = Led;
