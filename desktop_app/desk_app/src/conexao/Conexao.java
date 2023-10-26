@@ -9,13 +9,13 @@ public class Conexao {
     // Conexao com o banco de dados 
     // Nesse arquivo se conecta com o banco de dados
 
-    private static final String url = "jdbc:sqlserver://regulus.cotuca.unicamp.br;databaseName=BD23623;schema=teste_bd;";
-    private static final String user = "BD23623";
-    private static final String password = "BD23623";
-
     // private static final String url = "jdbc:mysql://localhost:3306/teste_bd";
     // private static final String user = "root";
     // private static final String password = "root";
+
+    private static final String url = "jdbc:mysql://db4free.net";
+    private static final String user = "root_adv";
+    private static final String password = "12345678";
 
     private static Connection conn;
 

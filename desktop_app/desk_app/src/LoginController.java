@@ -30,8 +30,8 @@ public class LoginController {
         // nos campos de email e senha.
 
         Usuario usuario = new Usuario();
-        usuario.setEmail(email);
-        usuario.setSenha(senha);
+        usuario.setEmail_cliente(email);
+        usuario.setSenha_cliente(senha);
 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         Usuario usuarioCompleto = usuarioDAO.verificarCredenciais(usuario);

@@ -21,10 +21,10 @@ public class UsuarioDAO {
         Usuario usuarioCompleto = null;
     
         try {
-            sql = "SELECT * FROM teste_bd.usuario WHERE email = ? AND senha = ?";
+            sql = "SELECT * FROM sistema_casa.Clientes WHERE email_cliente = ? AND senha_cliente = ?";
             ps = connection.prepareStatement(sql);
-            ps.setString(1, usuario.getEmail());
-            ps.setString(2, usuario.getSenha());
+            ps.setString(1, usuario.getEmail_cliente());
+            ps.setString(2, usuario.getSenha_cliente());
 
             // Usa o SELECT para pesquisar na tabela de usuario se existe alguem com 
             // o email e senha digitado para logar
@@ -33,9 +33,10 @@ public class UsuarioDAO {
     
             if (rs.next()) {
                 usuarioCompleto = new Usuario();
-                usuarioCompleto.setNome(rs.getString("nome"));
-                usuarioCompleto.setEmail(rs.getString("email"));
-                usuarioCompleto.setCpf(rs.getString("cpf"));
+                usuarioCompleto.setNome_cliente(rs.getString("nome_cliente"));
+                usuarioCompleto.setSobrenome_cliente(rs.getString("sobrenome_cliente"));
+                usuarioCompleto.setEmail_cliente(rs.getString("email_cliente"));
+                usuarioCompleto.setCpf_cliente(rs.getString("cpf_cliente"));
 
                 //Seto o nome, email e cpf das respectivas colunas
             }

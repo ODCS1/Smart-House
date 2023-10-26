@@ -27,9 +27,9 @@ public class TelaSegurancaController {
     public void updateUserInfo() {
         Usuario usuarioCompleto = Session.getCurrentUser();
         if (usuarioCompleto != null) {
-            nomeCliente.setText("Nome: " + usuarioCompleto.getNome());
-            emailCliente.setText("Email: " + usuarioCompleto.getEmail());
-            cpfCliente.setText("Cpf: " + usuarioCompleto.getCpf());
+            nomeCliente.setText("Nome: " + usuarioCompleto.getNome_cliente() + " " + usuarioCompleto.getSobrenome_cliente());
+            emailCliente.setText("Email: " + usuarioCompleto.getEmail_cliente());
+            cpfCliente.setText("Cpf: " + usuarioCompleto.getCpf_cliente());
         }
 
         // Esse metodo utiliza o session que esta armazenado o usuario atual
