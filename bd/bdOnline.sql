@@ -1,8 +1,8 @@
 -- 1 - CRIANDO O ESQUEMA
-CREATE DATABASE Casa;
+CREATE DATABASE sistema_casa;
 
 -- 2 - TABELA DE CLIENTE
-CREATE TABLE projeto_casa.Clientes (
+CREATE TABLE sistema_casa.Clientes (
     id_cliente INT AUTO_INCREMENT,
     nome_cliente VARCHAR(30) NOT NULL,
     sobrenome_cliente VARCHAR(50) NULL,
@@ -13,7 +13,7 @@ CREATE TABLE projeto_casa.Clientes (
 );
 
 -- 3 - TABELA PACOTE
-CREATE TABLE projeto_casa.Pacotes (
+CREATE TABLE sistema_casa.Pacotes (
     id_pacote INT AUTO_INCREMENT,
     nome_pacote VARCHAR(50) UNIQUE NOT NULL,
     valor_pacote DECIMAL(10, 2) NOT NULL,
@@ -22,27 +22,27 @@ CREATE TABLE projeto_casa.Pacotes (
 );
 
 -- 4 - TABELA DE COMPRA
-CREATE TABLE projeto_casa.Compras (
+CREATE TABLE sistema_casa.Compras (
     id_compra INT AUTO_INCREMENT,
     id_cliente INT,
     id_pacote INT,
     PRIMARY KEY (id_compra),
-    FOREIGN KEY (id_cliente) REFERENCES projeto_casa.Clientes(id_cliente),
-    FOREIGN KEY (id_pacote) REFERENCES projeto_casa.Pacotes(id_pacote)
+    FOREIGN KEY (id_cliente) REFERENCES sistema_casa.Clientes(id_cliente),
+    FOREIGN KEY (id_pacote) REFERENCES sistema_casa.Pacotes(id_pacote)
 );
 
 -- 5 - TABELA CASA
-CREATE TABLE projeto_casa.Casas (
+CREATE TABLE sistema_casa.Casas (
     id_casa INT AUTO_INCREMENT,
     nome_casa VARCHAR(40) NULL,
     qtd_led_casa INT NOT NULL,
     id_cliente INT,
     PRIMARY KEY (id_casa),
-    FOREIGN KEY (id_cliente) REFERENCES projeto_casa.Clientes(id_cliente)
+    FOREIGN KEY (id_cliente) REFERENCES sistema_casa.Clientes(id_cliente)
 );
 
 -- 6 - TABELA ENDERECO
-CREATE TABLE projeto_casa.Enderecos (
+CREATE TABLE sistema_casa.Enderecos (
     id_endereco INT AUTO_INCREMENT,
     cep INT UNSIGNED NOT NULL,
     logradouro VARCHAR(40) NOT NULL,
@@ -53,45 +53,45 @@ CREATE TABLE projeto_casa.Enderecos (
     complemento VARCHAR(50) NULL,
     id_casa INT,
     PRIMARY KEY (id_endereco),
-    FOREIGN KEY (id_casa) REFERENCES projeto_casa.Casas(id_casa)
+    FOREIGN KEY (id_casa) REFERENCES sistema_casa.Casas(id_casa)
 );
 
 -- 7 - TABELA COMODO
-CREATE TABLE projeto_casa.Comodos (
+CREATE TABLE sistema_casa.Comodos (
     cod_comodo VARCHAR(10),
     nome_comodo VARCHAR(25) UNIQUE NOT NULL,
     PRIMARY KEY (cod_comodo)
 );
 
 -- 8 - TABELA CASACOMODO
-CREATE TABLE projeto_casa.CasaComodos (
+CREATE TABLE sistema_casa.CasaComodos (
     id_casa INT,
     cod_comodo VARCHAR(10),
     qtd_led_comodo INT NOT NULL,
     PRIMARY KEY (id_casa, cod_comodo),
-    FOREIGN KEY (id_casa) REFERENCES projeto_casa.Casas(id_casa),
-    FOREIGN KEY (cod_comodo) REFERENCES projeto_casa.Comodos(cod_comodo)
+    FOREIGN KEY (id_casa) REFERENCES sistema_casa.Casas(id_casa),
+    FOREIGN KEY (cod_comodo) REFERENCES sistema_casa.Comodos(cod_comodo)
 );
 
 -- 9 - TABELA LED
-CREATE TABLE projeto_casa.Leds (
+CREATE TABLE sistema_casa.Leds (
     cod_led VARCHAR(10),
     situacao TINYINT NOT NULL,
     cod_comodo VARCHAR(10),
     PRIMARY KEY (cod_led),
-    FOREIGN KEY (cod_comodo) REFERENCES projeto_casa.Comodos(cod_comodo)
+    FOREIGN KEY (cod_comodo) REFERENCES sistema_casa.Comodos(cod_comodo)
 );
 
 -- FAZENDO A INSERÇÃO DE DADOS
 -- 10 - INSERINDO EM Casa.Pacote
-INSERT INTO projeto_casa.Pacotes (nome_pacote, valor_pacote, acesso)
+INSERT INTO sistema_casa.Pacotes (nome_pacote, valor_pacote, acesso)
 VALUES
     ('Pacote básico', 250.30, 'Quartos'),
     ('Pacote Vip', 329.90, 'Cômodos Internos'),
     ('Pacote Master', 449.80, 'Cômodos Internos e Externos');
 
 -- 11 - INSERINDO EM Casa.Comodo
-INSERT INTO projeto_casa.Comodos (cod_comodo, nome_comodo)
+INSERT INTO sistema_casa.Comodos (cod_comodo, nome_comodo)
 VALUES
     ('q-1', 'Suíte Master'),
     ('q-2', 'Quarto Médio'),
@@ -103,7 +103,7 @@ VALUES
     ('b-2', 'Banheiro Externo');
 
 -- 12 - INSERINDO EM Casa.Led
-INSERT INTO projeto_casa.Leds (cod_led, situacao, cod_comodo)
+INSERT INTO sistema_casa.Leds (cod_led, situacao, cod_comodo)
 VALUES
     ('led-1', 0, 'q-1'),
     ('led-2', 0, 'q-1'),
@@ -119,35 +119,35 @@ VALUES
 -- AGORA SIMULANDO UM NOVO CLIENTE
 
 -- 13 - INSERT CLIENTE
-INSERT INTO projeto_casa.Clientes (nome_cliente, sobrenome_cliente, email_cliente, senha_cliente, cpf_cliente)
+INSERT INTO sistema_casa.Clientes (nome_cliente, sobrenome_cliente, email_cliente, senha_cliente, cpf_cliente)
 VALUES
     ('Sérgio', 'Rodrigo', 'sergioR@gmail.com', 'senha123Sergio', 12345678912),
     ('Carlos', 'Roberto', 'carlosR@gmail.com', 'senha123Carlos', 12345678913),
     ('Pedro', 'Queiróz', 'pedroQ@gmail.com', 'senha123Pedro', 12345678914);
 
 -- 14 - INSERT COMPRA
-INSERT INTO projeto_casa.Compras (id_cliente, id_pacote)
+INSERT INTO sistema_casa.Compras (id_cliente, id_pacote)
 VALUES
     (1, 2),
     (2, 1),
     (3, 3);
 
 -- 15 - INSERT CASA
-INSERT INTO projeto_casa.Casas (nome_casa, qtd_led_casa, id_cliente)
+INSERT INTO sistema_casa.Casas (nome_casa, qtd_led_casa, id_cliente)
 VALUES
     ('Sérgio House', 6, 1),
     ('Carlos House', 4, 2),
     ('Pedro House', 10, 3);
 
 -- 16 - INSERT ENDERECO
-INSERT INTO projeto_casa.Enderecos (cep, logradouro, bairro, numero, cidade, estado, complemento, id_casa)
+INSERT INTO sistema_casa.Enderecos (cep, logradouro, bairro, numero, cidade, estado, complemento, id_casa)
 VALUES
     (12345678, 'R. Jardim Das Flores', 'Japão', 352, 'Santo André', 'SP', NULL, 1),
     (98765432, 'Av. Professor Ozório', 'Bairro Ciência', 872, 'Campinas', 'SP', NULL, 2),
     (45623987, 'Rua Luiz Bernardo', 'Coliseu', 352, 'Maribondo', 'RS', 'BL B, AP. 254', 3);
 
 -- 17 - INSERT CASACOMODO
-INSERT INTO projeto_casa.CasaComodos (id_casa, cod_comodo,qtd_led_comodo)
+INSERT INTO sistema_casa.CasaComodos (id_casa, cod_comodo,qtd_led_comodo)
 VALUES
     (1, 'q-1', 2),
     (1, 'q-2', 1),
@@ -168,23 +168,23 @@ VALUES
     (3, 'j-1', 4);
 
 -- COMANDOS DE SELEÇÃO
-SELECT * FROM projeto_casa.Clientes;
-SELECT * FROM projeto_casa.Compras;
-SELECT * FROM projeto_casa.Pacotes;
-SELECT * FROM projeto_casa.Casas;
-SELECT * FROM projeto_casa.Enderecos;
-SELECT * FROM projeto_casa.Comodos;
-SELECT * FROM projeto_casa.CasaComodos;
-SELECT * FROM projeto_casa.Leds;
+SELECT * FROM sistema_casa.Clientes;
+SELECT * FROM sistema_casa.Compras;
+SELECT * FROM sistema_casa.Pacotes;
+SELECT * FROM sistema_casa.Casas;
+SELECT * FROM sistema_casa.Enderecos;
+SELECT * FROM sistema_casa.Comodos;
+SELECT * FROM sistema_casa.CasaComodos;
+SELECT * FROM sistema_casa.Leds;
 
 
 -- COMANDOS DE DROP
---DROP TABLE projeto_casa.Leds
---DROP TABLE projeto_casa.CasaComodos
--- DROP TABLE projeto_casa.Enderecos
--- DROP TABLE projeto_casa.Comodos
--- DROP TABLE projeto_casa.Casas
--- DROP TABLE projeto_casa.Compras
--- DROP TABLE projeto_casa.Clientes
+-- DROP TABLE sistema_casa.Leds
+-- DROP TABLE sistema_casa.CasaComodos
+-- DROP TABLE sistema_casa.Enderecos
+-- DROP TABLE sistema_casa.Comodos
+-- DROP TABLE sistema_casa.Casas
+-- DROP TABLE sistema_casa.Compras
+-- DROP TABLE sistema_casa.Clientes
 
 -- AINDA FALTA O CREATE VIEW E A PARTE DE PROGRAMAÇÃO DENTRO DO BANCO DE DADOS.

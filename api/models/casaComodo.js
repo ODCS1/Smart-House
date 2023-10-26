@@ -14,6 +14,9 @@ const CasaComodo = database.sequelize.define('CasaComodo', {
         type: database.Sequelize.INTEGER,
         allowNull: false
     }
+},
+{
+    timestamps: false
 });
 
 module.exports = CasaComodo;

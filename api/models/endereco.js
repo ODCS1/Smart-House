@@ -39,6 +39,9 @@ const Endereco = database.sequelize.define('Endereco', {
     id_casa: {
         type: database.Sequelize.INTEGER
     }
+},
+{
+    timestamps: false
 });
 
 module.exports = Endereco;

@@ -31,7 +31,11 @@ const Cliente = database.sequelize.define('Cliente', {
         validate: {
             is: /^[0-9]{11}$/
         }
-    }
+    },
+    
+},
+{
+    timestamps: false
 });
 
 database.sequelize.sync()

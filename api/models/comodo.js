@@ -12,6 +12,9 @@ const Comodo = database.sequelize.define('Comodo', {
         allowNull: false,
         unique: true
     }
+},
+{
+    timestamps: false
 });
 
 module.exports = Comodo;
