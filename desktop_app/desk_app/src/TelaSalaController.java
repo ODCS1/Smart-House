@@ -1,5 +1,6 @@
 import java.io.IOException;
-
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,26 +11,53 @@ import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 
 public class TelaSalaController {
-    
+
     private Stage stage;
     private Scene scene;
-    private boolean luzLigada = false;
+
+    private BooleanProperty luz1Ligada = new SimpleBooleanProperty(false);
+    private BooleanProperty luz2Ligada = new SimpleBooleanProperty(false);
+    private BooleanProperty luz3Ligada = new SimpleBooleanProperty(false);
 
     @FXML
     private RadioButton luz1;
-    
-    public void ligarLuz1(ActionEvent event) throws IOException {
-        luzLigada = !luzLigada;
-        if(luzLigada) {
-            System.out.println("Luz 1 esta ligada");
-        } else {
-            System.out.println("Luz 1 esta desligada");
-        }
-        updateLuz1();
+    @FXML
+    private RadioButton luz2;
+    @FXML
+    private RadioButton luz3;
+
+    public void initialize() {
+
+        luz1.setSelected(luz1Ligada.get());
+        luz2.setSelected(luz2Ligada.get());
+        luz3.setSelected(luz3Ligada.get());
     }
 
-    public void updateLuz1() {
-        luz1.setSelected(luzLigada);
+    public void ligarLuz1(ActionEvent event) throws IOException {
+        luz1Ligada.set(!luz1Ligada.get());
+        if (luz1Ligada.get()) {
+            System.out.println("Luz 1 ON");
+        } else {
+            System.out.println("Luz 1 OFF");
+        }
+    }
+
+    public void ligarLuz2(ActionEvent event) throws IOException {
+        luz2Ligada.set(!luz2Ligada.get());
+        if (luz2Ligada.get()) {
+            System.out.println("Luz 2 ON");
+        } else {
+            System.out.println("Luz 2 OFF");
+        }
+    }
+
+    public void ligarLuz3(ActionEvent event) throws IOException {
+        luz3Ligada.set(!luz3Ligada.get());
+        if (luz3Ligada.get()) {
+            System.out.println("Luz 3 ON");
+        } else {
+            System.out.println("Luz 3 OFF");
+        }
     }
 
     public void switchToScene2(ActionEvent event) throws IOException {
@@ -48,3 +76,4 @@ public class TelaSalaController {
         stage.show();
     }
 }
+
