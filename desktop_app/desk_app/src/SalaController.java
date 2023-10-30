@@ -5,18 +5,38 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class TelaMainController {
+public class SalaController {
+
+    @FXML
+    private CheckBox myCheckBox;
+    @FXML
+    private Label myLabel;
+    @FXML
+    private ImageView myImageView;
+
     private Stage stage;
     private Scene scene;
 
-    @FXML
-    Label nomeCliente;
 
-    // Ja esse .java é responsavel por todas as trocas de telas que tem
-    // desde a tela 1 que seria a login ate a tela dos comodos
+    Image myImage1 = new Image(getClass().getResourceAsStream("./img/light-bulb.png"));
+    Image myImage2 = new Image(getClass().getResourceAsStream("./img/light-bulb-on.png"));
+
+    @FXML
+    public void change(ActionEvent event) {
+        if (myCheckBox.isSelected()) {
+            myLabel.setText("ON");
+            myImageView.setImage(myImage2);
+        } else {    
+            myLabel.setText("OFF");
+            myImageView.setImage(myImage1);
+        }
+    }
 
     public void switchToScene1(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaLogin.fxml"));
@@ -88,5 +108,5 @@ public class TelaMainController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
+    }   
 }

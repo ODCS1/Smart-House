@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
@@ -9,34 +10,61 @@
    <children>
       <AnchorPane id="anchorPane" layoutX="198.0" prefHeight="712.0" prefWidth="996.0" stylesheets="/css/principal.css">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="215.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../img/sala.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="133.0" fitWidth="233.0" layoutX="535.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../img/cozinha.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="183.0" fitWidth="243.0" layoutX="541.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../img/suite.jpeg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="321.0" fitWidth="233.0" layoutX="134.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../img/quarto%201.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="190.0" fitWidth="168.0" layoutX="406.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../img/quarto%202.jpg" />
-               </image>
-            </ImageView>
-            <Button layoutX="236.0" layoutY="233.0" mnemonicParsing="false" onAction="#switchToSalaDeTv" styleClass="botao-comodos" text="Acender Sala De TV" />
-            <Button layoutX="597.0" layoutY="233.0" mnemonicParsing="false" onAction="#switchToCozinha" styleClass="botao-comodos" text="Acender Cozinha" />
-            <Button layoutX="412.0" layoutY="519.0" mnemonicParsing="false" onAction="#switchToQuartos" styleClass="botao-comodos" text="Acender Quartos" />
+            <Button layoutX="100.0" layoutY="65.0" mnemonicParsing="false" onAction="#MostrarLuzSala">
+               <graphic>
+                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../img/assistir-tv.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="327.0" layoutY="65.0" mnemonicParsing="false" onAction="#MostrarLuzQuarto2">
+               <graphic>
+                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../img/cama.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="327.0" layoutY="255.0" mnemonicParsing="false" onAction="#MostrarLuzBanheiro">
+               <graphic>
+                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../img/banheira.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="100.0" layoutY="466.0" mnemonicParsing="false" onAction="#MostrarLuzQuarto1">
+               <graphic>
+                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../img/cama-de-solteiro.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="327.0" layoutY="466.0" mnemonicParsing="false" onAction="#MostrarLuzJardim">
+               <graphic>
+                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../img/jardim.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="100.0" layoutY="255.0" mnemonicParsing="false" onAction="#MostrarLuzMaster">
+               <graphic>
+                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../img/quarto.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <StackPane fx:id="luzesStackPane" layoutX="554.0" layoutY="65.0" prefHeight="566.0" prefWidth="391.0" />
          </children></AnchorPane>
       <Button layoutX="22.0" layoutY="276.0" mnemonicParsing="false" styleClass="botao-customizado" text="Configurações">
          <graphic>
