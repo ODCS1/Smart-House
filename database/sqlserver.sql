@@ -201,7 +201,7 @@ SELECT * FROM Casa.Led
 
 -- VIEW
 CREATE VIEW Casa.View_Cliente AS
-SELECT nome_cliente, sobrenome_cliente, email_cliente
+SELECT nome_cliente, sobrenome_cliente, email_cliente, cpf_cliente
 FROM Casa.Cliente;
 
 SELECT * FROM Casa.View_Cliente WHERE email_cliente = 'EMAIL'
