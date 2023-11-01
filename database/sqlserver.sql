@@ -199,7 +199,12 @@ SELECT * FROM Casa.Led
 -- DROP TABLE Casa.Cliente
 -- DROP SCHEMA Casa
 
--- AINDA FALTA O CREATE VIEW E A PARTE DE PROGRAMAÇÃO DENTRO DO BANCO DE DADOS.
+-- VIEW
+CREATE VIEW Casa.View_Cliente AS
+SELECT nome_cliente, sobrenome_cliente, email_cliente
+FROM Casa.Cliente;
+
+SELECT * FROM Casa.View_Cliente WHERE email_cliente = 'EMAIL'
 
 CREATE VIEW [Cliente Segurança] AS
 SELECT nome_cliente, sobrenome_cliente, email_cliente
@@ -211,3 +216,92 @@ SELECT CL.nome_cliente, CL.sobrenome_cliente, CL.email_cliente, CL.cpf_cliente
 FROM Casa.Cliente CL
 WHERE id_cliente = idAtual
 INNER JOIN Casa.Endereco E ON CL.id_cliente = E.id_cliente
+
+
+-- SP
+-- AUTENTICAÇÃO DO CLIENTE POR EMAIL E SENHA
+CREATE PROCEDURE Casa.AuthenticateCliente
+    @email_cliente VARCHAR(100),
+    @senha_cliente VARCHAR(20)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    DECLARE @id_cliente INT;
+
+    SELECT @id_cliente = id_cliente
+    FROM Casa.Cliente
+    WHERE email_cliente = @email_cliente
+      AND senha_cliente = @senha_cliente;
+
+
+    SELECT @id_cliente AS Result;
+END;
+
+DECLARE @result INT;
+EXEC Casa.AuthenticateCliente @email_cliente = 'email_do_cliente', @senha_cliente = 'senha_do_cliente';
+SELECT @result;
+
+
+-- SP PARA ATUALIZAR LEDS
+CREATE PROCEDURE Casa.ControlarLED
+    @cod_led VARCHAR(10),
+    @situacao BIT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Atualize a situação do LED na tabela Casa.Led
+    UPDATE Casa.Led
+    SET situacao = @situacao
+    WHERE cod_led = @cod_led;
+
+    -- Você pode adicionar código adicional aqui, como notificar o Arduino
+    -- sobre a mudança de estado do LED, se necessário.
+END;
+
+
+EXEC Casa.ControlarLED @cod_led = 'led-1', @situacao = 1;
+
+
+-- SP PARA CADASTRO COMPLETO
+CREATE PROCEDURE Casa.CadastrarClienteCompleto
+    @nome_cliente VARCHAR(30),
+    @sobrenome_cliente VARCHAR(50),
+    @email_cliente VARCHAR(100),
+    @senha_cliente VARCHAR(20),
+    @cpf_cliente BIGINT,
+    @id_pacote INT,
+    @nome_casa VARCHAR(40),
+    @qtd_led_casa INT,
+    @cep INT,
+    @logradouro VARCHAR(40),
+    @bairro VARCHAR(30),
+    @numero INT,
+    @cidade VARCHAR(40),
+    @estado CHAR(2),
+    @complemento VARCHAR(50),
+    @cod_comodo VARCHAR(10),
+    @qtd_led_comodo INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO Casa.Cliente (nome_cliente, sobrenome_cliente, email_cliente, senha_cliente, cpf_cliente)
+    VALUES (@nome_cliente, @sobrenome_cliente, @email_cliente, @senha_cliente, @cpf_cliente);
+
+    DECLARE @id_cliente INT;
+    SET @id_cliente = SCOPE_IDENTITY();
+
+    INSERT INTO Casa.Compra (id_cliente, id_pacote)
+    VALUES (@id_cliente, @id_pacote);
+
+    INSERT INTO Casa.Casa (nome_casa, qtd_led_casa, id_cliente)
+    VALUES (@nome_casa, @qtd_led_casa, @id_cliente);
+
+    INSERT INTO Casa.Endereco (cep, logradouro, bairro, numero, cidade, estado, complemento, id_casa)
+    VALUES (@cep, @logradouro, @bairro, @numero, @cidade, @estado, @complemento, SCOPE_IDENTITY());
+
+    INSERT INTO Casa.CasaComodo (id_casa, cod_comodo, qtd_led_comodo)
+    VALUES (SCOPE_IDENTITY(), @cod_comodo, @qtd_led_comodo);
+END;
