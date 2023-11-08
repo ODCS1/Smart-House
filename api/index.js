@@ -27,6 +27,8 @@ const porta = 3000
         // BODY PARSER
         app.use(bodyParser.urlencoded({extended: false}))
         app.use(bodyParser.json())
+        // CAMINHO ARQUIVOS
+        app.use(express.static("arquivos"))
 
 // ROTAS
 
