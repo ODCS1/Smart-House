@@ -1,5 +1,24 @@
 @charset "UTF-8";
 
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* /* html {
+    border: 3px solid black;
+} */
+body {
+    border: 3px solid black;
+}
+
+main {
+    /* border: 3px solid black; */
+    width: 90%;
+    margin: auto;
+    padding: 10px 3px;
+}
+
 p {
     margin-top: 40px;
 }
