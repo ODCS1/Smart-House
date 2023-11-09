@@ -1,5 +1,245 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+:root{
+    --cor: #666;
+    --cor0: #1E2122;
+    /* --cor1: #E50914; */
+    --cor1:   rgb(120, 141, 231);
+    --cor2: #306866;
+    --cor3: #5f2c82;
+	--cor4: #F8D88D;
+}
+
+
+body,
+html {
+	height: 100vh;
+	margin: 0px;
+	font-size: 16px;
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	line-height: 1.8em;
+	color: var(--cor);
+}
+
+/* Página de Cartaz */
+main{
+	padding: 70px 40px;
+	width: 100%;
+	height: 100vh;
+	background-color: var(--cor0);
+}
+main h1{
+	color: rgb(199, 199, 178);
+}
+main p{
+	color: white;
+}
+section#container{
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	grid-template-rows: 100vh;
+	grid-template-areas: "f v";
+}
+
+
+
+/* Página principal */
+.login span{
+	width: 30px;
+}
+.navbar {
+	/* background-image: url('../imagens/topo.jpg'); */
+	background-color: black;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: white;
+	margin: 0;
+	padding: 0;
+}
+.navbar a.navbar-brand{
+	font-family: 'Oswald', sans-serif;
+	font-size: 2em;
+	color: var(--cor1);
+}
+
+ul.nav a:hover {
+	color: black !important;
+}
+
+.myLogo {
+	width: 250px;
+}
+
+.logoCV {
+	width: 50px;
+}
+
+.icon-bar {
+	background-color: white;
+}
+
+p {
+	line-height: 4rem;
+}
+
+.pimg1,
+.pimg2,
+.pimg3,
+.pimg4,
+.pimg5 {
+	position: relative;
+	/* opacity: 0.7; */
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.pimg1 {
+	background-image: url("../imgs/img11.avif");
+	min-height: 100%;
+}
+
+.headH1 {
+	color: var(--cor1);
+	margin-top: 5rem;
+}
+
+.pimg2 {
+	background-color: var(--cor0);
+	min-height: 400px;
+}
+
+section#col{
+	display: flex;
+	justify-content: space-around;
+	column-gap: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
+	background-color: var(--cor0);
+}
+section#col > div#col1-container{
+	width: 350px;
+	height: 150px;
+	border-radius: 5px;
+	background-color: var(--cor4);
+	text-align: center;
+	position: relative;
+}
+section#col div#col1{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background-image: url('../imgs/unicamp-logo.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+section#col > div#col2-container{
+	width: 350px;
+	height: 150px;
+	border-radius: 5px;
+	background-color: black;
+	text-align: center;
+	position: relative;
+}
+
+section#col div#col2{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background-image: url('../imgs/cotuca-logo-removebg-preview.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.pimg3 {
+	background-image: url("../imgs/img2.png");
+	min-height: 400px;
+}
+
+.pimg4 {
+	background-image: url("../img/standing-man.jpg");
+	min-height: 400px;
+}
+
+.pimg5 {
+	background-image: url("../img/black-cinemas.jpg");
+	min-height: 100%;
+}
+
+.section {
+	font-size: 18px;
+	text-align: center;
+	justify-content: center;
+	text-align: center;
+	padding: 50px 50px;
+}
+
+.section-text {
+	background-color: var(--cor0);
+	text-align: center;
+	justify-content: center;
+	text-align: center;
+	color: #A8A095;
+}
+
+
+.ptext {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	text-align: center;
+	color: #000;
+	font-size: 27px;
+	letter-spacing: 8px;
+	text-transform: uppercase;
+	opacity: 80%;
+	text-shadow: 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+.ptext .border {
+
+	color: #fff;
+	padding: 20px;
+}
+
+.ptext .border.trans {
+	background-color: transparent;
+}
+
+.main-li {
+	list-style: none;
+	font-size: 2rem;
+	margin: 1.5rem 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+	font-size: 2rem;
+	margin: 1.5rem 0;
+	padding: 0;
+}
+
+
+
+/* @charset "UTF-8";
+
 *{
     margin: 0px;
     padding: 0px;
@@ -8,17 +248,17 @@
 /* /* html {
     border: 3px solid black;
 } */
+/*
 body {
     border: 3px solid black;
 }
 
 main {
-    /* border: 3px solid black; */
     width: 90%;
     margin: auto;
     padding: 10px 3px;
-}
+}/*
 
 p {
     margin-top: 40px;
-}
+} 
