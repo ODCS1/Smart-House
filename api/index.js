@@ -40,6 +40,10 @@ app.get("/cadastro", (req,res) => {
     res.render("cadastroCompleto")
 })
 
+app.get("/pagamento", (req,res) => {
+    res.render("pagamentoRealizado")
+})
+
 app.post("/adicionar", (req,res) => {
     // DADOS CLIENTE
     let novoNome = req.body.nome

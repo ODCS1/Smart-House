@@ -93,10 +93,32 @@ white-space: nowrap;
 width: 1px;
 }
 
-li:pressed {
-    background-color: aliceblue;
+div#centralizar-qr {
+    text-align: center;
 }
 
+/* Estilos do botão */
+.blue-button {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .blue-button:hover {
+    background-color: #2980b9;
+    border: 1px solid rgb(37, 37, 37);
+
+  }
+  
+  .blue-button:active {
+    background-color: #216a94;
+    border: 1px solid black;
+  }
 
 /* Typical Device Breakpoints
 -----------------------------
@@ -112,16 +134,65 @@ form {
     border: 2px solid white;
 }
 
-@media (min-width: 280px) and (max-width: 600px){
+@media (min-width: 280px) and (max-width: 599px){
+    h1#tabs-title {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .tabs-container ul > li > a > img {
+        width: 40px;
+    }
+
+    div  p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    input {
+        display: block;
+        width: 170px;
+        margin-top: -22px;
+    }
+
+    label#lblEstado{
+        margin-bottom: -47px;
+    }
+
+    label#lblComplemento {
+        margin-top: -22px;
+    }
+
+    label {
+        display: block;
+    }
+
+    /* input[type= 'text']#isobrenome {
+        width: 134px;
+    } */
+
+}
+
+@media (min-width: 450px) and (max-width: 767px) {
     .tabs-container ul > li > a > img {
         width: 50px;
     }
+}
 
-    div#dados-pessoais > p {
-        margin-bottom: 5px;
+@media (min-width: 768px) and (max-width: 991px) {
+    .tabs-container ul > li > a > img {
+        width: 60px;
     }
+}
 
-    input[type= 'text']#isobrenome {
-        width: 134px;
+@media (min-width: 992px) and (max-width: 1199px) {
+    .tabs-container ul > li > a > img {
+        width: 65px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .tabs-container ul > li > a > img {
+        width: 70px;
     }
 }

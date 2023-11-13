@@ -43,9 +43,9 @@
                     <input type="text" name="cpf" id="icpf" placeholder="12345678901">
                 </p>
 
-                <p>
+                {{!-- <p>
                     <button>Próximo</button>
-                </p>
+                </p> --}}
             </div>
             <div id="endereco" aria-labelledby="tab-2">
                 <h2>Endereço</h2>
@@ -70,7 +70,7 @@
                     <input type="text" name="cidade" id="icidade">
                 </p>
                 <p>
-                    <label for="iestado">Estado</label>
+                    <label id="lblEstado" for="iestado">Estado</label>
                     <select id="iestado" name="estado">
                         <option selected>Escolher...</option>
                         <option value="AC">AC</option>
@@ -105,12 +105,12 @@
                 </p>
 
                 <p>
-                    <label for="icomplemento">Complemento</label>
+                    <label id="lblComplemento" for="icomplemento">Complemento</label>
                     <input type="text" name="complemento" id="icomplemento">
                 </p>
-                <p>
+                {{!-- <p>
                     <button>Próximo</button>
-                </p>
+                </p> --}}
             </div>
             <div id="plano" aria-labelledby="tab-3">
                 <h2>Plano</h2>
@@ -124,18 +124,23 @@
                     <label for="inomeCasa">Nome da casa: </label>
                     <input type="text" name="nomeCasa" id="inomeCasa">
                 </p>
-                <p>
+                {{!-- <p>
                     <button>Próximo</button>
-                </p>
+                </p> --}}
             </div>
             <div id="pagamento" aria-labelledby="tab-4">
                 <h2>Pagamento</h2>
-                <p>
-                REALIZE O PAGAMENTO AGORA 
-                </p>
-                <p>
-                    <button type="submit">Finalizar</button>
-                </p>
+                <div id="centralizar-qr">
+                    <p>
+                    REALIZE O PAGAMENTO AGORA 
+                    </p>
+                    <img src="./imgs/frame.png" alt="QRCODE pagamento">
+                    <p>
+                        {{!-- <button type="submit">Finalizar</button> --}}
+                        <button type="submit" class="blue-button">Finalizar</button>
+                    </p>
+                </div>
+                
             </div>
             </div>
         </div>
