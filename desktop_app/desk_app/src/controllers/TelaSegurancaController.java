@@ -1,3 +1,4 @@
+package controllers;
 import java.io.IOException;
 
 import entidade.Usuario;
@@ -29,7 +30,7 @@ public class TelaSegurancaController {
         if (usuarioCompleto != null) {
             nomeCliente.setText("Nome: " + usuarioCompleto.getNome_cliente() + " " + usuarioCompleto.getSobrenome_cliente());
             emailCliente.setText("Email: " + usuarioCompleto.getEmail_cliente());
-            cpfCliente.setText("Cpf: " + usuarioCompleto.getCpf_cliente());
+            cpfCliente.setText("Cpf: " + formatarCPF(usuarioCompleto.getCpf_cliente()));
         }
 
         // Esse metodo utiliza o session que esta armazenado o usuario atual
@@ -37,8 +38,26 @@ public class TelaSegurancaController {
         // ou seja, caso eu mude de usuario as informacoes mudaram tambem
     }
 
+    public String formatarCPF(String cpf) {
+        cpf = cpf.replaceAll("[^0-9]", "");
+
+        StringBuilder cpfFormatado = new StringBuilder();
+        for(int i = 0; i < cpf.length(); i++) {
+            cpfFormatado.append(cpf.charAt(i));
+            if(i == 2 || i == 5) {
+                cpfFormatado.append(".");
+            } else if(i == 8) {
+                cpfFormatado.append("-");
+            }
+        }
+        return cpfFormatado.toString();
+
+
+        //Formata o CPF (000.000.000-00)
+    }
+
     public void switchToScene2(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaMain.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaMain.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

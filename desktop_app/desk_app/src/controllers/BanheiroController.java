@@ -1,4 +1,7 @@
+package controllers;
 import java.io.IOException;
+
+import estado_lampadas.EstadoLampBanheiro;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class SalaController {
+public class BanheiroController {
 
     @FXML
     private CheckBox myCheckBox;
@@ -24,11 +27,25 @@ public class SalaController {
     private Scene scene;
 
 
-    Image myImage1 = new Image(getClass().getResourceAsStream("./img/light-bulb.png"));
-    Image myImage2 = new Image(getClass().getResourceAsStream("./img/light-bulb-on.png"));
+    Image myImage1 = new Image(getClass().getResourceAsStream("/img/light-bulb.png"));
+    Image myImage2 = new Image(getClass().getResourceAsStream("/img/light-bulb-on.png"));
 
     @FXML
     public void change(ActionEvent event) {
+        if (myCheckBox.isSelected()) {
+            myLabel.setText("ON");
+            myImageView.setImage(myImage2);
+            EstadoLampBanheiro.setCheckedBanheiro(true);
+        } else {    
+            myLabel.setText("OFF");
+            myImageView.setImage(myImage1);
+            EstadoLampBanheiro.setCheckedBanheiro(false);
+        }
+    }
+
+    @FXML
+    public void initialize() {
+        myCheckBox.setSelected(EstadoLampBanheiro.isCheckedBanheiro());
         if (myCheckBox.isSelected()) {
             myLabel.setText("ON");
             myImageView.setImage(myImage2);
@@ -39,7 +56,7 @@ public class SalaController {
     }
 
     public void switchToScene1(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaLogin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaLogin.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -47,7 +64,7 @@ public class SalaController {
     }
 
     public void switchToScene2(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaMain.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaMain.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -55,7 +72,7 @@ public class SalaController {
     }
 
     public void MostrarLuzSala(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaSala.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaSala.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -63,7 +80,7 @@ public class SalaController {
     }
 
     public void MostrarLuzMaster(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaMaster.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaMaster.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -71,7 +88,7 @@ public class SalaController {
     }
 
     public void MostrarLuzJardim(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaJardim.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaJardim.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -79,7 +96,7 @@ public class SalaController {
     }
 
     public void MostrarLuzQuarto1(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaQuarto1.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaQuarto1.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -87,7 +104,7 @@ public class SalaController {
     }
 
     public void MostrarLuzQuarto2(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaQuarto2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaQuarto2.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -95,7 +112,7 @@ public class SalaController {
     }
 
     public void switchToSeg(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaSeguranca.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaSeguranca.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -103,10 +120,10 @@ public class SalaController {
     }
 
     public void MostrarLuzBanheiro(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("./telas/TelaBanheiro.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaBanheiro.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }   
+    }
 }
