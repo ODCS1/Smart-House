@@ -1,109 +1,145 @@
 <head>
     <title>Cadastro Completo</title>
+    <link rel="stylesheet" href="./style/form.css">
 </head>
 
 <form action="/adicionar" method="post">
-    <fieldset id="cadCliente">
-        <legend>Dados Pessoais</legend>
-        <p>
-            <label for="inome">Nome: </label>
-            <input type="text" name="nome" placeholder="Primeiro Nome" id="inome" required="true">
-        </p>
+    <div class="wrapper">
+        <h1 id="tabs-title">Cadastro</h1>
 
-        <p>
-            <label for="isobrenome">Sobrenome: </label>
-            <input type="text" name="sobrenome" placeholder="Sobrenome" id="isobrenonome" required="true">
-        </p>
+        <div class="tabs-container">
+            <ul aria-labelledby="tabs-title">
+            <li><a id="tab-1" href="#dados-pessoais"> <img src="./imgs/001-personal-information.png" alt="Dados Pessoais"> </a></li>
+            <li><a id="tab-2" href="#endereco"> <img src="./imgs/002-home.png" alt="Localização"> </a></li>
+            <li><a id="tab-3" href="#plano"> <img src="./imgs/003-select.png" alt="Plano Selecionado"> </a></li>
+            <li><a id="tab-4" href="#pagamento"> <img src="./imgs/004-invoice.png" alt="Pagamento"> </a></li>
+            </ul>
 
-        <p>
-            <label for="iemail">Email: </label>
-            <input type="email" name="email" id="iemail" placeholder="email@gmail.com" required="true">
-        </p>
+            <div class="tabs__panels flow">
+            <div id="dados-pessoais" aria-labelledby="tab-1">
+                <h2>Dados Pessoais</h2>
+                <p>
+                    <label for="inome">Nome: </label>
+                    <input type="text" name="nome" placeholder="Primeiro Nome" id="inome" required="true">
+                </p>
 
-        <p>
-            <label for="isenha">Senha: </label>
-            <input type="password" name="senha" id="isenha" placeholder="[a-z]-[0-9]" required="true">
-        </p>
+                <p>
+                    <label for="isobrenome">Sobrenome: </label>
+                    <input type="text" name="sobrenome" placeholder="Sobrenome" id="isobrenome" required="true">
+                </p>
 
-        <p>
-            <label for="icpf">Cpf: </label>
-            <input type="text" name="cpf" id="icpf" placeholder="12345678901">
-        </p>
+                <p>
+                    <label for="iemail">Email: </label>
+                    <input type="email" name="email" id="iemail" placeholder="email@gmail.com" required="true">
+                </p>
 
-        <button type="submit">Cadastrar</button>
-    </fieldset>
+                <p>
+                    <label for="isenha">Senha: </label>
+                    <input type="password" name="senha" id="isenha" placeholder="[a-z]-[0-9]" required="true">
+                </p>
 
-    <fieldset id="cadEndereco">
-        <legend>Endereço</legend>
-        <p>
-            <label for="icep">Cep</label>
-            <input type="text" id="icep" placeholder="Somente Números" maxlength="8">
-        </p>
-         <p>
-            <label for="ilogradouro">Logradouro</label>
-            <input type="text" id="ilogradouro" placeholder="Rua de exemplo">
-        </p>
-        <p>
-            <label for="icidade">Cidade</label>
-            <input type="text" name="cidade" id="icidade">
-        </p>
-        <p>
-            <label for="iestado">Estado</label>
-            <select id="iestado" name="estado">
-                <option selected>Escolher...</option>
-                <option value="AC">AC</option>
-                <option value="AL">AL</option>
-                <option value="AP">AP</option>
-                <option value="AM">AM</option>
-                <option value="BA">BA</option>
-                <option value="CE">CE</option>
-                <option value="DF">DF</option>
-                <option value="ES">ES</option>
-                <option value="GO">GO</option>
-                <option value="MA">MA</option>
-                <option value="MT">MT</option>
-                <option value="MS">MS</option>
-                <option value="MG">MG</option>
-                <option value="PA">PA</option>
-                <option value="PB">PB</option>
-                <option value="PR">PR</option>
-                <option value="PE">PE</option>
-                <option value="PI">PI</option>
-                <option value="RJ">RJ</option>
-                <option value="RN">RN</option>
-                <option value="RS">RS</option>
-                <option value="RO">RO</option>
-                <option value="RR">RR</option>
-                <option value="SC">SC</option>
-                <option value="SP">SP</option>
-                <option value="SE">SE</option>
-                <option value="TO">TO</option>
-                
-            </select>
-        </p>
+                <p>
+                    <label for="icpf">Cpf: </label>
+                    <input type="text" name="cpf" id="icpf" placeholder="12345678901">
+                </p>
 
-        <p>
-            <label for="icomplemento">Complemento</label>
-            <input type="text" name="complemento" id="icomplemento">
-        </p>
+                <p>
+                    <button>Próximo</button>
+                </p>
+            </div>
+            <div id="endereco" aria-labelledby="tab-2">
+                <h2>Endereço</h2>
+                <p>
+                    <label for="icep">Cep</label>
+                    <input type="text" id="icep" placeholder="Somente Números" maxlength="8">
+                </p>
+                <p>
+                    <label for="ilogradouro">Logradouro</label>
+                    <input type="text" id="ilogradouro" placeholder="Rua de exemplo">
+                </p>
+                <p>
+                    <label for="ibairro">Bairro</label>
+                    <input type="text" id="ibairro" placeholder="Nome do Baiiro">
+                </p>
+                <p>
+                    <label for="inumero">Número</label>
+                    <input type="text" id="inumero" placeholder="Somente números">
+                </p>
+                <p>
+                    <label for="icidade">Cidade</label>
+                    <input type="text" name="cidade" id="icidade">
+                </p>
+                <p>
+                    <label for="iestado">Estado</label>
+                    <select id="iestado" name="estado">
+                        <option selected>Escolher...</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                        
+                    </select>
+                </p>
 
-    </fieldset>
+                <p>
+                    <label for="icomplemento">Complemento</label>
+                    <input type="text" name="complemento" id="icomplemento">
+                </p>
+                <p>
+                    <button>Próximo</button>
+                </p>
+            </div>
+            <div id="plano" aria-labelledby="tab-3">
+                <h2>Plano</h2>
+                <select name="pacote" id="ipacote">
+                    <option value="Pacote básico">Plano Básico</option>
+                    <option value="Pacote Vip">Plano Vip</option>
+                    <option value="Pacote Master">Plano Master</option>
+                </select><br>
 
-    <fieldset>
-        <legend>Plano</legend>
-        <select name="pacote" id="ipacote">
-            <option value="Pacote básico">Plano Básico</option>
-            <option value="Pacote Vip">Plano Vip</option>
-            <option value="Pacote Master">Plano Master</option>
-        </select><br>
-
-        <p>
-            <label for="inomeCasa">Nome da casa: </label>
-            <input type="text" name="nomeCasa" id="inomeCasa">
-        </p>
-    </fieldset>
-
-    <p>
-        <button type="submit">Cadastrar</button>
-    </p>
+                <p>
+                    <label for="inomeCasa">Nome da casa: </label>
+                    <input type="text" name="nomeCasa" id="inomeCasa">
+                </p>
+                <p>
+                    <button>Próximo</button>
+                </p>
+            </div>
+            <div id="pagamento" aria-labelledby="tab-4">
+                <h2>Pagamento</h2>
+                <p>
+                REALIZE O PAGAMENTO AGORA 
+                </p>
+                <p>
+                    <button type="submit">Finalizar</button>
+                </p>
+            </div>
+            </div>
+        </div>
+    </div>
 </form>
+
+<script src="./js/form.js"></script>

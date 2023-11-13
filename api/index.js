@@ -37,7 +37,7 @@ app.get("/", (req,res) => {
 })
 
 app.get("/cadastro", (req,res) => {
-    res.render("cadastro")
+    res.render("cadastroCompleto")
 })
 
 app.post("/adicionar", (req,res) => {

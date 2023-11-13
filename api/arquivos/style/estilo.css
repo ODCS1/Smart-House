@@ -7,9 +7,9 @@
     --cor: #666;
     --cor0: #1E2122;
     /* --cor1: #E50914; */
-    --cor1:   rgb(120, 141, 231);
-    --cor2: #306866;
-    --cor3: #5f2c82;
+    --cor1:   #4AB0FE;
+    --cor2: #4FACFE;
+    --cor3: #220de0;
 	--cor4: #F8D88D;
 }
 
@@ -76,7 +76,9 @@ ul.nav a:hover {
 }
 
 .logoCV {
-	width: 50px;
+	width: 150px;
+	height: auto;
+	margin-top: -38px;
 }
 
 .icon-bar {
@@ -108,8 +110,9 @@ p {
 .pimg1 {
 	margin-top: -80px;
     position: relative;
-    min-height: 100vh; /* Use 100vh para garantir que a div cubra toda a altura da tela */
+    min-height: 100vh;
     overflow: hidden;
+	background-color: var(--cor0);
 }
 
 .pimg1 video {
