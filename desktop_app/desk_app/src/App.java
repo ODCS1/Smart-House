@@ -1,4 +1,7 @@
 import java.io.IOException;
+
+import controllers.LoginController;
+import controllers.TelaMainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +12,7 @@ public class App extends Application {
     
     public void start(Stage primaryStage) throws IOException {
         try {
-            FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("./telas/TelaLogin.fxml"));
+            FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/telas/TelaLogin.fxml"));
             Parent root = loginLoader.load();
             Scene scene = new Scene(root);
 
