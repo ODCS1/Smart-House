@@ -1,7 +1,53 @@
 <head>
     <title>Cadastro Completo</title>
     <link rel="stylesheet" href="./style/form.css">
+    <link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	/>
 </head>
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button
+                type="button"
+                class="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#navbar"
+                aria-expanded="false"
+                aria-controls="navbar"
+            >
+                <span class="sr-only">Navegação</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                Casa Inteligente
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" style="color: white;">Planos</a></li>
+                <li><a href="#" style="color: white;">Sobre</a></li>
+                <li><a href="#" style="color: white;">Contato</a></li>
+                <li><a href="/cadastro" style="color: white;">Comprar</a></li>
+                <li>
+                    <a
+                        class="login"
+                        href="#"
+                        style="color: white;">
+                        <span class="material-symbols-outlined">person</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 
 <form action="/adicionar" method="post">
     <div class="wrapper">
@@ -9,10 +55,10 @@
 
         <div class="tabs-container">
             <ul aria-labelledby="tabs-title">
-            <li><a id="tab-1" href="#dados-pessoais"> <img src="./imgs/001-personal-information.png" alt="Dados Pessoais"> </a></li>
-            <li><a id="tab-2" href="#endereco"> <img src="./imgs/002-home.png" alt="Localização"> </a></li>
-            <li><a id="tab-3" href="#plano"> <img src="./imgs/003-select.png" alt="Plano Selecionado"> </a></li>
-            <li><a id="tab-4" href="#pagamento"> <img src="./imgs/004-invoice.png" alt="Pagamento"> </a></li>
+            <li><a id="tab-1" href="#dados-pessoais"> <img src="./imgs/personal-information-128.png" alt="Dados Pessoais"> </a></li>
+            <li><a id="tab-2" href="#endereco"> <img src="./imgs/home-128.png" alt="Localização"> </a></li>
+            <li><a id="tab-3" href="#plano"> <img src="./imgs/choice-128.png" alt="Plano Selecionado"> </a></li>
+            <li><a id="tab-4" href="#pagamento"> <img src="./imgs/file-128.png" alt="Pagamento"> </a></li>
             </ul>
 
             <div class="tabs__panels flow">
@@ -29,7 +75,6 @@
                 </p>
 
                 <p>
-                    <label for="iemail">Email: </label>
                     <input type="email" name="email" id="iemail" placeholder="email@gmail.com" required="true">
                 </p>
 
@@ -132,7 +177,7 @@
                 <h2>Pagamento</h2>
                 <div id="centralizar-qr">
                     <p>
-                    REALIZE O PAGAMENTO AGORA 
+                    REALIZE O PAGAMENTO AQUI 
                     </p>
                     <img src="./imgs/frame.png" alt="QRCODE pagamento">
                     <p>
@@ -148,3 +193,9 @@
 </form>
 
 <script src="./js/form.js"></script>
+<script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"
+></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
