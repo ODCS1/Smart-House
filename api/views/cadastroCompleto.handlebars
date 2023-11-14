@@ -9,7 +9,7 @@
 
 
 <!-- Navbar -->
-<nav class="navbar navbar-fixed-top">
+<nav class="navbar">
     <div class="container">
         <div class="navbar-header">
             <button
@@ -51,7 +51,7 @@
 
 <form action="/adicionar" method="post">
     <div class="wrapper">
-        <h1 id="tabs-title">Cadastro</h1>
+        {{!-- <h1 id="tabs-title">Cadastro</h1> --}}
 
         <div class="tabs-container">
             <ul aria-labelledby="tabs-title">
@@ -75,6 +75,7 @@
                 </p>
 
                 <p>
+                    <label for="iemail">Email: </label>
                     <input type="email" name="email" id="iemail" placeholder="email@gmail.com" required="true">
                 </p>
 

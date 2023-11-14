@@ -56,41 +56,45 @@ box-sizing: border-box;
 }
 
 html {
-color-scheme: var(--color-scheme);
+    color-scheme: var(--color-scheme);
 }
 
 body {
-margin: 0;
-font-family: var(--font-family);
-font-size: var(--fs-400);
-line-height: 1.6;
+    margin: 0;
+    font-family: var(--font-family);
+    font-size: var(--fs-400);
+    line-height: 1.6;
 }
 
 .wrapper {
-width: min(50rem, 100% - 2rem);
-margin-inline: auto;
-border: 1px solid blue;
+    width: min(50rem, 100% - 2rem);
+    margin-inline: auto;
+    border: 1px solid blue;
 }
 
 .site-title {
-font-size: var(--fs-900);
-line-height: 1.05;
-text-transform: uppercase;
+    font-size: var(--fs-900);
+    line-height: 1.05;
+    text-transform: uppercase;
 }
 
 .section-title {
-font-size: var(--fs-800);
-line-height: 1.1;
+    font-size: var(--fs-800);
+    line-height: 1.1;
 }
 
 .visually-hidden {
-clip: rect(0 0 0 0);
-clip-path: inset(50%);
-height: 1px;
-overflow: hidden;
-position: absolute;
-white-space: nowrap;
-width: 1px;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.tabs-container ul > li > a > img {
+    width: 70px;
 }
 
 div#centralizar-qr {
@@ -102,7 +106,6 @@ div#centralizar-qr img {
     height: 300px;
 }
 
-/* Estilos do botão */
 .blue-button {
     background-color: #3498db;
     color: #ffffff;
@@ -112,18 +115,36 @@ div#centralizar-qr img {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+}
   
-  .blue-button:hover {
+.blue-button:hover {
     background-color: #2980b9;
     border: 1px solid rgb(37, 37, 37);
+}
 
-  }
-  
-  .blue-button:active {
-    background-color: #216a94;
-    border: 1px solid black;
-  }
+.blue-button:active {
+background-color: #216a94;
+border: 1px solid black;
+}
+
+
+form {
+    border: 2px solid white;
+    margin-top: -20px;
+}
+
+input {
+    background-color: rgb(241, 241, 241);
+    color: black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+select {
+    background-color: rgb(241, 241, 241);
+    color: black;
+}
 
 /* Typical Device Breakpoints
 -----------------------------
@@ -135,15 +156,8 @@ Desktop: de 992px até 1199px
 Grandes Telas: 1200px +
 
 */
-form {
-    border: 2px solid white;
-}
 
 @media (min-width: 280px) and (max-width: 360px) {
-    h1#tabs-title {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
 
     .tabs-container ul > li > a > img {
         width: 40px;
@@ -157,8 +171,7 @@ form {
     input {
         display: block;
         width: 200px;
-        height: 40px;
-        margin-top: -22px;
+        height: 35px;
     }
 
     label#lblEstado{
@@ -238,8 +251,8 @@ form {
     }
 }
 
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
     .tabs-container ul > li > a > img {
         width: 70px;
     }
-}
+} */
