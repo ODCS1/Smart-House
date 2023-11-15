@@ -44,6 +44,14 @@ app.get("/pagamento", (req,res) => {
     res.render("pagamentoRealizado")
 })
 
+app.get("/login", (req,res) => {
+    res.render("fazerLogin")
+})
+
+app.get("/conta", (req,res) => {
+    res.render("conta")
+})
+
 app.post("/adicionar", (req,res) => {
     // DADOS CLIENTE
     let novoNome = req.body.nome
@@ -53,17 +61,17 @@ app.post("/adicionar", (req,res) => {
     let novoCpf = Number(req.body.cpf)
 
     // DADOS PACOTE E CASA
-    // let novoPacote = req.body.pacote
-    // let novoNomeCasa = req.body.nomeCasa
+    let novoPacote = req.body.pacote
+    let novoNomeCasa = req.body.nomeCasa
 
     // DADOS ENDEREÇO
-    // let novoCep = req.body.cep
-    // let novoLogradouro = req.body.logradouro
-    // let novoBairro = req.body.bairro
-    // let novoNumero = req.body.numero
-    // let novaCidade = req.body.cidade
-    // let novoEstado = req.body.estado
-    // let novoComplemento = req.body.complemento
+    let novoCep = Number(req.body.cep)
+    let novoLogradouro = req.body.logradouro
+    let novoBairro = req.body.bairro
+    let novoNumero = Number(req.body.numero)
+    let novaCidade = req.body.cidade
+    let novoEstado = req.body.estado
+    let novoComplemento = req.body.complemento
 
     Cliente.create({
         nome_cliente: novoNome,
@@ -76,67 +84,56 @@ app.post("/adicionar", (req,res) => {
     }).catch((erro) => {
         res.send("<h1>[ERRO]: " + erro + "</h1>")
     })
-    
-    // (async () => {
-    //     await Cliente.create({
-    //         nome_cliente: novoNome,
-    //         sobrenome_cliente: novoSobrenome,
-    //         email_cliente: novoEmail,
-    //         senha_cliente: novaSenha,
-    //         cpf_cliente: novoCpf
-    //     })
 
-    //     let idCliente = await Cliente.findPk({where: {cpf_cliente: novoCpf}})
-    //     let qualPacote = await Pacote.findPk({where: {nome_pacote: novoPacote}})
+    let idCliente =  Cliente.findPk({where: {cpf_cliente: novoCpf}})
+    let qualPacote =  Pacote.findPk({where: {nome_pacote: novoPacote}})
 
-    //     await Compra.create({
-    //         id_cliente: idCliente,
-    //         id_pacote: qualPacote
-    //     })
+    Compra.create({
+        id_cliente: idCliente,
+        id_pacote: qualPacote
+    })
 
-    //     let qtdLedCasa
-    //     let codComodos
-    //     let qtdLedComodos
-    //     if (qualPacote == 'Pacote básico') {
-    //         qtdLedCasa = 4
-    //         codComodos = ['q-1', 'q-2', 'q-3', 'b-1']
-    //         qtdLedComodos = [1, 1, 1, 1]
-    //     }else if (qualPacote == 'Pacote Vip') {
-    //         qtdLedCasa = 6
-    //         codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2']
-    //         qtdLedComodos = [1, 1, 1, 1, 1, 1]
-    //     }else if (qualPacote = 'Pacote Master') {
-    //         qtdLedCasa = 10
-    //         codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2', 'j-1']
-    //         qtdLedComodos = [1, 1, 1, 1, 1, 1, 4]
-    //     }
+    let qtdLedCasa
+    let codComodos
+    let qtdLedComodos
+    if (qualPacote == 'Plano básico') {
+        qtdLedCasa = 4
+        codComodos = ['q-1', 'q-2', 'q-3', 'b-1']
+        qtdLedComodos = [1, 1, 1, 1]
+    }else if (qualPacote == 'Plano Vip') {
+        qtdLedCasa = 6
+        codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2']
+        qtdLedComodos = [1, 1, 1, 1, 1, 1]
+    }else if (qualPacote = 'Plano Master') {
+        qtdLedCasa = 10
+        codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2', 'j-1']
+        qtdLedComodos = [1, 1, 1, 1, 1, 1, 4]
+    }
 
-    //     await Casa.create({
-    //         nome_casa: novoNomeCasa,
-    //         qtd_led_casa: qtdLedCasa,
-    //         id_cliente: idCliente
-    //     })
+    Casa.create({
+        nome_casa: novoNomeCasa,
+        qtd_led_casa: qtdLedCasa,
+        id_cliente: idCliente
+    })
 
-    //     let idCasa = await Casa.findPk({where: {id_cliente: idCliente}})
+    let idCasa =  Casa.findPk({where: {id_cliente: idCliente}})
 
-    //     await Endereco.create({
-    //         cep: novoCep,
-    //         logradouro: novoLogradouro,
-    //         bairro: novoBairro,
-    //         numero: novoNumero,
-    //         cidade: novaCidade,
-    //         estado: novoEstado,
-    //         complemento: novoComplemento,
-    //         id_casa: idCasa
-    //     })
+    Endereco.create({
+        cep: novoCep,
+        logradouro: novoLogradouro,
+        bairro: novoBairro,
+        numero: novoNumero,
+        cidade: novaCidade,
+        estado: novoEstado,
+        complemento: novoComplemento,
+        id_casa: idCasa
+    })
 
-    //     await CasaComodo.create({
-    //         id_casa: idCasa,
-    //         cod_comodo: codComodos,
-    //         qtd_led_comodo: qtdLedComodos
-    //     })
-    // })
-
+    CasaComodo.create({
+        id_casa: idCasa,
+        cod_comodo: codComodos,
+        qtd_led_comodo: qtdLedComodos
+    })
 })
 
 app.listen(porta, () => {
