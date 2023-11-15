@@ -6,11 +6,11 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane id="meuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1194.0" stylesheets="/css/principal.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BanheiroController">
+<Pane id="meuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1194.0" stylesheets="@../css/principal.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BanheiroController">
    <children>
       <AnchorPane id="anchorPane" layoutX="198.0" prefHeight="712.0" prefWidth="996.0" stylesheets="/css/principal.css">
          <children>
-            <Button layoutX="100.0" layoutY="65.0" mnemonicParsing="false" onAction="#MostrarLuzSala">
+            <Button layoutX="100.0" layoutY="65.0" mnemonicParsing="false" onAction="#MostrarLuzSala" styleClass="botao-comodos">
                <graphic>
                   <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -19,16 +19,16 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="327.0" layoutY="65.0" mnemonicParsing="false" onAction="#MostrarLuzQuarto2">
+            <Button layoutX="327.0" layoutY="65.0" mnemonicParsing="false" onAction="#MostrarLuzQuarto2" styleClass="botao-comodos">
                <graphic>
-                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" styleClass="botao-comodos">
                      <image>
                         <Image url="@../../../../img/cama.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="327.0" layoutY="255.0" mnemonicParsing="false" onAction="#MostrarLuzBanheiro">
+            <Button layoutX="327.0" layoutY="255.0" mnemonicParsing="false" onAction="#MostrarLuzBanheiro" styleClass="botao-comodos">
                <graphic>
                   <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -37,7 +37,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="100.0" layoutY="466.0" mnemonicParsing="false" onAction="#MostrarLuzQuarto1">
+            <Button layoutX="100.0" layoutY="466.0" mnemonicParsing="false" onAction="#MostrarLuzQuarto1" styleClass="botao-comodos">
                <graphic>
                   <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -46,7 +46,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="327.0" layoutY="466.0" mnemonicParsing="false" onAction="#MostrarLuzJardim">
+            <Button layoutX="327.0" layoutY="466.0" mnemonicParsing="false" onAction="#MostrarLuzJardim" styleClass="botao-comodos">
                <graphic>
                   <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -55,7 +55,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="100.0" layoutY="255.0" mnemonicParsing="false" onAction="#MostrarLuzMaster">
+            <Button layoutX="100.0" layoutY="255.0" mnemonicParsing="false" onAction="#MostrarLuzMaster" styleClass="botao-comodos">
                <graphic>
                   <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -64,14 +64,14 @@
                   </ImageView>
                </graphic>
             </Button>
-            <AnchorPane layoutX="555.0" layoutY="65.0" prefHeight="565.0" prefWidth="410.0">
+            <AnchorPane layoutX="555.0" layoutY="65.0" prefHeight="565.0" prefWidth="410.0" styleClass="anchorPaneLuzes">
                <children>
                   <ImageView fx:id="myImageView" fitHeight="244.0" fitWidth="200.0" layoutX="105.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../img/light-bulb.png" />
                      </image>
                   </ImageView>
-                  <CheckBox fx:id="myCheckBox" layoutX="135.0" layoutY="398.0" onAction="#change" mnemonicParsing="false" text="ON/OFF">
+                  <CheckBox fx:id="myCheckBox" layoutX="135.0" layoutY="398.0" mnemonicParsing="false" onAction="#change" text="ON/OFF">
                      <font>
                         <Font size="26.0" />
                      </font>

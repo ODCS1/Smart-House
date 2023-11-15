@@ -1,8 +1,8 @@
 #meuPane {
-    -fx-background-color: rgb(94, 106, 216); 
+    -fx-background-color: rgb(70, 74, 107)
 }
 #anchorPane {
-    -fx-background-color: rgb(66, 92, 211); 
+    -fx-background-color: rgb(42, 48, 70); 
     -fx-background-radius: 30px; 
 }
 
@@ -20,15 +20,29 @@
 }
 
 .botao-comodos {
-    -fx-background-color: rgb(94, 106, 216);
+    -fx-background-color: rgb(70, 74, 107);
     -fx-border-width: 0;
     -fx-font-size: 16px;
     -fx-text-fill: black;
     -fx-padding: 5px 10px;
+    -fx-background-radius: 30px;
 }
 
 .botao-comodos:hover {
-    -fx-background-color:  rgb(175, 175, 175);
+    -fx-background-color:  rgb(119, 122, 151);
     -fx-text-fill: rgb(0, 0, 0);
 }
 
+.anchorPaneLuzes {
+    -fx-background-color:  rgb(70, 74, 107);
+    -fx-border-width: 0;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 30px;
+}
+
+.anchorPaneSeguranca {
+    -fx-background-color:  rgb(70, 74, 107);
+    -fx-border-width: 0;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 30px;
+}
