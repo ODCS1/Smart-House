@@ -45,7 +45,7 @@ app.get("/pagamento", (req,res) => {
 })
 
 app.get("/login", (req,res) => {
-    res.render("fazerLogin")
+    res.render("login")
 })
 
 app.get("/conta", (req,res) => {
@@ -53,87 +53,99 @@ app.get("/conta", (req,res) => {
 })
 
 app.post("/adicionar", (req,res) => {
-    // DADOS CLIENTE
-    let novoNome = req.body.nome
-    let novoSobrenome = req.body.sobrenome
-    let novoEmail = req.body.email
-    let novaSenha = req.body.senha
-    let novoCpf = Number(req.body.cpf)
 
-    // DADOS PACOTE E CASA
-    let novoPacote = req.body.pacote
-    let novoNomeCasa = req.body.nomeCasa
+    alert("FOI!")
+    console.log("TESTE!!!")
 
-    // DADOS ENDEREÇO
-    let novoCep = Number(req.body.cep)
-    let novoLogradouro = req.body.logradouro
-    let novoBairro = req.body.bairro
-    let novoNumero = Number(req.body.numero)
-    let novaCidade = req.body.cidade
-    let novoEstado = req.body.estado
-    let novoComplemento = req.body.complemento
+    try {
+        // DADOS CLIENTE
+        let novoNome = req.body.nome
+        let novoSobrenome = req.body.sobrenome
+        let novoEmail = req.body.email
+        let novaSenha = req.body.senha
+        let novoCpf = Number(req.body.cpf)
 
-    Cliente.create({
-        nome_cliente: novoNome,
-        sobrenome_cliente: novoSobrenome,
-        email_cliente: novoEmail,
-        senha_cliente: novaSenha,
-        cpf_cliente: novoCpf
-    }).then(() => {
-        res.send("<h1>Dados Cadastrados com sucesso!</h1>")
-    }).catch((erro) => {
-        res.send("<h1>[ERRO]: " + erro + "</h1>")
-    })
+        // DADOS PACOTE E CASA
+        let novoPacote = req.body.pacote
+        let novoNomeCasa = req.body.nomeCasa
 
-    let idCliente =  Cliente.findPk({where: {cpf_cliente: novoCpf}})
-    let qualPacote =  Pacote.findPk({where: {nome_pacote: novoPacote}})
+        // DADOS ENDEREÇO
+        let novoCep = Number(req.body.cep)
+        let novoLogradouro = req.body.logradouro
+        let novoBairro = req.body.bairro
+        let novoNumero = Number(req.body.numero)
+        let novaCidade = req.body.cidade
+        let novoEstado = req.body.estado
+        let novoComplemento = req.body.complemento
 
-    Compra.create({
-        id_cliente: idCliente,
-        id_pacote: qualPacote
-    })
+        Cliente.create({
+            nome_cliente: novoNome,
+            sobrenome_cliente: novoSobrenome,
+            email_cliente: novoEmail,
+            senha_cliente: novaSenha,
+            cpf_cliente: novoCpf
+        }).then(() => {
+            res.send("<h1>Dados Cadastrados com sucesso!</h1>")
+        }).catch((erro) => {
+            res.send("<h1>[ERRO]: " + erro + "</h1>")
+        })
 
-    let qtdLedCasa
-    let codComodos
-    let qtdLedComodos
-    if (qualPacote == 'Plano básico') {
-        qtdLedCasa = 4
-        codComodos = ['q-1', 'q-2', 'q-3', 'b-1']
-        qtdLedComodos = [1, 1, 1, 1]
-    }else if (qualPacote == 'Plano Vip') {
-        qtdLedCasa = 6
-        codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2']
-        qtdLedComodos = [1, 1, 1, 1, 1, 1]
-    }else if (qualPacote = 'Plano Master') {
-        qtdLedCasa = 10
-        codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2', 'j-1']
-        qtdLedComodos = [1, 1, 1, 1, 1, 1, 4]
-    }
+        let idCliente =  Cliente.findPk({where: {cpf_cliente: novoCpf}})
+        let qualPacote =  Pacote.findPk({where: {nome_pacote: novoPacote}})
 
-    Casa.create({
-        nome_casa: novoNomeCasa,
-        qtd_led_casa: qtdLedCasa,
-        id_cliente: idCliente
-    })
+        Compra.create({
+            id_cliente: idCliente,
+            id_pacote: qualPacote
+        })
 
-    let idCasa =  Casa.findPk({where: {id_cliente: idCliente}})
+        let qtdLedCasa
+        let codComodos
+        let qtdLedComodos
+        if (qualPacote == 'Plano básico') {
+            qtdLedCasa = 4
+            codComodos = ['q-1', 'q-2', 'q-3', 'b-1']
+            qtdLedComodos = [1, 1, 1, 1]
+        }else if (qualPacote == 'Plano Vip') {
+            qtdLedCasa = 6
+            codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2']
+            qtdLedComodos = [1, 1, 1, 1, 1, 1]
+        }else if (qualPacote = 'Plano Master') {
+            qtdLedCasa = 10
+            codComodos = ['q-1', 'q-2', 'q-3', 'b-1', 's-1', 's-2', 'j-1']
+            qtdLedComodos = [1, 1, 1, 1, 1, 1, 4]
+        }
 
-    Endereco.create({
-        cep: novoCep,
-        logradouro: novoLogradouro,
-        bairro: novoBairro,
-        numero: novoNumero,
-        cidade: novaCidade,
-        estado: novoEstado,
-        complemento: novoComplemento,
-        id_casa: idCasa
-    })
+        Casa.create({
+            nome_casa: novoNomeCasa,
+            qtd_led_casa: qtdLedCasa,
+            id_cliente: idCliente
+        })
 
-    CasaComodo.create({
-        id_casa: idCasa,
-        cod_comodo: codComodos,
-        qtd_led_comodo: qtdLedComodos
-    })
+        let idCasa =  Casa.findPk({where: {id_cliente: idCliente}})
+
+        Endereco.create({
+            cep: novoCep,
+            logradouro: novoLogradouro,
+            bairro: novoBairro,
+            numero: novoNumero,
+            cidade: novaCidade,
+            estado: novoEstado,
+            complemento: novoComplemento,
+            id_casa: idCasa
+        })
+
+        CasaComodo.create({
+            id_casa: idCasa,
+            cod_comodo: codComodos,
+            qtd_led_comodo: qtdLedComodos
+        })
+      }
+      catch(err) {
+        console.log(err)
+        // document.getElementById("demo").innerHTML = err.message;
+      }
+
+    
 })
 
 app.listen(porta, () => {
