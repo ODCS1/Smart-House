@@ -251,13 +251,10 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    -- Atualize a situação do LED na tabela Casa.Led
+
     UPDATE Casa.Led
     SET situacao = @situacao
     WHERE cod_led = @cod_led;
-
-    -- Você pode adicionar código adicional aqui, como notificar o Arduino
-    -- sobre a mudança de estado do LED, se necessário.
 END;
 
 

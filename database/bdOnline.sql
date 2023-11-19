@@ -188,3 +188,79 @@ SELECT * FROM sistema_casa.Leds;
 -- DROP TABLE sistema_casa.Clientes
 
 -- AINDA FALTA O CREATE VIEW E A PARTE DE PROGRAMAÇÃO DENTRO DO BANCO DE DADOS.
+
+
+-- SP PARA CADASTRO DE INFORMAÇÕES PELO SITE
+DELIMITER //
+
+CREATE PROCEDURE cadastrarClienteCompleto(
+    IN novoNome VARCHAR(30),
+    IN novoSobrenome VARCHAR(50),
+    IN novoEmail VARCHAR(100),
+    IN novaSenha VARCHAR(20),
+    IN novoCpf BIGINT UNSIGNED,
+    IN novoPacote VARCHAR(50),
+    IN novoNomeCasa VARCHAR(40),
+    IN novoCep INT UNSIGNED,
+    IN novoLogradouro VARCHAR(40),
+    IN novoBairro VARCHAR(30),
+    IN novoNumero INT,
+    IN novaCidade VARCHAR(40),
+    IN novoEstado CHAR(2),
+    IN novoComplemento VARCHAR(50)
+)
+BEGIN
+    DECLARE id_cliente INT;
+
+    START TRANSACTION;
+
+    -- INSERÇÃO DO CLIENTE
+    INSERT INTO sistema_casa.Clientes (nome_cliente, sobrenome_cliente, email_cliente, senha_cliente, cpf_cliente)
+    VALUES (novoNome, novoSobrenome, novoEmail, novaSenha, novoCpf);
+    SET id_cliente = LAST_INSERT_ID();
+
+    -- OBTENÇÃO DO ID DO PACOTE
+    DECLARE qualPacoteId INT;
+    SELECT id_pacote INTO qualPacoteId FROM sistema_casa.Pacotes WHERE nome_pacote = novoPacote;
+
+    -- INSERÇÃO DA COMPRA
+    INSERT INTO sistema_casa.Compras (id_cliente, id_pacote)
+    VALUES (id_cliente, qualPacoteId);
+
+    -- DEFINIÇÃO DOS VALORES BASEADO NO PACOTE
+    DECLARE qtdLedCasa INT;
+    DECLARE codComodos VARCHAR(255);
+    DECLARE qtdLedComodos VARCHAR(255);
+
+    IF novoPacote = 'Pacote básico' THEN
+        SET qtdLedCasa = 4;
+        SET codComodos = 'q-1,q-2,q-3,b-1';
+        SET qtdLedComodos = '1,1,1,1';
+    ELSEIF novoPacote = 'Pacote Vip' THEN
+        SET qtdLedCasa = 6;
+        SET codComodos = 'q-1,q-2,q-3,b-1,s-1,s-2';
+        SET qtdLedComodos = '1,1,1,1,1,1';
+    ELSEIF novoPacote = 'Pacote Master' THEN
+        SET qtdLedCasa = 10;
+        SET codComodos = 'q-1,q-2,q-3,b-1,s-1,s-2,j-1';
+        SET qtdLedComodos = '1,1,1,1,1,1,4';
+    END IF;
+
+    -- INSERÇÃO DA CASA
+    INSERT INTO sistema_casa.Casas (nome_casa, qtd_led_casa, id_cliente)
+    VALUES (novoNomeCasa, qtdLedCasa, id_cliente);
+    DECLARE id_casa INT;
+    SET id_casa = LAST_INSERT_ID();
+
+    -- INSERÇÃO DO ENDEREÇO
+    INSERT INTO sistema_casa.Enderecos (cep, logradouro, bairro, numero, cidade, estado, complemento, id_casa)
+    VALUES (novoCep, novoLogradouro, novoBairro, novoNumero, novaCidade, novoEstado, novoComplemento, id_casa);
+
+    -- INSERÇÃO DA RELAÇÃO ENTRE CASA E COMODOS
+    INSERT INTO sistema_casa.CasaComodos (id_casa, cod_comodo, qtd_led_comodo)
+    VALUES (id_casa, codComodos, qtdLedComodos);
+
+    COMMIT;
+END //
+
+DELIMITER ;
