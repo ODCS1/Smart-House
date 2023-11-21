@@ -9,6 +9,7 @@ public class Usuario {
     private String email_cliente;
     private String cpf_cliente;
     private String sobrenome_cliente;
+    private String pacote;
 
     public int getId_cliente() {
         return id_cliente;
@@ -64,5 +65,13 @@ public class Usuario {
 
     public void setSobrenome_cliente(String sobrenome_cliente) {
         this.sobrenome_cliente = sobrenome_cliente;
+    }
+
+    public String getPacote() {
+        return pacote;
+    }
+    
+    public void setPacote(String string) {
+        this.pacote = string;
     }
 }

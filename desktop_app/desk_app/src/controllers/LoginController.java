@@ -43,6 +43,7 @@ public class LoginController {
 
         if (usuarioCompleto != null) {
             Session.setCurrentUser(usuarioCompleto);
+            System.out.println(usuarioCompleto.getPacote());
             telaMainController.switchToScene2(event);
         } else {
             errorMessageLabel.setText("Usuário ou senha estão incorretos");

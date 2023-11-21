@@ -17,10 +17,11 @@ public class UsuarioDAO {
         Usuario usuarioCompleto = null;
 
         try {
-            String callProcedure = "{CALL autenticar_usuario(?, ?)}";
+            String callProcedure = "{CALL autenticacao_usuario(?, ?, ?)}";
             CallableStatement cs = connection.prepareCall(callProcedure);
             cs.setString(1, usuario.getEmail_cliente());
             cs.setString(2, usuario.getSenha_cliente());
+            cs.registerOutParameter(3, java.sql.Types.VARCHAR);
 
             rs = cs.executeQuery();
 
@@ -30,6 +31,9 @@ public class UsuarioDAO {
                 usuarioCompleto.setSobrenome_cliente(rs.getString("sobrenome_cliente"));
                 usuarioCompleto.setEmail_cliente(rs.getString("email_cliente"));
                 usuarioCompleto.setCpf_cliente(rs.getString("cpf_cliente"));
+                
+                String clientePacote = cs.getString(3);
+                usuarioCompleto.setPacote(clientePacote);
             }
         } catch (SQLException e) {
             e.printStackTrace();

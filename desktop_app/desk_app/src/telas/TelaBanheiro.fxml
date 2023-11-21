@@ -124,6 +124,11 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Label fx:id="access" layoutX="342.0" layoutY="170.0" prefHeight="110.0" prefWidth="203.0">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Button layoutX="22.0" layoutY="276.0" mnemonicParsing="false" styleClass="botao-customizado" text="Configurações">
