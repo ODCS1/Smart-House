@@ -9,6 +9,22 @@
             "name": "App",
             "request": "launch",
             "mainClass": "App",
+            "projectName": "desk_app_3a3e2d37",
+            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-21/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "desk_app_3a3e2d37",
+            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-21/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
             "projectName": "desk_app_b79648c8",
             "vmArgs": "--module-path \"C:/javafx-sdk-19/lib\" --add-modules javafx.controls,javafx.fxml"
         },

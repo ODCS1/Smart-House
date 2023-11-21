@@ -71,7 +71,7 @@ app.post("/adicionar", async (req, res) => {
             complemento
         } = req.body;
 
-        const result = await database.sequelize.query('CALL cadastrarClienteCompleto(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        const result = await database.sequelize.query('CALL sp_cadastroNovoCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
             {
                 replacements: [nome, sobrenome, email, senha, cpf, pacote, nomeCasa, cep, logradouro, bairro, numero, cidade, estado, complemento]
             }
