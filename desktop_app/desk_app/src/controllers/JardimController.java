@@ -176,8 +176,8 @@ public class JardimController {
         stage.show();
     }
 
-    public void MostrarLuzQuarto2(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaQuarto2.fxml"));
+    public void MostrarLuzSalaDeEstar(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaSalaDeEstar.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -192,8 +192,40 @@ public class JardimController {
         stage.show();
     }
 
+    public void MostrarLuzSalaDeJantar(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaSalaDeJantar.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void MostrarLuzLavabo(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaLavabo.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void MostrarLuzCozinha(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaCozinha.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void MostrarLuzBanheiro(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaBanheiro.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void MostrarLuzLavanderia(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaLavanderia.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
