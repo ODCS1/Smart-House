@@ -13,7 +13,7 @@ const porta = 3000
         const Casa = require("./models/Casa");
         const Endereco = require("./models/Endereco");
         const Comodo = require("./models/Comodo");
-        const CasaComodo = require("./models/CasaComodo");
+        const ClienteLed = require("./models/ClienteLed");
         const Led = require("./models/Led");
         // database.sequelize.sync()
         // TEMPLATE ENGINE

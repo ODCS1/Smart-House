@@ -195,7 +195,7 @@ SELECT * FROM sistema_casa.ClienteLeds;
 
 
 -- SP PARA CADASTRO DE INFORMAÇÕES PELO SITE
-CREATE PROCEDURE cadastrarClienteCompleto(
+CREATE PROCEDURE sp_cadastroNovoCliente(
     -- parâmetros de entrada
     IN novoNome VARCHAR(30),
     IN novoSobrenome VARCHAR(50),
@@ -224,65 +224,48 @@ BEGIN
 
     START TRANSACTION;
 
-    -- inserções e outras operações necessárias
-     -- Inserção do cliente
+
+     -- INSERÇÃO DO CLIENTE
     INSERT INTO sistema_casa.Clientes (nome_cliente, sobrenome_cliente, email_cliente, senha_cliente, cpf_cliente)
     VALUES (novoNome, novoSobrenome, novoEmail, novaSenha, novoCpf);
     
-    -- Obtenção do ID do cliente inserido
+    -- OBTENÇÃO DO ID DO CLIENTE INSERIDO
     SET @id_cliente = LAST_INSERT_ID();
 
-    -- Obtenção do ID do pacote
+    -- OBTENÇÃO DO ID DO PACOTE
     SELECT id_pacote INTO @qualPacoteId FROM sistema_casa.Pacotes WHERE nome_pacote = novoPacote;
 
-    -- Inserção da compra
+    -- INSERÇÃO DA COMPRA
     INSERT INTO sistema_casa.Compras (id_cliente, id_pacote)
     VALUES (@id_cliente, @qualPacoteId);
 
-    -- Definição dos valores baseados no pacote
-    SET qtdLedCasa = CASE novoPacote
-        WHEN 'Pacote básico' THEN 4
-        WHEN 'Pacote Vip' THEN 6
-        WHEN 'Pacote Master' THEN 10
-        ELSE 0 
-    END;
+    -- DEFINIÇÃO DOS VALORES BASEADO NO PACOTE
+    CASE novoPacote
+        WHEN 'Pacote básico' THEN
+            SET qtdLedCasa = 2;
+            INSERT INTO sistema_casa.ClienteLeds (id_cliente, led_1, led_2) VALUES (@id_cliente, 0, 0);
+        WHEN 'Pacote Vip' THEN
+            SET qtdLedCasa = 9;
+            INSERT INTO sistema_casa.ClienteLeds (id_cliente, led_1, led_2, led_3, led_4, led_5, led_6, led_7, led_8, led_9)
+            VALUES (@id_cliente, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        WHEN 'Pacote Master' THEN
+            SET qtdLedCasa = 13;
+            INSERT INTO sistema_casa.ClienteLeds (id_cliente, led_1, led_2, led_3, led_4, led_5, led_6, led_7, led_8, led_9, led_10, led_11, led_12, led_13)
+            VALUES (@id_cliente, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        ELSE
+            SET qtdLedCasa = 0;
+    END CASE;
 
-    SET codComodos = CASE novoPacote
-        WHEN 'Pacote básico' THEN 'q-1,q-2,q-3,b-1'
-        WHEN 'Pacote Vip' THEN 'q-1,q-2,q-3,b-1,s-1,s-2'
-        WHEN 'Pacote Master' THEN 'q-1,q-2,q-3,b-1,s-1,s-2,j-1'
-        ELSE '' 
-    END;
-
-    SET qtdLedComodos = CASE novoPacote
-        WHEN 'Pacote básico' THEN '1,1,1,1'
-        WHEN 'Pacote Vip' THEN '1,1,1,1,1,1'
-        WHEN 'Pacote Master' THEN '1,1,1,1,1,1,4'
-        ELSE '' 
-    END;
-
-    -- inserções e outras operações necessárias
-    -- Inserção da casa
+    -- INSERÇÃO CASA
     INSERT INTO sistema_casa.Casas (nome_casa, qtd_led_casa, id_cliente)
     VALUES (novoNomeCasa, qtdLedCasa, id_cliente);
     
-    -- Obtenção do ID da casa inserida
+    -- OBTENÇÃO DO ID DA CASA
     SET id_casa = LAST_INSERT_ID();
 
-    -- Inserção do endereço
+    -- INSERÇÃO DO ENDEREÇO
     INSERT INTO sistema_casa.Enderecos (cep, logradouro, bairro, numero, cidade, estado, complemento, id_casa)
     VALUES (novoCep, novoLogradouro, novoBairro, novoNumero, novaCidade, novoEstado, novoComplemento, id_casa);
-
-    -- Inserção da relação entre casa e comodos
-    SET posCodCom = 1;
-    SET posQtdLed = 1;
-    
-    WHILE posCodCom <= CHAR_LENGTH(codComodos) DO
-        INSERT INTO sistema_casa.CasaComodos (id_casa, cod_comodo, qtd_led_comodo)
-        VALUES (id_casa, CAST(SUBSTRING(codComodos, posCodCom, 3) AS UNSIGNED), CAST(SUBSTRING(qtdLedComodos, posQtdLed, 1) AS UNSIGNED));
-        SET posCodCom = posCodCom + 4;
-        SET posQtdLed = posQtdLed + 2;
-    END WHILE;
     
     COMMIT;
 END;

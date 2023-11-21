@@ -1,7 +1,6 @@
-// const Sequelize = require('sequelize');
 const database = require('../db');
 
-const Pacote = database.sequelize.define('Pacote', {
+const Pacote = database.sequelize.define('Pacotes', {
     id_pacote: {
         type: database.Sequelize.INTEGER,
         allowNull: false,
