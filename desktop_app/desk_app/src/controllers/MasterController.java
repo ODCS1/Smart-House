@@ -20,37 +20,62 @@ public class MasterController {
     private Scene scene;
 
     @FXML
-    private Label myLabel;
+    private Label myLabel1, myLabel2;
     @FXML
-    private CheckBox myCheckBox;
+    private CheckBox myCheckBox1, myCheckBox2;
     @FXML
-    private ImageView myImageView;
+    private ImageView myImageView1, myImageView2;
 
     Image myImage1_OFF = new Image(getClass().getResourceAsStream("/img/light-bulb.png"));
     Image myImage1_ON = new Image(getClass().getResourceAsStream("/img/light-bulb-on.png"));
     
+    Image myImage2_OFF = new Image(getClass().getResourceAsStream("/img/light-bulb.png"));
+    Image myImage2_ON = new Image(getClass().getResourceAsStream("/img/light-bulb-on.png"));
+    
     @FXML
-    public void change(ActionEvent event) {
-        if(myCheckBox.isSelected()) {
-            myLabel.setText("ON");
-            myImageView.setImage(myImage1_ON);
-            EstadoLampMaster.setCheckedMaster(true);
+    public void change1(ActionEvent event) {
+        if(myCheckBox1.isSelected()) {
+            myLabel1.setText("ON");
+            myImageView1.setImage(myImage1_ON);
+            EstadoLampMaster.setCheckedMaster1(true);
         } else {
-            myLabel.setText("OFF");
-            myImageView.setImage(myImage1_OFF);
-            EstadoLampMaster.setCheckedMaster(false);
+            myLabel1.setText("OFF");
+            myImageView1.setImage(myImage1_OFF);
+            EstadoLampMaster.setCheckedMaster1(false);
+        }
+    }
+
+    @FXML
+    public void change2(ActionEvent event) {
+        if(myCheckBox2.isSelected()) {
+            myLabel2.setText("ON");
+            myImageView2.setImage(myImage2_ON);
+            EstadoLampMaster.setCheckedMaster2(true); 
+        } else {
+            myLabel2.setText("OFF");
+            myImageView2.setImage(myImage2_OFF);
+            EstadoLampMaster.setCheckedMaster2(false);
         }
     }
 
     @FXML
     public void initialize() {
-        myCheckBox.setSelected(EstadoLampMaster.isCheckedMaster());
-        if (myCheckBox.isSelected()) {
-            myLabel.setText("ON");
-            myImageView.setImage(myImage1_ON);
+        myCheckBox1.setSelected(EstadoLampMaster.isCheckedMaster1());
+        if (myCheckBox1.isSelected()) {
+            myLabel1.setText("ON");
+            myImageView1.setImage(myImage1_ON);
         } else {
-            myLabel.setText("OFF");
-            myImageView.setImage(myImage1_OFF);
+            myLabel1.setText("OFF");
+            myImageView1.setImage(myImage1_OFF);
+        }
+    
+        myCheckBox2.setSelected(EstadoLampMaster.isCheckedMaster2());
+        if (myCheckBox2.isSelected()) {
+            myLabel2.setText("ON");
+            myImageView2.setImage(myImage2_ON);
+        } else {
+            myLabel2.setText("OFF");
+            myImageView2.setImage(myImage2_OFF);
         }
     }
 
@@ -102,8 +127,8 @@ public class MasterController {
         stage.show();
     }
 
-    public void MostrarLuzSalaDeEstar(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaSalaDeEstar.fxml"));
+    public void MostrarLuzQuarto2(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaQuarto2.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -118,40 +143,8 @@ public class MasterController {
         stage.show();
     }
 
-    public void MostrarLuzSalaDeJantar(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaSalaDeJantar.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void MostrarLuzLavabo(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaLavabo.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void MostrarLuzCozinha(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaCozinha.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void MostrarLuzBanheiro(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaBanheiro.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void MostrarLuzLavanderia(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/telas/TelaLavanderia.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

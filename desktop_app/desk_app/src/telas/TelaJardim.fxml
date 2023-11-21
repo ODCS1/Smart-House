@@ -10,167 +10,125 @@
    <children>
       <AnchorPane id="anchorPane" layoutX="198.0" prefHeight="712.0" prefWidth="996.0" stylesheets="/css/principal.css">
          <children>
-            <Button layoutX="42.0" layoutY="33.0" mnemonicParsing="false" onAction="#MostrarLuzSala" prefHeight="80.0" prefWidth="82.0" styleClass="botao-comodos" stylesheets="@../css/principal.css">
+            <Button layoutX="100.0" layoutY="65.0" mnemonicParsing="false" onAction="#MostrarLuzSala" styleClass="botao-comodos">
                <graphic>
-                  <ImageView fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../img/assistir-tv.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="196.0" layoutY="33.0" mnemonicParsing="false" onAction="#MostrarLuzCozinha" styleClass="botao-comodos">
+            <Button layoutX="327.0" layoutY="65.0" mnemonicParsing="false" onAction="#MostrarLuzQuarto2" styleClass="botao-comodos">
                <graphic>
-                  <ImageView fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/chefe-de-cozinha.png" />
+                        <Image url="@../../../../img/cama.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="196.0" layoutY="163.0" mnemonicParsing="false" onAction="#MostrarLuzBanheiro" styleClass="botao-comodos">
+            <Button layoutX="327.0" layoutY="255.0" mnemonicParsing="false" onAction="#MostrarLuzBanheiro" styleClass="botao-comodos">
                <graphic>
-                  <ImageView fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../img/banheira.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="42.0" layoutY="296.0" mnemonicParsing="false" onAction="#MostrarLuzQuarto1" styleClass="botao-comodos">
+            <Button layoutX="100.0" layoutY="466.0" mnemonicParsing="false" onAction="#MostrarLuzQuarto1" styleClass="botao-comodos">
                <graphic>
-                  <ImageView fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../img/cama-de-solteiro.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="196.0" layoutY="296.0" mnemonicParsing="false" onAction="#MostrarLuzJardim" styleClass="botao-comodos">
+            <Button layoutX="327.0" layoutY="466.0" mnemonicParsing="false" onAction="#MostrarLuzJardim" styleClass="botao-comodos">
                <graphic>
-                  <ImageView fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../img/jardim.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="42.0" layoutY="163.0" mnemonicParsing="false" onAction="#MostrarLuzMaster" styleClass="botao-comodos">
+            <Button layoutX="100.0" layoutY="255.0" mnemonicParsing="false" onAction="#MostrarLuzMaster" styleClass="botao-comodos">
                <graphic>
-                  <ImageView fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../img/quarto.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <AnchorPane layoutX="565.0" layoutY="65.0" prefHeight="562.0" prefWidth="372.0" styleClass="anchorPaneLuzes">
+            <AnchorPane layoutX="547.0" layoutY="65.0" prefHeight="565.0" prefWidth="410.0" styleClass="anchorPaneLuzes">
                <children>
-                  <ImageView fx:id="myImageView2" fitHeight="150.0" fitWidth="200.0" layoutX="201.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="myImageView1" fitHeight="154.0" fitWidth="154.0" layoutX="217.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/light-bulb.png" />
+                        <Image url="@../../../../img/light-bulb.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="128.0" layoutY="14.0" text="Jardim">
+                  <CheckBox fx:id="myCheckBox1" layoutX="223.0" layoutY="226.0" mnemonicParsing="false" onAction="#change1" text="ON/OFF">
                      <font>
-                        <Font size="40.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="myLabel1" layoutX="62.0" layoutY="222.0" prefHeight="42.0" prefWidth="73.0" text="OFF">
-                     <font>
-                        <Font size="40.0" />
-                     </font>
-                  </Label>
-                  <CheckBox fx:id="myCheckBox3" layoutX="29.0" layoutY="499.0" mnemonicParsing="false" onAction="#change3" prefHeight="16.0" prefWidth="141.0" text="ON/OFF">
-                     <font>
-                        <Font size="24.0" />
+                        <Font size="26.0" />
                      </font>
                   </CheckBox>
-                  <ImageView fx:id="myImageView1" fitHeight="150.0" fitWidth="200.0" layoutX="23.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+                  <Label fx:id="myLabel2" layoutX="85.0" layoutY="172.0" text="OFF">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="myImageView2" fitHeight="154.0" fitWidth="154.0" layoutX="32.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/light-bulb.png" />
+                        <Image url="@../../../../img/light-bulb.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="myImageView3" fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+                  <Label fx:id="myLabel1" layoutX="269.0" layoutY="172.0" text="OFF">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="myCheckBox2" layoutX="33.0" layoutY="226.0" mnemonicParsing="false" onAction="#change2" prefHeight="29.0" prefWidth="154.0" text="ON/OFF">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </CheckBox>
+                  <ImageView fx:id="myImageView3" fitHeight="154.0" fitWidth="154.0" layoutX="33.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/light-bulb.png" />
+                        <Image url="@../../../../img/light-bulb.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="myImageView4" fitHeight="150.0" fitWidth="200.0" layoutX="202.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="myImageView4" fitHeight="154.0" fitWidth="154.0" layoutX="217.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/light-bulb.png" />
+                        <Image url="@../../../../img/light-bulb.png" />
                      </image>
                   </ImageView>
-                  <CheckBox fx:id="myCheckBox1" layoutX="29.0" layoutY="262.0" mnemonicParsing="false" onAction="#change1" prefHeight="42.0" prefWidth="141.0" text="ON/OFF">
+                  <Label fx:id="myLabel3" layoutX="85.0" layoutY="433.0" text="OFF">
                      <font>
-                        <Font size="24.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="myCheckBox2" layoutX="201.0" layoutY="262.0" mnemonicParsing="false" onAction="#change2" prefHeight="42.0" prefWidth="141.0" text="ON/OFF">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </CheckBox>
-                  <CheckBox fx:id="myCheckBox4" layoutX="201.0" layoutY="499.0" mnemonicParsing="false" onAction="#change4" prefHeight="9.0" prefWidth="141.0" text="ON/OFF">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </CheckBox>
-                  <Label fx:id="myLabel2" layoutX="240.0" layoutY="222.0" prefHeight="42.0" prefWidth="73.0" text="OFF">
-                     <font>
-                        <Font size="40.0" />
+                        <Font size="28.0" />
                      </font>
                   </Label>
-                  <Label fx:id="myLabel3" layoutX="63.0" layoutY="453.0" prefHeight="42.0" prefWidth="73.0" text="OFF">
+                  <Label fx:id="myLabel4" layoutX="270.0" layoutY="433.0" text="OFF">
                      <font>
-                        <Font size="40.0" />
+                        <Font size="28.0" />
                      </font>
                   </Label>
-                  <Label fx:id="myLabel4" layoutX="240.0" layoutY="453.0" prefHeight="42.0" prefWidth="73.0" text="OFF">
+                  <CheckBox fx:id="myCheckBox3" layoutX="33.0" layoutY="490.0" mnemonicParsing="false" onAction="#change3" prefHeight="29.0" prefWidth="154.0" text="ON/OFF">
                      <font>
-                        <Font size="40.0" />
+                        <Font size="26.0" />
                      </font>
-                  </Label>
+                  </CheckBox>
+                  <CheckBox fx:id="myCheckBox4" layoutX="217.0" layoutY="490.0" mnemonicParsing="false" onAction="#change4" prefHeight="29.0" prefWidth="154.0" text="ON/OFF">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </CheckBox>
                </children>
             </AnchorPane>
-            <Button layoutX="42.0" layoutY="425.0" mnemonicParsing="false" onAction="#MostrarLuzSalaDeJantar" styleClass="botao-comodos">
-               <graphic>
-                  <ImageView fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/mesa-de-jantar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="196.0" layoutY="425.0" mnemonicParsing="false" onAction="#MostrarLuzLavabo" styleClass="botao-comodos">
-               <graphic>
-                  <ImageView fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/pia.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="42.0" layoutY="551.0" mnemonicParsing="false" onAction="#MostrarLuzLavanderia" styleClass="botao-comodos">
-               <graphic>
-                  <ImageView fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/lavanderia.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="196.0" layoutY="551.0" mnemonicParsing="false" onAction="#MostrarLuzSalaDeEstar" styleClass="botao-comodos">
-               <graphic>
-                  <ImageView fitHeight="90.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/sala-de-estar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-         </children>
-      </AnchorPane>
+         </children></AnchorPane>
       <Button layoutX="22.0" layoutY="276.0" mnemonicParsing="false" styleClass="botao-customizado" text="Configurações">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="32.0">
