@@ -13,7 +13,7 @@ public class Conexao {
     // private static final String user = "root";
     // private static final String password = "root";
 
-    private static final String url = "jdbc:mysql://db4free.net";
+    private static final String url = "jdbc:mysql://db4free.net/sistema_casa";
     private static final String user = "root_adv";
     private static final String password = "12345678";
 
