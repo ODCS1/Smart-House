@@ -1,30 +1,71 @@
-<head>
-    <title>Perfil</title>
-</head>
-
-<body id="corpo-perfil">
-    <header>
-        <a href="/"><h1>Casa Inteligente</h1></a>
-    </header>
-    <main>
-        <section id="conta">
-            <div id="dowload">
-                <h1>Faça o download</h1>
-                <div id="img-download">
-                    <a href="#" download="arquivo.zip" type="application/zip"><img src="./imgs/download.png" alt="IMAGEM DE DOWNLOAD"></a>
+<html class="corpo-perfil">
+    <head>
+        <title>Perfil</title>
+    </head>
+    
+    <body id="corpo-perfil">
+        <header>
+            <a href="/"><h1>Casa Inteligente</h1></a>
+        </header>
+        <main>
+            <section id="conta">
+                <div id="dowload">
+                    <h1>Faça o download</h1>
+                    <div id="img-download">
+                        <a href="./download/baixar.zip" download="baixar.zip" type="application/zip"><img src="./imgs/download.png" alt="IMAGEM DE DOWNLOAD"></a>
+                    </div>
                 </div>
-            </div>
-            <div id="dados">
-                <fieldset>
-                    <legend>Conta</legend>
-                </fieldset>
-                <fieldset>
-                    <legend>Endereço</legend>
-                </fieldset>
-                <form action="/alterar-dados" method="get">
-                    <button type="submit">Editar</button>
-                </form>
-            </div>
-        </section>
-    </main>
-</body>
+                <div id="dados">
+                    <fieldset>
+                        <legend>Conta</legend>
+                        <p>
+                            <label class="lbl_cadastro">Nome: </label>
+                            <span>{{cliente.nome_cliente}}</span>
+
+                            <label class="lbl_cadastro">Sobrenome: </label>
+                            <span>{{cliente.sobrenome_cliente}}</span>
+                        </p>
+                        <p>
+                            <label class="lbl_cadastro">Email: </label>
+                            <span>{{cliente.email_cliente}}</span>
+
+                            <label class="lbl_cadastro">Cpf: </label>
+                            <span>{{cliente.cpf_cliente}}</span>
+                        </p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Endereço</legend>
+                        <p>
+                            <label class="lbl_cadastro">Cep: </label>
+                            <span>{{cliente.cep}}</span>
+
+                            <label class="lbl_cadastro">Logradouro: </label>
+                            <span>{{cliente.logradouro}}</span>
+                        </p>
+                        <p>
+                            <label class="lbl_cadastro">Bairro: </label>
+                            <span>{{cliente.bairro}}</span>
+
+                            <label class="lbl_cadastro">Número: </label>
+                            <span>{{cliente.numero}}</span>
+                        </p>
+
+                        <p>
+                            <label class="lbl_cadastro">Cidade: </label>
+                            <span>{{cliente.cidade}}</span>
+
+                            <label class="lbl_cadastro">Estado: </label>
+                            <span>{{cliente.estado}}</span>
+
+                            <label class="lbl_cadastro">Complemento: </label>
+                            <span>{{cliente.complemento}}</span>
+                        </p>
+                    </fieldset>
+                    <form action="/alterar-dados" method="get">
+                        <button type="submit">Editar</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

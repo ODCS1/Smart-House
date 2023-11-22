@@ -53,7 +53,15 @@ app.get("/pagamento", (req,res) => {
 });
 
 app.get("/login", (req,res) => {
-    res.render("login");
+    try {
+        if (req.session.user) {
+            res.redirect("/perfil");
+        } else {
+            res.render("login");
+        }
+    } catch (error) {
+        res.status(500).send("<h1>Ocorreu um erro ao carregar o perfil.</h1>" + `<p>[ERRO]: ${error}</p>`);
+    }
 });
 
 app.get("/perfil", async (req, res) => {
@@ -71,6 +79,24 @@ app.get("/perfil", async (req, res) => {
         }
     } catch (error) {
         res.status(500).send("<h1>Ocorreu um erro ao carregar o perfil.</h1>" + `<p>[ERRO]: ${error}</p>`);
+    }
+});
+
+app.get("/alterar-dados", async (req, res) => {
+    try {
+        if (req.session.user) {
+            const userEmail = req.session.user;
+
+            const query = `SELECT * FROM ViewClienteDetalhes WHERE email_cliente = '${userEmail}'`;
+            const result = await database.sequelize.query(query, { type: QueryTypes.SELECT });
+
+            const cliente = result.length > 0 ? result[0] : null;
+            res.render("alterar-dados", { cliente });
+        } else {
+            res.redirect("/login");
+        }
+    } catch (error) {
+        res.status(500).send("<h1>Ocorreu um erro ao tentar acessar a página para alterar os dados.</h1>" + `<p>[ERRO]: ${error}</p>`);
     }
 });
 

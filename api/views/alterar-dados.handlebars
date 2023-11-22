@@ -1,7 +1,200 @@
 <head>
-    <title>Alterar Dados</title>
+    <title>Cadastro Completo</title>
+    <link rel="stylesheet" href="./style/form.css">
+    <link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	/>
 </head>
 
-<body>
-    <h1>Alterar os dados</h1>
-</body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button
+                type="button"
+                class="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#navbar"
+                aria-expanded="false"
+                aria-controls="navbar"
+            >
+                <span class="sr-only">Navegação</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                Casa Inteligente
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" style="color: white;">Planos</a></li>
+                <li><a href="#" style="color: white;">Sobre</a></li>
+                <li><a href="#" style="color: white;">Contato</a></li>
+                <li><a href="/cadastro" style="color: white;">Comprar</a></li>
+                <li>
+                    <a
+                        class="login"
+                        href="#"
+                        style="color: white;">
+                        <span class="material-symbols-outlined">person</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<form action="/adicionar" method="post">
+    <div class="wrapper">
+        <h1 id="tabs-title">Atualização de dados</h1>
+
+        <div class="tabs-container">
+            <ul aria-labelledby="tabs-title">
+            <li><a id="tab-1" href="#dados-pessoais"> <img src="./imgs/personal-information-128.png" alt="Dados Pessoais"> </a></li>
+            <li><a id="tab-2" href="#endereco"> <img src="./imgs/home-128.png" alt="Localização"> </a></li>
+            <li><a id="tab-3" href="#plano"> <img src="./imgs/choice-128.png" alt="Plano Selecionado"> </a></li>
+            <li><a id="tab-4" href="#pagamento"> <img src="./imgs/atualizar-banco-de-dados.png" alt="Atualização de dados"> </a></li>
+            </ul>
+
+            <div class="tabs__panels flow">
+            <div id="dados-pessoais" aria-labelledby="tab-1">
+                <h2>Dados Pessoais</h2>
+                <p>
+                    <label class="lbl_cadastro" for="inome">Nome: </label>
+                    <input type="text" name="nome" placeholder="Primeiro Nome" id="inome" required="true" value={{cliente.nome_cliente}}>
+                </p>
+
+                <p>
+                    <label class="lbl_cadastro" for="isobrenome">Sobrenome: </label>
+                    <input type="text" name="sobrenome" placeholder="Sobrenome" id="isobrenome" required="true" value={{cliente.sobrenome_cliente}}>
+                </p>
+
+                <p>
+                    <label class="lbl_cadastro" for="iemail">Email: </label>
+                    <input type="email" name="email" id="iemail" placeholder="email@gmail.com" required="true" value={{cliente.email_cliente}}>
+                </p>
+
+                <p>
+                    <label class="lbl_cadastro" for="isenha">Senha: </label>
+                    <input type="text" name="senha" id="isenha" placeholder="[a-z]-[0-9]" required="true" value={{cliente.senha_cliente}}>
+                </p>
+
+                <p>
+                    <label class="lbl_cadastro" for="icpf">Cpf: </label>
+                    <span id="email">{{cliente.cpf_cliente}}</span>
+                    {{!-- <input type="text" name="cpf" id="icpf" placeholder="12345678901" value={{cliente.cpf_cliente}}> --}}
+                </p>
+
+            </div>
+            <div id="endereco" aria-labelledby="tab-2">
+                <h2>Endereço</h2>
+                <p>
+                    <label class="lbl_cadastro" for="icep">Cep</label>
+                    <input type="text" name="cep" id="icep" placeholder="Somente Números" maxlength="8" value={{cliente.cep}}>
+                </p>
+                <p>
+                    <label class="lbl_cadastro" for="ilogradouro">Logradouro</label>
+                    <input type="text" name="logradouro" id="ilogradouro" placeholder="Rua de exemplo" value={{cliente.logradouro}}>
+                </p>
+                <p>
+                    <label class="lbl_cadastro" for="ibairro">Bairro</label>
+                    <input type="text" name="bairro" id="ibairro" placeholder="Nome do Baiiro" value={{cliente.bairro}}>
+                </p>
+                <p>
+                    <label class="lbl_cadastro" for="inumero">Número</label>
+                    <input type="text" name="numero" id="inumero" placeholder="Somente números" value={{cliente.numero}}>
+                </p>
+                <p>
+                    <label class="lbl_cadastro" for="icidade">Cidade</label>
+                    <input type="text" name="cidade" id="icidade" value={{cliente.cidade}}>
+                </p>
+                <p>
+                    <label class="lbl_cadastro" id="lblEstado" for="iestado">Estado</label>
+                    <select id="iestado" name="estado">
+                        <option selected>Opção antiga: {{cliente.estado}}</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                        
+                    </select>
+                </p>
+
+                <p>
+                    <label class="lbl_cadastro" id="lblComplemento" for="icomplemento">Complemento</label>
+                    <input type="text" name="complemento" id="icomplemento" value={{cliente.complemento}}>
+                </p>
+
+            </div>
+            <div id="plano" aria-labelledby="tab-3">
+                <h2>Plano</h2>
+                <p>
+                    <select name="pacote" id="ipacote">
+                        <option value="Pacote básico">{{cliente.nome_pacote}}</option>
+                    </select><br>
+                </p>
+
+                <p>
+                    <label class="lbl_cadastro">Acesso: </label>
+                    <span>{{cliente.acesso}}</span>
+                </p>
+
+                <p>
+                    <label class="lbl_cadastro" for="inomeCasa">Nome da casa: </label>
+                    <input type="text" name="nomeCasa" id="inomeCasa" value={{cliente.nome_casa}}>
+                </p>
+
+            </div>
+            <div id="pagamento" aria-labelledby="tab-4">
+                <h2>Confirmação de Atualização</h2>
+                <div id="centralizar-qr">
+                    <p>
+                    A atualização dos dados é um processo irreversível, preste atenção!
+                    </p>
+                    <img src="./imgs/robo.png" alt="Imagem Robo">
+                    <p>
+                        <button type="submit" class="blue-button">Atualizar</button>
+                    </p>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="./js/form.js"></script>
+<script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"
+></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
