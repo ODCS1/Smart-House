@@ -2,7 +2,29 @@
     <title>Perfil</title>
 </head>
 
-<body>
-    <h1>Perfil</h1>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis totam cupiditate deleniti repellat, dignissimos alias doloribus ipsam eaque id earum assumenda in, odit praesentium placeat dolores facere provident? Officiis, praesentium.</p>
+<body id="corpo-perfil">
+    <header>
+        <a href="/"><h1>Casa Inteligente</h1></a>
+    </header>
+    <main>
+        <section id="conta">
+            <div id="dowload">
+                <h1>Faça o download</h1>
+                <div id="img-download">
+                    <a href="#" download="arquivo.zip" type="application/zip"><img src="./imgs/download.png" alt="IMAGEM DE DOWNLOAD"></a>
+                </div>
+            </div>
+            <div id="dados">
+                <fieldset>
+                    <legend>Conta</legend>
+                </fieldset>
+                <fieldset>
+                    <legend>Endereço</legend>
+                </fieldset>
+                <form action="/alterar-dados" method="get">
+                    <button type="submit">Editar</button>
+                </form>
+            </div>
+        </section>
+    </main>
 </body>

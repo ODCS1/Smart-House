@@ -217,7 +217,11 @@ FROM Casa.Cliente CL
 WHERE id_cliente = idAtual
 INNER JOIN Casa.Endereco E ON CL.id_cliente = E.id_cliente
 
-
+CREATE VIEW vw_infoGeralCliente
+SELECT C.nome_cliente, C.sobrenome_cliente, C.email_cliente, C.cpf_cliente, P.nome_pacote, P.acesso, E.Rua, E.Cidade
+FROM Clientes C
+INNER JOIN Pacotes P
+INNER JOIN Endereco E ON C.EnderecoId = E.EnderecoId
 -- SP
 -- AUTENTICAÇÃO DO CLIENTE POR EMAIL E SENHA
 CREATE PROCEDURE Casa.AuthenticateCliente

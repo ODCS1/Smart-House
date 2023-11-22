@@ -38,6 +38,4 @@ const Cliente = database.sequelize.define('Clientes', {
     timestamps: false
 });
 
-// database.sequelize.sync()
-
 module.exports = Cliente;

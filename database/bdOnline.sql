@@ -193,6 +193,42 @@ SELECT * FROM sistema_casa.ClienteLeds;
 
 -- AINDA FALTA O CREATE VIEW E A PARTE DE PROGRAMAÇÃO DENTRO DO BANCO DE DADOS.
 
+-- VIEW PARA PEGAR TODAS AS INFORMAÇÕES REFERENTES AO USUÁRIO
+CREATE VIEW ViewClienteDetalhes AS
+SELECT 
+    c.nome_cliente, 
+    c.sobrenome_cliente, 
+    c.email_cliente, 
+    c.cpf_cliente, 
+    p.nome_pacote, 
+    p.acesso, 
+    casa.nome_casa, 
+    e.cep, 
+    e.logradouro, 
+    e.bairro, 
+    e.numero, 
+    e.cidade, 
+    e.estado, 
+    e.complemento, 
+    cl.led_1, 
+    cl.led_2, 
+    cl.led_3, 
+    cl.led_4, 
+    cl.led_5, 
+    cl.led_6, 
+    cl.led_7, 
+    cl.led_8, 
+    cl.led_9, 
+    cl.led_10, 
+    cl.led_11, 
+    cl.led_12, 
+    cl.led_13
+FROM sistema_casa.Clientes c
+JOIN sistema_casa.Compras comp ON c.id_cliente = comp.id_cliente
+JOIN sistema_casa.Pacotes p ON comp.id_pacote = p.id_pacote
+JOIN sistema_casa.Casas casa ON c.id_cliente = casa.id_cliente
+JOIN sistema_casa.Enderecos e ON casa.id_casa = e.id_casa
+JOIN sistema_casa.ClienteLeds cl ON c.id_cliente = cl.id_cliente;
 
 -- SP PARA CADASTRO DE INFORMAÇÕES PELO SITE
 CREATE PROCEDURE sp_cadastroNovoCliente(

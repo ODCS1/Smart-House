@@ -11,7 +11,7 @@ sequelize.authenticate()
     console.log("Conexão com o banco de dados foi realizada com sucesso!");
 }).catch(() => {
     console.log("ERRO: Não foi possível realizar a conexão com o banco de dados!");
-})
+});
 
 module.exports = {
     Sequelize: Sequelize,

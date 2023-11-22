@@ -236,3 +236,165 @@ ul {
 	margin: 1.5rem 0;
 	padding: 0;
 }
+
+
+/* PERFIL */
+/* DOWNLOAD */
+#corpo-perfil{
+    background-color: var(--cor3);
+    width: 100%;
+    height: 100vh;
+}
+
+header{
+    padding-top: 10px;
+    background-color: black;
+    text-align: center;
+}
+
+header a{
+    text-decoration: none;
+}
+
+header h1{
+    font-family: 'Oswald', sans-serif;
+    color: var(--cor0);
+}
+
+
+main{
+    width: 100%;
+    height: 95%;
+    position: relative;
+}
+
+section#conta{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 515px;
+    width: 60vw;
+    box-shadow: 0px 0px 10px hsla(0, 0%, 0%, 0.450);
+
+    transition: width .3s, height .3s;
+    transition: ease;
+    transform: translate(-50%, -50%);
+}
+
+div#download{
+	display: block;
+    height: 200px;
+}
+div#img-download {
+	height: 80%;
+	width: auto;
+}
+div#img-download a img{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* DADOS */
+div#dados{
+    display: block;
+    padding: 10px;
+}
+
+div#dados > h1{
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--cor0);
+}
+div#dados > p{
+    font-size: 0.8em;
+    text-indent: 20px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+form > a.botao{
+    display: block;
+    text-decoration: none;
+    color: var(--cor0);
+    border: 1px solid var(--cor2);
+    font-size: 1em;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    align-items: center;
+    margin-top: 5px;
+    padding-top: 5px;
+    border-radius: 5px;
+}
+form > a.botao:hover{
+    background-color: var(--cor2);
+}
+
+form > a.botao > span{
+    font-size: 0.8em;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    /*TABLET*/
+    body {
+      background-image: linear-gradient(to bottom, var(--cor3), var(--cor1));
+    }
+  
+    section#login {
+      width: 80vw;
+      height: 320px;
+    }
+  
+    section#login > div#imagem {
+      float: left;
+      width: 30%;
+      height: 100%;
+    }
+  
+    section#login > div#formulario {
+      float: right;
+      width: 70%;
+    }
+    section#login > div#formulario > p {
+      font-size: 1.1em;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    /* DESKTOP + */
+    body {
+      background-image: linear-gradient(to bottom, var(--cor3) 60%, var(--cor2));
+    }
+  
+    section#conta {
+      width: 950px;
+      height: 400px;
+    }
+  
+    section#conta > div#download {
+      float: right;
+      width: 50%;
+      height: 100%;
+    }
+  
+    section#conta > div#dados {
+      float: left;
+      width: 50%;
+    }
+  
+    div#dados > h1 {
+      font-size: 2em;
+    }
+    div#dados > p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+  }
