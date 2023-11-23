@@ -4,7 +4,6 @@ public class Usuario {
     
     private int id_cliente;
     private String nome_cliente;
-    private String login_cliente;
     private String senha_cliente;
     private String email_cliente;
     private String cpf_cliente;
@@ -25,14 +24,6 @@ public class Usuario {
 
     public void setNome_cliente(String nome_cliente) {
         this.nome_cliente = nome_cliente;
-    }
-
-    public String getLogin_cliente() {
-        return login_cliente;
-    }
-
-    public void setLogin_cliente(String login_cliente) {
-        this.login_cliente = login_cliente;
     }
 
     public String getSenha_cliente() {

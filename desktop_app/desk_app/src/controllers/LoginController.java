@@ -27,19 +27,12 @@ public class LoginController {
         String email = usernameField.getText();
         String senha = passwordField.getText();
 
-        // Essas duas Strings sao responsaveis por pegar as informacoes que o usuario digita
-        // nos campos de email e senha.
-
         Usuario usuario = new Usuario();
         usuario.setEmail_cliente(email);
         usuario.setSenha_cliente(senha);
 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         Usuario usuarioCompleto = usuarioDAO.verificarCredenciais(usuario);
-
-        // Apos verificar as credenciais usa o metodo setCurrentUser para guardar as informacoes do usuario atual
-        // e em caso de sucesso, ou seja, se ele esta no banco de dados
-        // trocara a cena para a tela principal. (switchToScene2(event);).
 
         if (usuarioCompleto != null) {
             Session.setCurrentUser(usuarioCompleto);

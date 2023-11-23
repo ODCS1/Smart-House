@@ -1,6 +1,7 @@
 package controllers;
 import java.io.IOException;
 
+import dao.LedDAO;
 import entidade.Usuario;
 import estado_lampadas.EstadoLampMaster;
 import javafx.event.ActionEvent;
@@ -36,6 +37,8 @@ public class MasterController {
     
     @FXML
     public void change(ActionEvent event) {
+        boolean newState = myCheckBox.isSelected();
+
         if(myCheckBox.isSelected()) {
             myLabel.setText("ON");
             myImageView.setImage(myImage1_ON);
@@ -45,6 +48,8 @@ public class MasterController {
             myImageView.setImage(myImage1_OFF);
             EstadoLampMaster.setCheckedMaster(false);
         }
+
+        LedDAO.atualizarEstadoLedMaster(usuario.getId_cliente(), newState);
     }
 
     @FXML

@@ -1,6 +1,7 @@
 package controllers;
 import java.io.IOException;
 
+import dao.LedDAO;
 import entidade.Usuario;
 import estado_lampadas.EstadoLampJardim;
 import javafx.event.ActionEvent;
@@ -45,6 +46,8 @@ public class JardimController {
 
     @FXML
     public void change1(ActionEvent event) {
+        boolean newState1 = myCheckBox1.isSelected();
+
         if(myCheckBox1.isSelected()) {
             myLabel1.setText("ON");
             myImageView1.setImage(myImage1_ON);
@@ -54,10 +57,14 @@ public class JardimController {
             myImageView1.setImage(myImage1_OFF);
             EstadoLampJardim.setCheckedJardim1(false);
         }
+
+        LedDAO.atualizarEstadoLedJardim1(usuario.getId_cliente(), newState1);
     }
 
     @FXML
     public void change2(ActionEvent event) {
+        boolean newState2 = myCheckBox2.isSelected();
+
         if(myCheckBox2.isSelected()) {
             myLabel2.setText("ON");
             myImageView2.setImage(myImage2_ON);
@@ -67,10 +74,14 @@ public class JardimController {
             myImageView2.setImage(myImage2_OFF);
             EstadoLampJardim.setCheckedJardim2(false);
         }
+
+        LedDAO.atualizarEstadoLedJardim2(usuario.getId_cliente(), newState2);
     }
 
     @FXML
     public void change3(ActionEvent event) {
+        boolean newState3 = myCheckBox3.isSelected();
+
         if(myCheckBox3.isSelected()) {
             myLabel3.setText("ON");
             myImageView3.setImage(myImage3_ON);
@@ -80,10 +91,14 @@ public class JardimController {
             myImageView3.setImage(myImage3_OFF);
             EstadoLampJardim.setCheckedJardim3(false);
         }
+
+        LedDAO.atualizarEstadoLedJardim3(usuario.getId_cliente(), newState3);
     }
 
     @FXML
     public void change4(ActionEvent event) {
+        boolean newState4 = myCheckBox4.isSelected();
+
         if(myCheckBox4.isSelected()) {
             myLabel4.setText("ON");
             myImageView4.setImage(myImage4_ON);
@@ -93,6 +108,8 @@ public class JardimController {
             myImageView4.setImage(myImage4_OFF);
             EstadoLampJardim.setCheckedJardim4(false);
         }
+
+        LedDAO.atualizarEstadoLedJardim4(usuario.getId_cliente(), newState4);
     }
 
     @FXML

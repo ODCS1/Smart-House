@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 
+import dao.LedDAO;
 import entidade.Usuario;
 import estado_lampadas.EstadoLampSalaDeJantar;
 import javafx.event.ActionEvent;
@@ -36,6 +37,8 @@ public class SalaDeJantarController {
 
     @FXML
     public void change(ActionEvent event) {
+        boolean newState = myCheckBox.isSelected();
+
         if (myCheckBox.isSelected()) {
             myLabel.setText("ON");
             myImageView.setImage(myImage2);
@@ -45,6 +48,8 @@ public class SalaDeJantarController {
             myImageView.setImage(myImage1);
             EstadoLampSalaDeJantar.setCheckedSalaDeJantar(false);
         }
+
+        LedDAO.atualizarEstadoLedSalaDeJantar(usuario.getId_cliente(), newState);
     }
 
     @FXML
