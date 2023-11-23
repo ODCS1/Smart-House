@@ -169,7 +169,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Label fx:id="access" layoutX="342.0" layoutY="153.0" prefHeight="110.0" prefWidth="203.0">
+            <Label fx:id="access" layoutX="342.0" layoutY="153.0" prefHeight="110.0" prefWidth="203.0" textFill="WHITE">
                <font>
                   <Font size="29.0" />
                </font>
