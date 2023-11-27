@@ -1,3 +1,7 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 [role="tablist"] {
     list-style: none;
     margin: 0;
@@ -69,7 +73,9 @@ body {
 .wrapper {
     width: min(50rem, 100% - 2rem);
     margin-inline: auto;
-    border: 1px solid blue;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 0px 10px;
 }
 
 .site-title {
@@ -92,6 +98,26 @@ body {
     white-space: nowrap;
     width: 1px;
 }
+
+header{
+    padding-top: 10px;
+    background-color: black;
+    text-align: center;
+}
+
+header a{
+    text-decoration: none;
+
+}
+
+header h1{
+    font-family: 'Oswald', sans-serif;
+    color: var(--cor0);
+}
+
+/* section#alter-position {
+    position: relative;
+} */
 
 .tabs-container ul > li > a > img {
     width: 70px;
@@ -127,10 +153,25 @@ background-color: #216a94;
 border: 1px solid black;
 }
 
+div#container-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60%;
+    /* max-height: 400px; */
+    width: 90%;
+}
 
-form {
+form#cadastro {
     border: 2px solid white;
-    margin-top: -20px;
+    /* margin-top: -20px; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
 }
 
 input, span#email {
@@ -238,7 +279,7 @@ Grandes Telas: 1200px +
     }
 
     div#centralizar-qr img {
-        width: 250px;
+        width: 200px;
         height: 250px;
     }
 
@@ -248,11 +289,21 @@ Grandes Telas: 1200px +
     .tabs-container ul > li > a > img {
         width: 50px;
     }
+
+    div#centralizar-qr > img {
+        width: 120px;
+        height: auto;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     .tabs-container ul > li > a > img {
         width: 60px;
+    }
+
+    div#centralizar-qr > img {
+        width: 150px;
+        height: auto;
     }
 }
 
@@ -260,10 +311,20 @@ Grandes Telas: 1200px +
     .tabs-container ul > li > a > img {
         width: 65px;
     }
+
+    div#centralizar-qr > img {
+        width: 200px;
+        height: auto;
+    }
 }
 
-/* @media (min-width: 1200px) {
+@media (min-width: 1200px) {
     .tabs-container ul > li > a > img {
         width: 70px;
     }
-} */
+
+    div#centralizar-qr > img {
+        width: 200px;
+        height: auto;
+    }
+}

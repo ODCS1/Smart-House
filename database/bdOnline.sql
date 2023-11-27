@@ -34,7 +34,7 @@ CREATE TABLE sistema_casa.Compras (
 -- 5 - TABELA CASA
 CREATE TABLE sistema_casa.Casas (
     id_casa INT AUTO_INCREMENT,
-    nome_casa VARCHAR(40) NULL,
+    nome_casa VARCHAR(40) NOT NULL,
     qtd_led_casa INT NOT NULL,
     id_cliente INT,
     PRIMARY KEY (id_casa),
@@ -218,10 +218,10 @@ SELECT
     cl.led_6, 
     cl.led_7, 
     cl.led_8, 
-    cl.led_9, 
+    cl.led_9,
     cl.led_10, 
     cl.led_11, 
-    cl.led_12, 
+    cl.led_12,
     cl.led_13
 FROM sistema_casa.Clientes c
 JOIN sistema_casa.Compras comp ON c.id_cliente = comp.id_cliente
@@ -266,7 +266,9 @@ BEGIN
     VALUES (novoNome, novoSobrenome, novoEmail, novaSenha, novoCpf);
     
     -- OBTENÇÃO DO ID DO CLIENTE INSERIDO
-    SET @id_cliente = LAST_INSERT_ID();
+
+    DECLARE @id_cliente INT;
+    SELECT id_cliente = @id_cliente FROM sistema_casa.Clientes WHERE novoEmail;
 
     -- OBTENÇÃO DO ID DO PACOTE
     SELECT id_pacote INTO @qualPacoteId FROM sistema_casa.Pacotes WHERE nome_pacote = novoPacote;

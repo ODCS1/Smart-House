@@ -73,6 +73,7 @@ app.get("/perfil", async (req, res) => {
             const result = await database.sequelize.query(query, { type: QueryTypes.SELECT });
 
             const cliente = result.length > 0 ? result[0] : null;
+            console.log(cliente);
             res.render("perfil", { cliente });
         } else {
             res.redirect("/login");

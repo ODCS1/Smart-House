@@ -49,141 +49,149 @@
 </nav>
 
 
-<form action="/adicionar" method="post">
-    <div class="wrapper">
+{{!-- <header>
+    <a href="/"><h1>Casa Inteligente</h1></a>
+</header> --}}
 
-        <div class="tabs-container">
-            <ul aria-labelledby="tabs-title">
-            <li><a id="tab-1" href="#dados-pessoais"> <img src="./imgs/personal-information-128.png" alt="Dados Pessoais"> </a></li>
-            <li><a id="tab-2" href="#endereco"> <img src="./imgs/home-128.png" alt="Localização"> </a></li>
-            <li><a id="tab-3" href="#plano"> <img src="./imgs/choice-128.png" alt="Plano Selecionado"> </a></li>
-            <li><a id="tab-4" href="#pagamento"> <img src="./imgs/file-128.png" alt="Pagamento"> </a></li>
-            </ul>
-
-            <div class="tabs__panels flow">
-            <div id="dados-pessoais" aria-labelledby="tab-1">
-                <h2>Dados Pessoais</h2>
-                <p>
-                    <label class="lbl_cadastro" for="inome">Nome: </label>
-                    <input type="text" name="nome" placeholder="Primeiro Nome" id="inome" required="true">
-                </p>
-
-                <p>
-                    <label class="lbl_cadastro" for="isobrenome">Sobrenome: </label>
-                    <input type="text" name="sobrenome" placeholder="Sobrenome" id="isobrenome" required="true">
-                </p>
-
-                <p>
-                    <label class="lbl_cadastro" for="iemail">Email: </label>
-                    <input type="email" name="email" id="iemail" placeholder="email@gmail.com" required="true">
-                </p>
-
-                <p>
-                    <label class="lbl_cadastro" for="isenha">Senha: </label>
-                    <input type="password" name="senha" id="isenha" placeholder="[a-z]-[0-9]" required="true">
-                </p>
-
-                <p>
-                    <label class="lbl_cadastro" for="icpf">Cpf: </label>
-                    <input type="text" name="cpf" id="icpf" placeholder="12345678901">
-                </p>
-
-
-            </div>
-            <div id="endereco" aria-labelledby="tab-2">
-                <h2>Endereço</h2>
-                <p>
-                    <label class="lbl_cadastro" for="icep">Cep</label>
-                    <input type="text" name="cep" id="icep" placeholder="Somente Números" maxlength="8">
-                </p>
-                <p>
-                    <label class="lbl_cadastro" for="ilogradouro">Logradouro</label>
-                    <input type="text" name="logradouro" id="ilogradouro" placeholder="Rua de exemplo">
-                </p>
-                <p>
-                    <label class="lbl_cadastro" for="ibairro">Bairro</label>
-                    <input type="text" name="bairro" id="ibairro" placeholder="Nome do Baiiro">
-                </p>
-                <p>
-                    <label class="lbl_cadastro" for="inumero">Número</label>
-                    <input type="text" name="numero" id="inumero" placeholder="Somente números">
-                </p>
-                <p>
-                    <label class="lbl_cadastro" for="icidade">Cidade</label>
-                    <input type="text" name="cidade" id="icidade">
-                </p>
-                <p>
-                    <label class="lbl_cadastro" id="lblEstado" for="iestado">Estado</label>
-                    <select id="iestado" name="estado">
-                        <option selected>Escolher...</option>
-                        <option value="AC">AC</option>
-                        <option value="AL">AL</option>
-                        <option value="AP">AP</option>
-                        <option value="AM">AM</option>
-                        <option value="BA">BA</option>
-                        <option value="CE">CE</option>
-                        <option value="DF">DF</option>
-                        <option value="ES">ES</option>
-                        <option value="GO">GO</option>
-                        <option value="MA">MA</option>
-                        <option value="MT">MT</option>
-                        <option value="MS">MS</option>
-                        <option value="MG">MG</option>
-                        <option value="PA">PA</option>
-                        <option value="PB">PB</option>
-                        <option value="PR">PR</option>
-                        <option value="PE">PE</option>
-                        <option value="PI">PI</option>
-                        <option value="RJ">RJ</option>
-                        <option value="RN">RN</option>
-                        <option value="RS">RS</option>
-                        <option value="RO">RO</option>
-                        <option value="RR">RR</option>
-                        <option value="SC">SC</option>
-                        <option value="SP">SP</option>
-                        <option value="SE">SE</option>
-                        <option value="TO">TO</option>
-                        
-                    </select>
-                </p>
-
-                <p>
-                    <label class="lbl_cadastro" id="lblComplemento" for="icomplemento">Complemento</label>
-                    <input type="text" name="complemento" id="icomplemento">
-                </p>
-
-            </div>
-            <div id="plano" aria-labelledby="tab-3">
-                <h2>Plano</h2>
-                <select name="pacote" id="ipacote">
-                    <option value="Pacote básico">Plano Básico</option>
-                    <option value="Pacote Vip">Plano Vip</option>
-                    <option value="Pacote Master">Plano Master</option>
-                </select><br>
-
-                <p>
-                    <label class="lbl_cadastro" for="inomeCasa">Nome da casa: </label>
-                    <input type="text" name="nomeCasa" id="inomeCasa">
-                </p>
-
-            </div>
-            <div id="pagamento" aria-labelledby="tab-4">
-                <h2>Pagamento</h2>
-                <div id="centralizar-qr">
-                    <p>
-                    REALIZE O PAGAMENTO AQUI 
-                    </p>
-                    <img src="./imgs/frame.png" alt="QRCODE pagamento">
-                    <p>
-                        <button type="submit" class="blue-button">Finalizar</button>
-                    </p>
+<section id="alter-position">
+    <div id="container-center">
+        <form action="/adicionar" method="post" id="cadastro">
+            <div class="wrapper">
+    
+                <div class="tabs-container">
+                    <ul aria-labelledby="tabs-title">
+                    <li><a id="tab-1" href="#dados-pessoais"> <img src="./imgs/personal-information-128.png" alt="Dados Pessoais"> </a></li>
+                    <li><a id="tab-2" href="#endereco"> <img src="./imgs/home-128.png" alt="Localização"> </a></li>
+                    <li><a id="tab-3" href="#plano"> <img src="./imgs/choice-128.png" alt="Plano Selecionado"> </a></li>
+                    <li><a id="tab-4" href="#pagamento"> <img src="./imgs/file-128.png" alt="Pagamento"> </a></li>
+                    </ul>
+    
+                    <div class="tabs__panels flow">
+                    <div id="dados-pessoais" aria-labelledby="tab-1">
+                        <h2>Dados Pessoais</h2>
+                        <p>
+                            <label class="lbl_cadastro" for="inome">Nome: </label>
+                            <input type="text" name="nome" placeholder="Primeiro Nome" id="inome" required="true">
+                        </p>
+    
+                        <p>
+                            <label class="lbl_cadastro" for="isobrenome">Sobrenome: </label>
+                            <input type="text" name="sobrenome" placeholder="Sobrenome" id="isobrenome" required="true">
+                        </p>
+    
+                        <p>
+                            <label class="lbl_cadastro" for="iemail">Email: </label>
+                            <input type="email" name="email" id="iemail" placeholder="email@gmail.com" required="true">
+                        </p>
+    
+                        <p>
+                            <label class="lbl_cadastro" for="isenha">Senha: </label>
+                            <input type="password" name="senha" id="isenha" placeholder="[a-z]-[0-9]" required="true">
+                        </p>
+    
+                        <p>
+                            <label class="lbl_cadastro" for="icpf">Cpf: </label>
+                            <input type="text" name="cpf" id="icpf" placeholder="Somente Números" required="true">
+                        </p>
+    
+    
+                    </div>
+                    <div id="endereco" aria-labelledby="tab-2">
+                        <h2>Endereço</h2>
+                        <p>
+                            <label class="lbl_cadastro" for="icep">Cep</label>
+                            <input type="text" name="cep" id="icep" placeholder="Somente Números" maxlength="8" required="true">
+                        </p>
+                        <p>
+                            <label class="lbl_cadastro" for="ilogradouro">Logradouro</label>
+                            <input type="text" name="logradouro" id="ilogradouro" placeholder="Rua de exemplo" required="true">
+                        </p>
+                        <p>
+                            <label class="lbl_cadastro" for="ibairro">Bairro</label>
+                            <input type="text" name="bairro" id="ibairro" placeholder="Nome do Baiiro" required="true">
+                        </p>
+                        <p>
+                            <label class="lbl_cadastro" for="inumero">Número</label>
+                            <input type="text" name="numero" id="inumero" placeholder="Somente números" required="true">
+                        </p>
+                        <p>
+                            <label class="lbl_cadastro" for="icidade">Cidade</label>
+                            <input type="text" name="cidade" id="icidade" required="true">
+                        </p>
+                        <p>
+                            <label class="lbl_cadastro" id="lblEstado" for="iestado">Estado</label>
+                            <select id="iestado" name="estado">
+                                <option selected>Escolher...</option>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+    
+                            </select>
+                        </p>
+    
+                        <p>
+                            <label class="lbl_cadastro" id="lblComplemento" for="icomplemento">Complemento</label>
+                            <input type="text" name="complemento" id="icomplemento">
+                        </p>
+    
+                    </div>
+                    <div id="plano" aria-labelledby="tab-3">
+                        <h2>Plano</h2>
+                        <select name="pacote" id="ipacote">
+                            <option value="Pacote básico">Plano Básico</option>
+                            <option value="Pacote Vip">Plano Vip</option>
+                            <option value="Pacote Master">Plano Master</option>
+                        </select><br>
+    
+                        <p>
+                            <label class="lbl_cadastro" for="inomeCasa">Nome da casa: </label>
+                            <input type="text" name="nomeCasa" id="inomeCasa" required="true">
+                        </p>
+    
+                    </div>
+                    <div id="pagamento" aria-labelledby="tab-4">
+                        <h2>Pagamento</h2>
+                        <div id="centralizar-qr">
+                            <p>
+                            REALIZE O PAGAMENTO AQUI
+                            </p>
+                            <img src="./imgs/frame.png" alt="QRCODE pagamento">
+                            <p>
+                                <button type="submit" class="blue-button">Finalizar</button>
+                            </p>
+                        </div>
+    
+                    </div>
+                    </div>
                 </div>
-                
             </div>
-            </div>
-        </div>
+        </form>
     </div>
-</form>
+</section>
 
 <script src="./js/form.js"></script>
 <script
