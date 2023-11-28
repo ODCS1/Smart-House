@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SerialCommunication",
+            "request": "launch",
+            "mainClass": "serial.SerialCommunication",
+            "projectName": "desk_app_6a1768e8"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "App",

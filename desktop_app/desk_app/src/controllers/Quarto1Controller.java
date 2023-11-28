@@ -1,6 +1,8 @@
 package controllers;
 import java.io.IOException;
 
+import com.fazecast.jSerialComm.SerialPort;
+
 import dao.LedDAO;
 import entidade.Usuario;
 import estado_lampadas.EstadoLampQ1;
@@ -27,6 +29,8 @@ public class Quarto1Controller {
     @FXML
     private ImageView myImageView;
 
+    private SerialPort serialPort;
+
     private Stage stage;
     private Scene scene;
 
@@ -44,10 +48,12 @@ public class Quarto1Controller {
             myLabel.setText("ON");
             myImageView.setImage(myImage2);
             EstadoLampQ1.setCheckedQ1(true);
+            enviarComandoParaArduino('8');
         } else {    
             myLabel.setText("OFF");
             myImageView.setImage(myImage1);
             EstadoLampQ1.setCheckedQ1(false);
+            enviarComandoParaArduino('9');
         }
 
         LedDAO.atualizarEstadoLedQuarto1(usuario.getId_cliente(), newState);
@@ -55,13 +61,34 @@ public class Quarto1Controller {
 
     @FXML
     public void initialize() {
-        myCheckBox.setSelected(EstadoLampQ1.isCheckedQ1());
-        if (myCheckBox.isSelected()) {
-            myLabel.setText("ON");
-            myImageView.setImage(myImage2);
-        } else {    
-            myLabel.setText("OFF");
-            myImageView.setImage(myImage1);
+        String portName = "COM16";
+        serialPort = SerialPort.getCommPort(portName);
+        serialPort.setBaudRate(9600);
+
+        if (!serialPort.openPort()) {
+            System.err.println("Erro ao abrir a porta serial.");
+        }
+
+        myCheckBox.setSelected(false);
+        myLabel.setText("OFF");
+        myImageView.setImage(myImage1);
+    }
+
+    private void enviarComandoParaArduino(char command) {
+        try {
+            if (serialPort != null) {
+                serialPort.getOutputStream().write(command);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void finalize() {
+        if (serialPort != null && serialPort.isOpen()) {
+            serialPort.closePort();
+            System.out.println("Porta serial fechada.");
         }
     }
 

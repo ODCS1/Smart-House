@@ -2,6 +2,8 @@ package controllers;
 
 import java.io.IOException;
 
+import com.fazecast.jSerialComm.SerialPort;
+
 import dao.LedDAO;
 import entidade.Usuario;
 import estado_lampadas.EstadoLampLavanderia;
@@ -29,6 +31,8 @@ public class LavanderiaController {
     private Label myLabel;
     @FXML
     private ImageView myImageView;
+
+    private SerialPort serialPort;
     
     private Usuario usuario = Session.getCurrentUser();
 
@@ -43,10 +47,12 @@ public class LavanderiaController {
             myLabel.setText("ON");
             myImageView.setImage(myImage2);
             EstadoLampLavanderia.setCheckedLavanderia(true);
+            enviarComandoParaArduino('6');
         } else {    
             myLabel.setText("OFF");
             myImageView.setImage(myImage1);
             EstadoLampLavanderia.setCheckedLavanderia(false);
+            enviarComandoParaArduino('7');
         }
 
         LedDAO.atualizarEstadoLedLavanderia(usuario.getId_cliente(), newState);
@@ -54,13 +60,34 @@ public class LavanderiaController {
 
     @FXML
     public void initialize() {
-        myCheckBox.setSelected(EstadoLampLavanderia.isCheckedLavanderia());
-        if (myCheckBox.isSelected()) {
-            myLabel.setText("ON");
-            myImageView.setImage(myImage2);
-        } else {    
-            myLabel.setText("OFF");
-            myImageView.setImage(myImage1);
+        String portName = "COM16";
+        serialPort = SerialPort.getCommPort(portName);
+        serialPort.setBaudRate(9600);
+
+        if (!serialPort.openPort()) {
+            System.err.println("Erro ao abrir a porta serial.");
+        }
+
+        myCheckBox.setSelected(false);
+        myLabel.setText("OFF");
+        myImageView.setImage(myImage1);
+    }
+
+    private void enviarComandoParaArduino(char command) {
+        try {
+            if (serialPort != null) {
+                serialPort.getOutputStream().write(command);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void finalize() {
+        if (serialPort != null && serialPort.isOpen()) {
+            serialPort.closePort();
+            System.out.println("Porta serial fechada.");
         }
     }
 
