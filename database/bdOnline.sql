@@ -183,6 +183,7 @@ SELECT * FROM sistema_casa.ClienteLeds;
 
 
 -- COMANDOS DE DROP
+-- DROP TABLE sistema_casa.Pacotes
 -- DROP TABLE sistema_casa.Leds
 -- DROP TABLE sistema_casa.ClienteLeds
 -- DROP TABLE sistema_casa.Enderecos
@@ -249,7 +250,7 @@ CREATE PROCEDURE sp_cadastroNovoCliente(
     IN novoComplemento VARCHAR(50)
 )
 BEGIN
-    DECLARE id_cliente INT UNSIGNED;
+    DECLARE idCliente INT UNSIGNED;
     DECLARE qualPacoteId INT UNSIGNED;
     DECLARE qtdLedCasa INT UNSIGNED;
     DECLARE codComodos VARCHAR(50);
@@ -266,37 +267,36 @@ BEGIN
     VALUES (novoNome, novoSobrenome, novoEmail, novaSenha, novoCpf);
     
     -- OBTENÇÃO DO ID DO CLIENTE INSERIDO
-
-    DECLARE @id_cliente INT;
-    SELECT id_cliente = @id_cliente FROM sistema_casa.Clientes WHERE novoEmail;
+    -- SELECT idCliente = id_cliente FROM sistema_casa.Clientes WHERE email_cliente = novoEmail;
+    SET @idCliente = LAST_INSERT_ID();
 
     -- OBTENÇÃO DO ID DO PACOTE
     SELECT id_pacote INTO @qualPacoteId FROM sistema_casa.Pacotes WHERE nome_pacote = novoPacote;
 
     -- INSERÇÃO DA COMPRA
     INSERT INTO sistema_casa.Compras (id_cliente, id_pacote)
-    VALUES (@id_cliente, @qualPacoteId);
+    VALUES (@idCliente, @qualPacoteId);
 
     -- DEFINIÇÃO DOS VALORES BASEADO NO PACOTE
     CASE novoPacote
         WHEN 'Pacote básico' THEN
             SET qtdLedCasa = 2;
-            INSERT INTO sistema_casa.ClienteLeds (id_cliente, led_1, led_2) VALUES (@id_cliente, 0, 0);
+            INSERT INTO sistema_casa.ClienteLeds (id_cliente, led_1, led_2) VALUES (@idCliente, 0, 0);
         WHEN 'Pacote Vip' THEN
             SET qtdLedCasa = 9;
             INSERT INTO sistema_casa.ClienteLeds (id_cliente, led_1, led_2, led_3, led_4, led_5, led_6, led_7, led_8, led_9)
-            VALUES (@id_cliente, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            VALUES (@idCliente, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         WHEN 'Pacote Master' THEN
             SET qtdLedCasa = 13;
             INSERT INTO sistema_casa.ClienteLeds (id_cliente, led_1, led_2, led_3, led_4, led_5, led_6, led_7, led_8, led_9, led_10, led_11, led_12, led_13)
-            VALUES (@id_cliente, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            VALUES (@idCliente, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         ELSE
             SET qtdLedCasa = 0;
     END CASE;
 
     -- INSERÇÃO CASA
     INSERT INTO sistema_casa.Casas (nome_casa, qtd_led_casa, id_cliente)
-    VALUES (novoNomeCasa, qtdLedCasa, id_cliente);
+    VALUES (novoNomeCasa, qtdLedCasa, @idCliente);
     
     -- OBTENÇÃO DO ID DA CASA
     SET id_casa = LAST_INSERT_ID();
@@ -307,8 +307,3 @@ BEGIN
     
     COMMIT;
 END;
-
-
-
-
-

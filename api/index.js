@@ -124,6 +124,38 @@ app.post("/autenticar-login", async (req,res) => {
     }
 });
 
+app.post("/alterar-dados", async (req,res) => {
+    try {
+        const {
+            nome,
+            sobrenome,
+            email,
+            senha,
+            cpf,
+            pacote,
+            nomeCasa,
+            cep,
+            logradouro,
+            bairro,
+            numero,
+            cidade,
+            estado,
+            complemento
+        } = req.body;
+
+        const result = await database.sequelize.query('CALL sp_alterarDadosCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            {
+                replacements: [nome, sobrenome, email, senha, cpf, pacote, nomeCasa, cep, logradouro, bairro, numero, cidade, estado, complemento]
+            }
+        );
+
+        res.redirect("/login")
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("<h1>Ocorreu um erro durante o cadastro.</h1>" + `<p>[ERRO]: ${err}</p>`);
+    }
+})
+
 app.post("/adicionar", async (req, res) => {
     try {
         const {
