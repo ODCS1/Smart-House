@@ -6,7 +6,6 @@
 :root{
     --cor: #666;
     --cor0: #1E2122;
-    /* --cor1: #E50914; */
     --cor1:   #4AB0FE;
     --cor2: #4FACFE;
     --cor3: #220de0;
@@ -173,14 +172,22 @@ section#col div#col2{
 	min-height: 400px;
 }
 
-.pimg4 {
-	background-image: url("");
-	min-height: 400px;
+div.img-plano {
+	background-color: var(--cor);
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
-
-.pimg5 {
-	background-image: url("");
-	min-height: 100%;
+div.img-plano1 {
+	background-image: url('./imgs/quartos.jpg');
+}
+div.img-plano2 {
+	background-image: url('./imgs/comodos-internos.jpg');
+}
+div.img-plano3 {
+	background-image: url('./imgs/quintal.png');
 }
 
 .section {

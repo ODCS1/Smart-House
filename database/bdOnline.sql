@@ -192,14 +192,15 @@ SELECT * FROM sistema_casa.ClienteLeds;
 -- DROP TABLE sistema_casa.Compras
 -- DROP TABLE sistema_casa.Clientes
 
--- AINDA FALTA O CREATE VIEW E A PARTE DE PROGRAMAÇÃO DENTRO DO BANCO DE DADOS.
+-- 1 VIEW E 4 PROCEDURE
 
 -- VIEW PARA PEGAR TODAS AS INFORMAÇÕES REFERENTES AO USUÁRIO
 CREATE VIEW ViewClienteDetalhes AS
 SELECT 
     c.nome_cliente, 
     c.sobrenome_cliente, 
-    c.email_cliente, 
+    c.email_cliente,
+    c.senha_cliente,
     c.cpf_cliente, 
     p.nome_pacote, 
     p.acesso, 
@@ -267,7 +268,6 @@ BEGIN
     VALUES (novoNome, novoSobrenome, novoEmail, novaSenha, novoCpf);
     
     -- OBTENÇÃO DO ID DO CLIENTE INSERIDO
-    -- SELECT idCliente = id_cliente FROM sistema_casa.Clientes WHERE email_cliente = novoEmail;
     SET @idCliente = LAST_INSERT_ID();
 
     -- OBTENÇÃO DO ID DO PACOTE
@@ -304,6 +304,53 @@ BEGIN
     -- INSERÇÃO DO ENDEREÇO
     INSERT INTO sistema_casa.Enderecos (cep, logradouro, bairro, numero, cidade, estado, complemento, id_casa)
     VALUES (novoCep, novoLogradouro, novoBairro, novoNumero, novaCidade, novoEstado, novoComplemento, id_casa);
+    
+    COMMIT;
+END;
+
+
+-- SP PARA ATUALIZAÇÃO DE INFORMAÇÕES PELO SITE
+CREATE PROCEDURE sp_atualizarDadosCliente(
+    IN novoNome VARCHAR(30),
+    IN novoSobrenome VARCHAR(50),
+    IN novoEmail VARCHAR(100),
+    IN novaSenha VARCHAR(20),
+    IN Cpf BIGINT UNSIGNED,
+    IN novoNomeCasa VARCHAR(40),
+    IN novoCep INT UNSIGNED,
+    IN novoLogradouro VARCHAR(40),
+    IN novoBairro VARCHAR(30),
+    IN novoNumero INT,
+    IN novaCidade VARCHAR(40),
+    IN novoEstado CHAR(2),
+    IN novoComplemento VARCHAR(50)
+)
+BEGIN
+    DECLARE idCliente INT UNSIGNED;
+    DECLARE idCasa INT UNSIGNED;
+
+    START TRANSACTION;
+
+    -- ATUALIZAÇÃO DO CLIENTE
+    UPDATE sistema_casa.Clientes
+    SET nome_cliente = novoNome, sobrenome_cliente = novoSobrenome, senha_cliente = novaSenha
+    WHERE cpf_cliente = Cpf;
+    
+    -- OBTENÇÃO DO ID DO CLIENTE ATUALIZADO
+    SELECT id_cliente INTO idCliente FROM sistema_casa.Clientes WHERE cpf_cliente = Cpf;
+
+    -- ATUALIZAÇÃO CASA
+    UPDATE sistema_casa.Casas
+    SET nome_casa = novoNomeCasa
+    WHERE id_cliente = idCliente;
+    
+    -- OBTENÇÃO DO ID DA CASA
+    SELECT id_casa INTO idCasa FROM sistema_casa.Casas WHERE id_cliente = idCliente;
+
+    -- ATUALIZAÇÃO DO ENDERECO
+    UPDATE sistema_casa.Enderecos
+    SET cep = novoCep, logradouro = novoLogradouro, bairro = novoBairro, numero = novoNumero, cidade = novaCidade, estado = novoEstado, complemento = novoComplemento
+    WHERE id_casa = idCasa;
     
     COMMIT;
 END;

@@ -58,7 +58,7 @@
             <li><a id="tab-1" href="#dados-pessoais"> <img src="./imgs/personal-information-128.png" alt="Dados Pessoais"> </a></li>
             <li><a id="tab-2" href="#endereco"> <img src="./imgs/home-128.png" alt="Localização"> </a></li>
             <li><a id="tab-3" href="#plano"> <img src="./imgs/choice-128.png" alt="Plano Selecionado"> </a></li>
-            <li><a id="tab-4" href="#pagamento"> <img src="./imgs/atualizar-banco-de-dados.png" alt="Atualização de dados"> </a></li>
+            <li><a id="tab-4" href="#confirmar"> <img src="./imgs/atualizar-banco-de-dados.png" alt="Atualização de dados"> </a></li>
             </ul>
 
             <div class="tabs__panels flow">
@@ -66,28 +66,28 @@
                 <h2>Dados Pessoais</h2>
                 <p>
                     <label class="lbl_cadastro" for="inome">Nome: </label>
-                    <input type="text" name="nome" placeholder="Primeiro Nome" id="inome" required="true" value={{cliente.nome_cliente}}>
+                    <input type="text" name="nome" placeholder="Primeiro Nome" id="inome" required="true" value="{{cliente.nome_cliente}}">
                 </p>
 
                 <p>
                     <label class="lbl_cadastro" for="isobrenome">Sobrenome: </label>
-                    <input type="text" name="sobrenome" placeholder="Sobrenome" id="isobrenome" required="true" value={{cliente.sobrenome_cliente}}>
+                    <input type="text" name="sobrenome" placeholder="Sobrenome" id="isobrenome" required="true" value="{{cliente.sobrenome_cliente}}">
                 </p>
 
                 <p>
                     <label class="lbl_cadastro" for="iemail">Email: </label>
-                    <input type="email" name="email" id="iemail" placeholder="email@gmail.com" required="true" value={{cliente.email_cliente}}>
+                    <input type="email" name="email" id="iemail" placeholder="email@gmail.com" required="true" value="{{cliente.email_cliente}}">
                 </p>
 
                 <p>
                     <label class="lbl_cadastro" for="isenha">Senha: </label>
-                    <input type="text" name="senha" id="isenha" placeholder="[a-z]-[0-9]" required="true" value={{cliente.senha_cliente}}>
+                    <input type="text" name="senha" id="isenha" placeholder="[a-z]-[0-9]" required="true" value="{{cliente.senha_cliente}}">
                 </p>
 
                 <p>
                     <label class="lbl_cadastro" for="icpf">Cpf: </label>
-                    <span id="email">{{cliente.cpf_cliente}}</span>
-                    {{!-- <input type="text" name="cpf" id="icpf" placeholder="12345678901" value={{cliente.cpf_cliente}}> --}}
+                    <input type="text" name="cpf" id="icpf"  value="{{cliente.cpf_cliente}}" readonly>
+                    {{!-- <span id="email" name="cpf">{{cliente.cpf_cliente}}</span> --}}
                 </p>
 
             </div>
@@ -95,28 +95,28 @@
                 <h2>Endereço</h2>
                 <p>
                     <label class="lbl_cadastro" for="icep">Cep</label>
-                    <input type="text" name="cep" id="icep" placeholder="Somente Números" maxlength="8" value={{cliente.cep}}>
+                    <input type="text" name="cep" id="icep" placeholder="Somente Números" maxlength="8" value="{{cliente.cep}}">
                 </p>
                 <p>
                     <label class="lbl_cadastro" for="ilogradouro">Logradouro</label>
-                    <input type="text" name="logradouro" id="ilogradouro" placeholder="Rua de exemplo" value={{cliente.logradouro}}>
+                    <input type="text" name="logradouro" id="ilogradouro" placeholder="Rua de exemplo" value="{{cliente.logradouro}}">
                 </p>
                 <p>
                     <label class="lbl_cadastro" for="ibairro">Bairro</label>
-                    <input type="text" name="bairro" id="ibairro" placeholder="Nome do Baiiro" value={{cliente.bairro}}>
+                    <input type="text" name="bairro" id="ibairro" placeholder="Nome do Baiiro" value="{{cliente.bairro}}">
                 </p>
                 <p>
                     <label class="lbl_cadastro" for="inumero">Número</label>
-                    <input type="text" name="numero" id="inumero" placeholder="Somente números" value={{cliente.numero}}>
+                    <input type="text" name="numero" id="inumero" placeholder="Somente números" value="{{cliente.numero}}">
                 </p>
                 <p>
                     <label class="lbl_cadastro" for="icidade">Cidade</label>
-                    <input type="text" name="cidade" id="icidade" value={{cliente.cidade}}>
+                    <input type="text" name="cidade" id="icidade" value="{{cliente.cidade}}">
                 </p>
                 <p>
                     <label class="lbl_cadastro" id="lblEstado" for="iestado">Estado</label>
                     <select id="iestado" name="estado">
-                        <option selected>Opção antiga: {{cliente.estado}}</option>
+                        <option selected>{{cliente.estado}}</option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
                         <option value="AP">AP</option>
@@ -150,7 +150,7 @@
 
                 <p>
                     <label class="lbl_cadastro" id="lblComplemento" for="icomplemento">Complemento</label>
-                    <input type="text" name="complemento" id="icomplemento" value={{cliente.complemento}}>
+                    <input type="text" name="complemento" id="icomplemento" value="{{cliente.complemento}}">
                 </p>
 
             </div>
@@ -169,17 +169,17 @@
 
                 <p>
                     <label class="lbl_cadastro" for="inomeCasa">Nome da casa: </label>
-                    <input type="text" name="nomeCasa" id="inomeCasa" value={{cliente.nome_casa}}>
+                    <input type="text" name="nomeCasa" id="inomeCasa" value="{{cliente.nome_casa}}">
                 </p>
 
             </div>
-            <div id="pagamento" aria-labelledby="tab-4">
+            <div id="confirmar" aria-labelledby="tab-4">
                 <h2>Confirmação de Atualização</h2>
                 <div id="centralizar-qr">
                     <p>
                     A atualização dos dados é um processo irreversível, preste atenção!
                     </p>
-                    <img src="./imgs/robo.png" alt="Imagem Robo">
+                    <img src="./imgs/robo.png" alt="Imagem Robo"><br><br><br>
                     <p>
                         <button type="submit" class="blue-button">Atualizar</button>
                     </p>

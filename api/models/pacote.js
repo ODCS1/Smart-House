@@ -4,7 +4,7 @@ const Pacote = database.sequelize.define('Pacotes', {
     id_pacote: {
         type: database.Sequelize.INTEGER,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
     },
     nome_pacote: {
         type: database.Sequelize.STRING(50),

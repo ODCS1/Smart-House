@@ -32,9 +32,9 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#" style="color: white;">Planos</a></li>
-					<li><a href="#" style="color: white;">Sobre</a></li>
-					<li><a href="#" style="color: white;">Contato</a></li>
+					<li><a href="#planos" style="color: white;">Planos</a></li>
+					<li><a href="#about" style="color: white;">Sobre</a></li>
+					<li><a href="#contact" style="color: white;">Contato</a></li>
 					<li><a href="/cadastro" style="color: white;">Comprar</a></li>
 					<li>
 						<a
@@ -72,28 +72,32 @@
 		<p class="home">
 			Venha para o nosso serviço de <strong>Casa Inteligente</strong> e tenha a melhor experiência com automatização residencial, fazendo com que você gaste o seu tempo com o que realmente importa.
 		</p>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/wedwOQuMQbM?si=JuH-H4imYG7Ws4O0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="margin: 10px;"></iframe>
+		<p class="home">
+			Nosso serviço consiste em simplificar o controle das luzes em sua casa. Através do nosso aplicativo desktop, você pode manipular quais luzes você quer acender e quais quer apagar. De acordo com o plano que se encaixa melhor com as necessidades dos nossos clientes.
+		</p>
 	</section>
-
-	<!-- caixas unicamp e cotuca -->
-	<section id="col">
-		<div id="col1-container">
-			<a href="https://www.unicamp.br/unicamp/" target="_blank" rel="external">
-				<div id="col1"></div>
-			</a>
-		</div>
-		<div id="col2-container">
-			<a href="https://cotuca.unicamp.br/cotuca/" target="_blank" rel="external">
-				<div id="col2"></div>
-			</a>
-		</div>
-	</section>
-
 
 	<section id="about" class="section section-text">
-		<h2>O ESCOPO DO PROJETO</h2>
+		<h2>SOBRE</h2>
 		<p class="home">
-			Nosso projeto constituí de uma iniciativa para que os alunos de qualquer curso, possam por em prática os conhecimentos adquiridos no curso, assim dentro do próprio espaço da instituição possam ter esse ganho de experiência na sua futura profissão.
-			Além de ser uma forma de trazer atenção para o espaço educacional COTUCA, tanto da população como das empresas, tendo assi cada vez mais revelância no que diz respeito a formar profissionais qualificados.
+			Esse sistema foi desenvolvido para a disciplina Prática Profissional II do Colégio técnico da Unicamp (Cotuca). Uma disciplina que visa integrar todos os conhecimentos aprendidos durante o semestre, para assim ser aolicado esses conhecimentos em projetos.
+		</p>
+		<!-- caixas unicamp e cotuca -->
+		<section id="col" style="margin: 30px;">
+			<div id="col1-container">
+				<a href="https://www.unicamp.br/unicamp/" target="_blank" rel="external">
+					<div id="col1"></div>
+				</a>
+			</div>
+			<div id="col2-container">
+				<a href="https://cotuca.unicamp.br/cotuca/" target="_blank" rel="external">
+					<div id="col2"></div>
+				</a>
+			</div>
+		</section>
+		<p class="home">
+			Neste projeto foi aprimorado o uso do banco de dados, utilizando Stored Procedure e view na linguagem MySql. O aplicativo desktop foi feito em java utilizando o javafx. Na API foi utilizado o node com express e sequelize, tendo o site dentro do node, com as respectivas rotas de endereço. Finalizando na comunicação pela porta Serial no arduino, que constítui a parte física do projeto em uma casa feita em mdf com crição e montagem para o nosso sistema.
 		</p>
 
 		{{!-- IFRAME --}}
@@ -108,9 +112,21 @@
 		</div>
 	</div>
 
-	<section class="section section-text">
+	<section class="section section-text" id="planos">
 		<h2>Planos</h2>
 		<p class="home">Siga para adquirir agora</p>
+		<div class="plano">
+			<div class="img-plano img-plano1"></div>
+			<span>Plano básico</span>
+		</div>
+		<div class="plano">
+			<div class="img-plano img-plano2"></div>
+			<span>Plano Vip</span>
+		</div>
+		<div class="plano">
+			<div class="img-plano img-plano3"></div>
+			<span>Plano Master</span>
+		</div>
 	</section>
 
 	

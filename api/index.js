@@ -73,7 +73,6 @@ app.get("/perfil", async (req, res) => {
             const result = await database.sequelize.query(query, { type: QueryTypes.SELECT });
 
             const cliente = result.length > 0 ? result[0] : null;
-            console.log(cliente);
             res.render("perfil", { cliente });
         } else {
             res.redirect("/login");
@@ -124,7 +123,7 @@ app.post("/autenticar-login", async (req,res) => {
     }
 });
 
-app.post("/alterar-dados", async (req,res) => {
+app.post("/alterar-dados", async (req, res) => {
     try {
         const {
             nome,
@@ -132,7 +131,6 @@ app.post("/alterar-dados", async (req,res) => {
             email,
             senha,
             cpf,
-            pacote,
             nomeCasa,
             cep,
             logradouro,
@@ -143,18 +141,20 @@ app.post("/alterar-dados", async (req,res) => {
             complemento
         } = req.body;
 
-        const result = await database.sequelize.query('CALL sp_alterarDadosCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        const result = await database.sequelize.query(
+            'CALL sp_atualizarDadosCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
             {
-                replacements: [nome, sobrenome, email, senha, cpf, pacote, nomeCasa, cep, logradouro, bairro, numero, cidade, estado, complemento]
+                replacements: [nome, sobrenome, email, senha, cpf, nomeCasa, cep, logradouro, bairro, numero, cidade, estado, complemento]
             }
         );
 
-        res.redirect("/login")
+        res.redirect("/perfil");
     } catch (err) {
         console.error(err);
-        res.status(500).send("<h1>Ocorreu um erro durante o cadastro.</h1>" + `<p>[ERRO]: ${err}</p>`);
+        res.status(500).send("<h1>Ocorreu um erro durante a atualização dos dados.</h1>" + `<p>[ERRO]: ${err}</p>`);
     }
-})
+});
+
 
 app.post("/adicionar", async (req, res) => {
     try {
