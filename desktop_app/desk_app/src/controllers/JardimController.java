@@ -1,8 +1,6 @@
 package controllers;
 import java.io.IOException;
 
-import com.fazecast.jSerialComm.SerialPort;
-
 import dao.LedDAO;
 import entidade.Usuario;
 import estado_lampadas.EstadoLampJardim;
@@ -17,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import serial.SerialCommunication;
 
 public class JardimController {
     
@@ -24,8 +23,6 @@ public class JardimController {
     private Scene scene;
 
     private Usuario usuario = Session.getCurrentUser();
-
-    private SerialPort serialPort;
 
     @FXML
     private Label access;
@@ -56,12 +53,12 @@ public class JardimController {
             myLabel1.setText("ON");
             myImageView1.setImage(myImage1_ON);
             EstadoLampJardim.setCheckedJardim1(true);
-            enviarComandoParaArduino('u');
+            SerialCommunication.enviarComandoParaArduino('0');
         } else {
             myLabel1.setText("OFF");
             myImageView1.setImage(myImage1_OFF);
             EstadoLampJardim.setCheckedJardim1(false);
-            enviarComandoParaArduino('i');
+            SerialCommunication.enviarComandoParaArduino('1');
         }
 
         LedDAO.atualizarEstadoLedJardim1(usuario.getId_cliente(), newState1);
@@ -75,12 +72,12 @@ public class JardimController {
             myLabel2.setText("ON");
             myImageView2.setImage(myImage2_ON);
             EstadoLampJardim.setCheckedJardim2(true);
-            enviarComandoParaArduino('o');
+            SerialCommunication.enviarComandoParaArduino('2');
         } else {
             myLabel2.setText("OFF");
             myImageView2.setImage(myImage2_OFF);
             EstadoLampJardim.setCheckedJardim2(false);
-            enviarComandoParaArduino('p');
+            SerialCommunication.enviarComandoParaArduino('3');
         }
 
         LedDAO.atualizarEstadoLedJardim2(usuario.getId_cliente(), newState2);
@@ -94,12 +91,12 @@ public class JardimController {
             myLabel3.setText("ON");
             myImageView3.setImage(myImage3_ON);
             EstadoLampJardim.setCheckedJardim3(true);
-            enviarComandoParaArduino('a');
+            SerialCommunication.enviarComandoParaArduino('4');
         } else {
             myLabel3.setText("OFF");
             myImageView3.setImage(myImage3_OFF);
             EstadoLampJardim.setCheckedJardim3(false);
-            enviarComandoParaArduino('s');
+            SerialCommunication.enviarComandoParaArduino('5');
         }
 
         LedDAO.atualizarEstadoLedJardim3(usuario.getId_cliente(), newState3);
@@ -113,58 +110,50 @@ public class JardimController {
             myLabel4.setText("ON");
             myImageView4.setImage(myImage4_ON);
             EstadoLampJardim.setCheckedJardim4(true);
-            enviarComandoParaArduino('d');
+            SerialCommunication.enviarComandoParaArduino('g');
         } else {
             myLabel4.setText("OFF");
             myImageView4.setImage(myImage4_OFF);
             EstadoLampJardim.setCheckedJardim4(false);
-            enviarComandoParaArduino('f');
+            SerialCommunication.enviarComandoParaArduino('h');
         }
 
         LedDAO.atualizarEstadoLedJardim4(usuario.getId_cliente(), newState4);
     }
+    
     @FXML
     public void initialize() {
-        String portName = "COM16";
-        serialPort = SerialPort.getCommPort(portName);
-        serialPort.setBaudRate(9600);
-
-        if (!serialPort.openPort()) {
-            System.err.println("Erro ao abrir a porta serial.");
+        myCheckBox1.setSelected(EstadoLampJardim.isCheckedJardim1());
+        if(myCheckBox1.isSelected()) {
+            myLabel1.setText("ON");
+            myImageView1.setImage(myImage1_ON);
+        } else {
+            myLabel1.setText("OFF");
+            myImageView1.setImage(myImage1_OFF);
         }
-
-        myCheckBox1.setSelected(false);
-        myLabel1.setText("OFF");
-        myImageView1.setImage(myImage1_OFF);
-
-        myCheckBox2.setSelected(false);
-        myLabel2.setText("OFF");
-        myImageView2.setImage(myImage2_OFF);
-
-        myCheckBox3.setSelected(false);
-        myLabel3.setText("OFF");
-        myImageView3.setImage(myImage3_OFF);
-
-        myCheckBox4.setSelected(false);
-        myLabel4.setText("OFF");
-        myImageView4.setImage(myImage4_OFF);
-    }
-
-    private void enviarComandoParaArduino(char command) {
-        try {
-            if (serialPort != null) {
-                serialPort.getOutputStream().write(command);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        myCheckBox2.setSelected(EstadoLampJardim.isCheckedJardim2());
+        if(myCheckBox2.isSelected()) {
+            myLabel2.setText("ON");
+            myImageView2.setImage(myImage2_ON);
+        } else {
+            myLabel2.setText("OFF");
+            myImageView2.setImage(myImage2_OFF);
         }
-    }
-
-    @FXML
-    public void finalize() {
-        if (serialPort != null && serialPort.isOpen()) {
-            serialPort.closePort();
-            System.out.println("Porta serial fechada.");
+        myCheckBox3.setSelected(EstadoLampJardim.isCheckedJardim3());
+        if(myCheckBox3.isSelected()) {
+            myLabel3.setText("ON");
+            myImageView3.setImage(myImage3_ON);
+        } else {
+            myLabel3.setText("OFF");
+            myImageView3.setImage(myImage3_OFF);
+        }
+        
+        myCheckBox4.setSelected(EstadoLampJardim.isCheckedJardim4());
+        if(myCheckBox4.isSelected()) {
+            myLabel4.setText("ON");
+            myImageView4.setImage(myImage4_ON);
+        } else {
+            myLabel4.setText("OFF");
         }
     }
 

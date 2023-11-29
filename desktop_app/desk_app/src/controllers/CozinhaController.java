@@ -1,8 +1,6 @@
 package controllers;
 import java.io.IOException;
 
-import com.fazecast.jSerialComm.SerialPort;
-
 import dao.LedDAO;
 import entidade.Usuario;
 import estado_lampadas.EstadoLampCozinha;
@@ -17,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import serial.SerialCommunication;
 
 public class CozinhaController {
 
@@ -28,8 +27,6 @@ public class CozinhaController {
     private Label myLabel;
     @FXML
     private ImageView myImageView;
-
-    private SerialPort serialPort;
 
     private Stage stage;
     private Scene scene;
@@ -47,12 +44,12 @@ public class CozinhaController {
             myLabel.setText("ON");
             myImageView.setImage(myImage2);
             EstadoLampCozinha.setCheckedCozinha(true);
-            enviarComandoParaArduino('2');
+            SerialCommunication.enviarComandoParaArduino('t');
         } else {    
             myLabel.setText("OFF");
             myImageView.setImage(myImage1);
             EstadoLampCozinha.setCheckedCozinha(false);
-            enviarComandoParaArduino('3');
+            SerialCommunication.enviarComandoParaArduino('y');
         }
 
         LedDAO.atualizarEstadoLedCozinha(usuario.getId_cliente(), newState);
@@ -60,35 +57,13 @@ public class CozinhaController {
 
     @FXML
     public void initialize() {
-        String portName = "COM16";
-        serialPort = SerialPort.getCommPort(portName);
-        serialPort.setBaudRate(9600);
-
-        if (!serialPort.openPort()) {
-            System.err.println("Erro ao abrir a porta serial.");
-        }
-
-        myCheckBox.setSelected(false);
-        myLabel.setText("OFF");
-        myImageView.setImage(myImage1);
-    }
-
-    private void enviarComandoParaArduino(char command) {
-        try {
-            if (serialPort != null) {
-                serialPort.getOutputStream().write(command);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void finalize() {
-        // Feche a porta serial ao fechar a aplicação
-        if (serialPort != null && serialPort.isOpen()) {
-            serialPort.closePort();
-            System.out.println("Porta serial fechada.");
+        myCheckBox.setSelected(EstadoLampCozinha.isCheckedCozinha());
+        if (myCheckBox.isSelected()) {
+            myLabel.setText("ON");
+            myImageView.setImage(myImage2);
+        } else {    
+            myLabel.setText("OFF");
+            myImageView.setImage(myImage1);
         }
     }
 

@@ -1,8 +1,6 @@
 package controllers;
 import java.io.IOException;
 
-import com.fazecast.jSerialComm.SerialPort;
-
 import dao.LedDAO;
 import entidade.Usuario;
 import estado_lampadas.EstadoLampMaster;
@@ -17,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import serial.SerialCommunication;
 
 public class MasterController {
     
@@ -32,8 +31,6 @@ public class MasterController {
     @FXML
     private ImageView myImageView;
 
-    private SerialPort serialPort;
-
     private Usuario usuario = Session.getCurrentUser();
 
     Image myImage1_OFF = new Image(getClass().getResourceAsStream("/img/light-bulb.png"));
@@ -47,12 +44,12 @@ public class MasterController {
             myLabel.setText("ON");
             myImageView.setImage(myImage1_ON);
             EstadoLampMaster.setCheckedMaster(true);
-            enviarComandoParaArduino('g');
+            SerialCommunication.enviarComandoParaArduino('o');
         } else {
             myLabel.setText("OFF");
             myImageView.setImage(myImage1_OFF);
             EstadoLampMaster.setCheckedMaster(false);
-            enviarComandoParaArduino('h');
+            SerialCommunication.enviarComandoParaArduino('p');
         }
 
         LedDAO.atualizarEstadoLedMaster(usuario.getId_cliente(), newState);
@@ -60,26 +57,13 @@ public class MasterController {
 
     @FXML
     public void initialize() {
-        String portName = "COM16";
-        serialPort = SerialPort.getCommPort(portName);
-        serialPort.setBaudRate(9600);
-
-        if (!serialPort.openPort()) {
-            System.err.println("Erro ao abrir a porta serial.");
-        }
-
-        myCheckBox.setSelected(false);
-        myLabel.setText("OFF");
-        myImageView.setImage(myImage1_OFF);
-    }
-
-    private void enviarComandoParaArduino(char command) {
-        try {
-            if (serialPort != null) {
-                serialPort.getOutputStream().write(command);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        myCheckBox.setSelected(EstadoLampMaster.isCheckedMaster());
+        if (myCheckBox.isSelected()) {
+            myLabel.setText("ON");
+            myImageView.setImage(myImage1_ON);
+        } else {
+            myLabel.setText("OFF");
+            myImageView.setImage(myImage1_OFF);
         }
     }
 
