@@ -172,22 +172,19 @@ section#col div#col2{
 	min-height: 400px;
 }
 
-div.img-plano {
-	background-color: var(--cor);
+
+div.plano {
+	width: 300px;
+	height: 300px;
+	display: inline-block;
+	border-radius: 8px;
+	margin: 10px;
+}
+
+div.plano img{
 	width: 100%;
 	height: 100%;
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-div.img-plano1 {
-	background-image: url('./imgs/quartos.jpg');
-}
-div.img-plano2 {
-	background-image: url('./imgs/comodos-internos.jpg');
-}
-div.img-plano3 {
-	background-image: url('./imgs/quintal.png');
+	border-radius: 8px;
 }
 
 .section {

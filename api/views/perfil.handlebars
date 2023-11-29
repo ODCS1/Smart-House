@@ -17,7 +17,25 @@
                     </div>
                 </div>
                 <div id="dados">
-                    <div id="conta">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>NOME</th>
+                                <th>SOBRENOME</th>
+                                <th>EMAIL</th>
+                                <th>CPF</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{cliente.nome_cliente}}</td>
+                                <td>{{cliente.sobrenome_cliente}}</td>
+                                <td>{{cliente.email_cliente}}</td>
+                                <td>{{cliente.cpf_cliente}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {{!-- <div id="conta">
                          <label class="lbl_cadastro">Nome: </label>
                         <span>{{cliente.nome_cliente}}</span>
 
@@ -29,8 +47,32 @@
 
                         <label class="lbl_cadastro">Cpf: </label>
                         <span>{{cliente.cpf_cliente}}</span>
-                    </div>
-                    <div id="endereco">
+                    </div> --}}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>CEP</th>
+                                <th>LOGRADOURO</th>
+                                <th>BAIRRO</th>
+                                <th>NÚMERO</th>
+                                <th>CIDADE</th>
+                                <th>ESTADO</th>
+                                <th>COMPLEMENTO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{cliente.cep}}</td>
+                                <td>{{cliente.logradouro}}</td>
+                                <td>{{cliente.bairro}}</td>
+                                <td>{{cliente.numero}}</td>
+                                <td>{{cliente.cidade}}</td>
+                                <td>{{cliente.estado}}</td>
+                                <td>{{cliente.complemento}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {{!-- <div id="endereco">
                         <label class="lbl_cadastro">Cep: </label>
                         <span>{{cliente.cep}}</span>
 
@@ -51,55 +93,10 @@
 
                         <label class="lbl_cadastro">Complemento: </label>
                         <span>{{cliente.complemento}}</span>
-                    </div>
+                    </div> --}}
 
-                    {{!-- <fieldset>
-                        <legend>Conta</legend>
-                        <p>
-                            <label class="lbl_cadastro">Nome: </label>
-                            <span>{{cliente.nome_cliente}}</span>
-
-                            <label class="lbl_cadastro">Sobrenome: </label>
-                            <span>{{cliente.sobrenome_cliente}}</span>
-                        </p>
-                        <p>
-                            <label class="lbl_cadastro">Email: </label>
-                            <span>{{cliente.email_cliente}}</span>
-
-                            <label class="lbl_cadastro">Cpf: </label>
-                            <span>{{cliente.cpf_cliente}}</span>
-                        </p>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Endereço</legend>
-                        <p>
-                            <label class="lbl_cadastro">Cep: </label>
-                            <span>{{cliente.cep}}</span>
-
-                            <label class="lbl_cadastro">Logradouro: </label>
-                            <span>{{cliente.logradouro}}</span>
-                        </p>
-                        <p>
-                            <label class="lbl_cadastro">Bairro: </label>
-                            <span>{{cliente.bairro}}</span>
-
-                            <label class="lbl_cadastro">Número: </label>
-                            <span>{{cliente.numero}}</span>
-                        </p>
-
-                        <p>
-                            <label class="lbl_cadastro">Cidade: </label>
-                            <span>{{cliente.cidade}}</span>
-
-                            <label class="lbl_cadastro">Estado: </label>
-                            <span>{{cliente.estado}}</span>
-
-                            <label class="lbl_cadastro">Complemento: </label>
-                            <span>{{cliente.complemento}}</span>
-                        </p>
-                    </fieldset> --}}
                     <form action="/alterar-dados" method="get">
-                        <button type="submit">Editar</button>
+                        <button type="submit" class="blue-button">Editar</button>
                     </form>
                 </div>
             </section>

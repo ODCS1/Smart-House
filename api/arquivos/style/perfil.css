@@ -79,9 +79,29 @@ div#img-download {
 }
 
 div#dados{
-    display: block;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; */
     padding: 10px;
 }
+
+
+
+table {
+  text-align: center;
+  border: 1px solid black;
+  width: 100%;
+  margin-bottom: 20px;
+} 
+
+/* table{
+  border: 1px solid black;
+  width: 80%;
+  margin-bottom : .5em;
+  table-layout: fixed;
+  text-align: center;
+} */
 
 div#dados > h1{
     text-align: center;
@@ -162,6 +182,20 @@ form > a.botao:hover{
 
 form > a.botao > span{
     font-size: 0.8em;
+}
+form {
+  text-align: center;
+}
+
+.blue-button {
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
