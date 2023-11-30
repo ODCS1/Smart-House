@@ -6,26 +6,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "SerialCommunication",
-            "request": "launch",
-            "mainClass": "serial.SerialCommunication",
-            "projectName": "desk_app_6a1768e8"
-        },
-        {
-            "type": "java",
-            "name": "App",
-            "request": "launch",
-            "mainClass": "App",
-            "projectName": "desk_app_3a3e2d37",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-21/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "Main",
             "projectName": "desk_app_3a3e2d37",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-21/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"C:/java/openjfx-21_windows-x64_bin-sdk/javafx-sdk-21/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
