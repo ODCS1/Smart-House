@@ -28,7 +28,7 @@ public class TelaSegurancaController {
     public void updateUserInfo() {
         Usuario usuarioCompleto = Session.getCurrentUser();
         if (usuarioCompleto != null) {
-            nomeCliente.setText("Nome: " + usuarioCompleto.getNome_cliente() + " " + usuarioCompleto.getSobrenome_cliente());
+            nomeCliente.setText("Name: " + usuarioCompleto.getNome_cliente() + " " + usuarioCompleto.getSobrenome_cliente());
             emailCliente.setText("Email: " + usuarioCompleto.getEmail_cliente());
             cpfCliente.setText("Cpf: " + formatarCPF(usuarioCompleto.getCpf_cliente()));
         }

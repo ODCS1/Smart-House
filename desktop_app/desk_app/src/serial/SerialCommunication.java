@@ -8,7 +8,7 @@ public class SerialCommunication {
 
     public static void openPort() {
         if (serialPort == null || !serialPort.isOpen()) {
-            String portName = "COM8";
+            String portName = "COM6";
     
             serialPort = SerialPort.getCommPort(portName);
             serialPort.setBaudRate(9600);
