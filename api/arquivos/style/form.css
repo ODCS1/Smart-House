@@ -115,10 +115,6 @@ header h1{
     color: var(--cor0);
 }
 
-/* section#alter-position {
-    position: relative;
-} */
-
 .tabs-container ul > li > a > img {
     width: 70px;
 }
@@ -159,13 +155,11 @@ div#container-center {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 60%;
-    /* max-height: 400px; */
     width: 90%;
 }
 
 form#cadastro {
     border: 2px solid white;
-    /* margin-top: -20px; */
     position: absolute;
     top: 50%;
     left: 50%;

@@ -4,7 +4,7 @@ const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const { QueryTypes } = require('sequelize');
-const porta = 3000;
+const porta = 3050;
 
     // CONFIG
         // BD
